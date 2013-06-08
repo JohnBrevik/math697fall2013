@@ -1,0 +1,140 @@
+\documentclass[8pt]{amsart}
+\usepackage{amsmath, amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage[arrow,matrix,curve,cmtip,ps]{xy}
+\usepackage{paralist}
+\usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
+\usepackage{amsthm}
+
+\allowdisplaybreaks
+
+\theoremstyle{plain}% default
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{KL}{Klein’s Lemma}
+
+\newtheorem*{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{notation}{Notation}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+
+%this has equations numbered within sections 1.1,1.2, ... 2.1,...
+\numberwithin{equation}{section}
+
+\makeatletter
+\newenvironment{solution}
+               {\let\oldqedsymbol=\qedsymbol%
+                \def\@addpunct##1{}%
+                \renewcommand{\qedsymbol}{$\blacktriangleleft$}%
+                \begin{proof}[\itshape Solution.]}%
+               {\end{proof}%
+                \renewcommand{\qedsymbol}{\oldqedsymbol}}
+\makeatother
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+%-------------------------------------------
+%       Begin Local Macros
+%-------------------------------------------
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\D}{\displaystyle}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\ind}{\operatorname{ind}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand\mc[1]{\marginpar{\sloppy\protect\footnotesize #1}}
+
+%-------------------------------------------
+%       End Local Macros
+%-------------------------------------------
+\begin{document}
+\title[MATH 697]{Introduction to Category Theory}
+
+% \author{Robert Cardona}
+
+\author{
+	Cardona, Robert \textit{mrrobertcardona@gmail}
+	\and
+	Khoshbin, Massy \textit{massy255@gmail.com}
+	\and
+	Mortezavi, Siavash \textit{siavash.mortezavi@gmail.com}
+}
+
+
+\address{Department of Mathematics \\ California State University Long Beach}
+% \email{mrrobertcardona@gmail.com}
+
+\date{\today}
+
+\begin{abstract}
+Module Theory.
+\end{abstract}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{section}{0}
+\section{MATH 697 Homework One}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}
+Prove Theorem 4 (Isomorphism Theorems):
+	\begin{enumerate}
+		\item (\textit{The First Isomorphism Theorem for Modules}) Let $M, N$ be $R$-modules and let $\varphi : M \to N$ be an $R$-modules homomorphism. Then $\ker \varphi$ is a submodule of $M$ and $M/\ker \varphi \cong \varphi(M)$.
+			\begin{proof}
+				Let $M, N$ be $R$-modules and let $\varphi : M \to N$ be an $R$-modules homomorphism. Then by definition $\varphi(x + y) = \varphi(x) + \varphi(y)$ and $\varphi(rx) = r\varphi(x)$ for all $x, y \in M$, $r \in R$. We want to show that $\ker \varphi = \{m \in M : \varphi(m) = 0\}$ is a submodule. Observe that since $M$ is a submodule then $M$ is an abelian group so there exists $0 \in M$ such that $m + 0 = m$ for all $m \in M$. In particular $\varphi(0) = \varphi(0 + 0) = \varphi(0) + \varphi(0)$ implying $\varphi(0) = 0$. Conclude that $0 \in \ker \varphi \neq \emptyset$. Now let $r \in R$, $x, y \in \ker \varphi$. Observe that $\varphi(x + ry) = \varphi(x) + \varphi(ry) = \varphi(x) + r\varphi(y) = 0 + r \cdot 0 = 0 + 0 = 0$. Hence $x + ry \in \ker \varphi$. Conclude by the submodule criterion that $\ker \varphi$ is in fact a submodule.\\
+
+				Now
+			\end{proof}
+		\item (\textit{The Second Isomorphism Theorem}) Let $A, B$ be submodules of the $R$-module $M$. Then $(A + B)/B \cong A/(A \cap B)$.
+		\item (\textit{The Third Isomorphism Theorem}) Let $M$ be an $R$-module, and let $A$ and $B$ be submodules of $M$ with $A \subseteq B$. Then $(M/A)/(B/A) \cong M/B$.
+		\item (\textit{The Fourth or Lattice Isomorphism Theorem}) Let $N$ be a submodule of the $R$-module $M$. There is a bijection between the submodules of $M$ which contain $N$ and the submodules of $M/N$. The correspondence is given by $A \leftrightarrow A/N$, for all $A \supseteq N$. The correspondence cummutes with the processes of taking sums and intersections (i.e., is a lattice isomorphism between the lattice of submodules of $M/N$ and the lattice of submodules of $M$ which contain $N$).
+	\end{enumerate}
+\end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
