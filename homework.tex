@@ -105,9 +105,32 @@ Prove Theorem 4 (Isomorphism Theorems):
 	\begin{enumerate}
 		\item (\textit{The First Isomorphism Theorem for Modules}) Let $M, N$ be $R$-modules and let $\varphi : M \to N$ be an $R$-modules homomorphism. Then $\ker \varphi$ is a submodule of $M$ and $M/\ker \varphi \cong \varphi(M)$.
 			\begin{proof}
-				Let $M, N$ be $R$-modules and let $\varphi : M \to N$ be an $R$-modules homomorphism. Then by definition $\varphi(x + y) = \varphi(x) + \varphi(y)$ and $\varphi(rx) = r\varphi(x)$ for all $x, y \in M$, $r \in R$. We want to show that $\ker \varphi = \{m \in M : \varphi(m) = 0\}$ is a submodule. Observe that since $M$ is a submodule then $M$ is an abelian group so there exists $0 \in M$ such that $m + 0 = m$ for all $m \in M$. In particular $\varphi(0) = \varphi(0 + 0) = \varphi(0) + \varphi(0)$ implying $\varphi(0) = 0$. Conclude that $0 \in \ker \varphi \neq \emptyset$. Now let $r \in R$, $x, y \in \ker \varphi$. Observe that $\varphi(x + ry) = \varphi(x) + \varphi(ry) = \varphi(x) + r\varphi(y) = 0 + r \cdot 0 = 0 + 0 = 0$. Hence $x + ry \in \ker \varphi$. Conclude by the submodule criterion that $\ker \varphi$ is in fact a submodule.\\
+				Let $M, N$ be $R$-modules and let $\varphi : M \to N$ be an $R$-modules homomorphism. Then by definition $\varphi(x + y) = \varphi(x) + \varphi(y)$ and $\varphi(rx) = r\varphi(x)$ for all $x, y \in M$, $r \in R$. We want to show that $\ker \varphi = \{m \in M : \varphi(m) = 0\}$ is a submodule. Observe that since $M$ is a module then $M$ is an abelian group by definition so there exists $0 \in M$ such that $m + 0 = m$ for all $m \in M$. In particular $\varphi(0) = \varphi(0 + 0) = \varphi(0) + \varphi(0)$ implying $\varphi(0) = 0$. Conclude that $0 \in \ker \varphi \neq \emptyset$. Now let $r \in R$, $x, y \in \ker \varphi$. Observe that $\varphi(x + ry) = \varphi(x) + \varphi(ry) = \varphi(x) + r\varphi(y) = 0 + r \cdot 0 = 0 + 0 = 0$. Hence $x + ry \in \ker \varphi$. Conclude by the submodule criterion that $\ker \varphi$ is in fact a submodule.\\
 
-				Now
+				Now define $\Phi : M/\ker \varphi \to \varphi(M)$ by $\Phi(m + \ker \varphi) = \varphi(m)$. We want to show that this mapping is a well-defined bijective homomorphism. We first show well-definedness. Suppose $m + \ker \varphi = m' + \ker \varphi$ it follows by property of cosets that $m - m' \in \ker \varphi$, in particular $\varphi(m - m') = \varphi(m) - \varphi(m') = 0$ and hence $\varphi(m) = \varphi(m')$. But since $\varphi(m) = \Phi(m + \ker \varphi)$ and $\varphi(m') = \Phi(m' + \ker\varphi)$ we have $\Phi(m + \ker\varphi) = \Phi(m' + \ker\varphi)$. Conclude that $\Phi$ is in fact well-defined.\\
+
+				Suppose that $\Phi(m + \ker\varphi) = \Phi(m' + \ker\varphi)$. Then it follows that $\varphi(m) = \varphi(m')$ and so $\varphi(m - m') = 0$ and so $m - m' \in \ker\varphi$. By property of cosets it follows that $m + \ker\varphi = m' + \ker\varphi$ and hence $\Phi$ is injective.\\
+
+				Let $n \in \varphi(M)$. Then by definition of image of $\varphi$ there exists $m \in M$ such that $n = \varphi(m)$. It is immediate that $m + \ker\varphi \in M/\ker\varphi$ and we can conclude that $\Phi$ is surjective.\\
+
+				Now we must show that $\Phi$ is an $R$-module homomorphism. Let $x, y \in M/\ker\varphi$ where $x = m + \ker\varphi$ and $y = m' + \ker\varphi$ for some $m, m' \in M$ and let $r \in R$. Observe that
+				\begin{align*}
+					\Phi(x + y)&= \Phi(m + m' + \ker\varphi)\\
+					&= \varphi(m + m')\\
+					&= \varphi(m) + \varphi(m')\\
+					&= \Phi(m + \ker\varphi) + \Phi(m' + \ker\varphi)\\
+					&= \Phi(x) + \Phi(y)
+				\end{align*}
+				and
+				\begin{align*}
+					\Phi(rx) &= \Phi(r(m + \ker\varphi))\\
+					&= \Phi(rm + \ker\varphi)\\ %absorbption? is it an ideal?
+					&= \varphi(rm)\\
+					&= r\varphi(m)\\
+					&= r\Phi(m + \ker\varphi)\\
+					&= r\Phi(x)
+				\end{align*}
+				Hence we have shown that $\Phi$ is a well-defined bijective homomorphism and thus we can conclude by definition of $R$-module isomorphism that $M/\ker\varphi \cong \varphi(M)$.
 			\end{proof}
 		\item (\textit{The Second Isomorphism Theorem}) Let $A, B$ be submodules of the $R$-module $M$. Then $(A + B)/B \cong A/(A \cap B)$.
 		\item (\textit{The Third Isomorphism Theorem}) Let $M$ be an $R$-module, and let $A$ and $B$ be submodules of $M$ with $A \subseteq B$. Then $(M/A)/(B/A) \cong M/B$.
