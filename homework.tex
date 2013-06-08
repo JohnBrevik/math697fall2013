@@ -76,16 +76,16 @@
 % \author{Robert Cardona}
 
 \author{
-	Cardona, Robert \textit{mrrobertcardona@gmail}
+	Robert Cardona %\textit{mrrobertcardona@gmail}
 	\and
-	Khoshbin, Massy \textit{massy255@gmail.com}
+	Massy Khoshbin %\textit{massy255@gmail.com}
 	\and
-	Mortezavi, Siavash \textit{siavash.mortezavi@gmail.com}
+	Siavash Mortezavi %\textit{siavash.mortezavi@gmail.com}
 }
 
 
 \address{Department of Mathematics \\ California State University Long Beach}
-% \email{mrrobertcardona@gmail.com}
+\email{mrrobertcardona@gmail.com \and massy255@gmail \and siavash.mortezavi@gmail}
 
 \date{\today}
 
@@ -96,8 +96,8 @@ Module Theory.
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{section}{0}
-\section{MATH 697 Homework One}
+\setcounter{section}{-1}
+\section{MATH 697 Homework Zero}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{exercise}
@@ -133,6 +133,21 @@ Prove Theorem 4 (Isomorphism Theorems):
 				Hence we have shown that $\Phi$ is a well-defined bijective homomorphism and thus we can conclude by definition of $R$-module isomorphism that $M/\ker\varphi \cong \varphi(M)$.
 			\end{proof}
 		\item (\textit{The Second Isomorphism Theorem}) Let $A, B$ be submodules of the $R$-module $M$. Then $(A + B)/B \cong A/(A \cap B)$.
+			\begin{proof}
+				Define $\varphi : A \to (A + B)/B$ by $\varphi(a) = a + B$. This mapping is clearly well-defined. We want to show that $\varphi$ is a homomorphism. Let $r \in R$, $a, a' \in A$ and observe that
+					\begin{align*}
+						\varphi(a + a') &= a + a' + B\\
+						&= a + B + a' + B\\
+						&= \varphi(a) + \varphi(a')
+					\end{align*}
+					and
+					\begin{align*}
+						\varphi(ra) = ra + B\\
+						&= r(a + B)\\
+						&= r\varphi(a)
+					\end{align*}
+					and so $\varphi$ is an $R$-module homomorphism by definition. Observe that $\ker \varphi = \{a \in A : \varphi(a) = 0\} = \{a \in A : a + B = 0\} = \{a \in A : a \in B\} = A \cap B$. Now let $x \in (A + B)/B$ then $x = a + b + B$ for some $a \in A$, $b \in B$. But observe that $a + b + B = a + B$ by absorbption. So $\varphi$ is immediately surjective. In particular we have $\varphi(A) = (A + B)/B$. Conclude by the First Isomorphism Theorem for Modules that $A/\ker \varphi = A/(A \cap B) \cong (A + B)/B = \varphi(A)$.
+			\end{proof}
 		\item (\textit{The Third Isomorphism Theorem}) Let $M$ be an $R$-module, and let $A$ and $B$ be submodules of $M$ with $A \subseteq B$. Then $(M/A)/(B/A) \cong M/B$.
 		\item (\textit{The Fourth or Lattice Isomorphism Theorem}) Let $N$ be a submodule of the $R$-module $M$. There is a bijection between the submodules of $M$ which contain $N$ and the submodules of $M/N$. The correspondence is given by $A \leftrightarrow A/N$, for all $A \supseteq N$. The correspondence cummutes with the processes of taking sums and intersections (i.e., is a lattice isomorphism between the lattice of submodules of $M/N$ and the lattice of submodules of $M$ which contain $N$).
 	\end{enumerate}
