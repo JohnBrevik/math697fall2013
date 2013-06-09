@@ -149,7 +149,37 @@ Prove Theorem 4 (Isomorphism Theorems):
 					and so $\varphi$ is an $R$-module homomorphism by definition. Observe that $\ker \varphi = \{a \in A : \varphi(a) = 0\} = \{a \in A : a + B = 0\} = \{a \in A : a \in B\} = A \cap B$. Now let $x \in (A + B)/B$ then $x = a + b + B$ for some $a \in A$, $b \in B$. But observe that $a + b + B = a + B$ by absorbption. So $\varphi$ is immediately surjective. In particular we have $\varphi(A) = (A + B)/B$. Conclude by the First Isomorphism Theorem for Modules that $A/\ker \varphi = A/(A \cap B) \cong (A + B)/B = \varphi(A)$.
 			\end{proof}
 		\item (\textit{The Third Isomorphism Theorem}) Let $M$ be an $R$-module, and let $A$ and $B$ be submodules of $M$ with $A \subseteq B$. Then $(M/A)/(B/A) \cong M/B$.
+			\begin{proof}
+				Define $\varphi M/A \to M/B$ by $\varphi(m + A) = m + B$. We need to show $\varphi$ is well-defined. Suppose $m + A = m' + A$ then $m - m' \in A \subseteq B$ by property of cosets. It also follows that $m + B = m' + B$. Hence $\varphi(m + A) = m + B = m' + B = \varphi(m' + A)$ and hence $\varphi$ is well-defined.\\
+
+				Now we must show $\varphi$ is an $R$-module homomorphism. Let $m, m' \in M$ and $r \in R$. Observe that
+				\begin{align*}
+					\varphi((m + A) + (m' + a)) &= \varphi(m + m' + A)\\
+					&= m + m' + B\\
+					&= (m + B) + (m' + B)\\
+					&= \varphi(m + A) + \varphi(m' + A)
+				\end{align*}
+				and
+				\begin{align*}
+					\varphi(r(m + A)) &= \varphi(rm + A)\\
+					&= rm + B\\
+					&= r(m + A)\\
+					&= r\varphi(m + A)
+				\end{align*}
+				and hence we can conclude by definition that $\varphi$ is an $R$-module homomorphism.\\
+
+				Observe that $\ker \varphi = \{x \in M/A : \varphi(x) = 0\} = \{m + A " \varphi(m + A) = m + B = 0\} = \{m + A : m \in B\} = B/A$. Let $m + B \in M/B$. Clearly $\varphi(m + A) = m + B$ and hence $\varphi$ is surjective. Now by the First Isomorphism Theorem for Modules we have $(M/A)/\ker \varphi = (M/A)/(B/A) \cong M/B = \varphi(M/A)$.
+			\end{proof}
 		\item (\textit{The Fourth or Lattice Isomorphism Theorem}) Let $N$ be a submodule of the $R$-module $M$. There is a bijection between the submodules of $M$ which contain $N$ and the submodules of $M/N$. The correspondence is given by $A \leftrightarrow A/N$, for all $A \supseteq N$. The correspondence cummutes with the processes of taking sums and intersections (i.e., is a lattice isomorphism between the lattice of submodules of $M/N$ and the lattice of submodules of $M$ which contain $N$).
+			\begin{proof}
+				Let $N$ be a submodule of $M$. Define $S = \{K : K$ is a submodule of $M, N \subseteq K\}$, $T = \{L : L$ is a submodule of $M/N\}$. Define $\varphi : S \to T$ by $\varphi(K) = K/N$. We want to show that this mapping is bijective.\\
+
+				Let $K_1, K_2 \in S$ and suppose that $\varphi(K_1) = \varphi(K_2)$. Then $K_1/N = K_2/N$. We want to show that $K_1 = K_2$. Let $x \in K_1$, then $x + N \in K_1/N = K_2/N$, in particular there exists $y \in K_2$ such that $x + N = y + N$. By property of cosets it follows that $x - y \in N$. But since $N \subseteq K_2$ by construction $x - y \in K_2$. Since $K_2$ is a submodule of $M$, it is closed under addition and so $(x - y) + y = x \in K_2$. Conclude that $K_1 \subseteq K_2$. By symmetric argument $K_2 \subseteq K_1$ and hence $K_1 = K_2$. Thus by definition $\varphi$ is injective.\\
+
+				Let $L$ be a submodule of $M/N$. Consider the natural projection map $\pi : M \to M/N$ defined by $\pi(m) = m + N$. We want to show that there exists $K \in S$ such that $\varphi(K) = L$. To do this we will show that $\pi^{-1}(L)$ is a submodule of $M$ and that $N \subseteq \pi^{-1}(L)$. Recall that $\pi^{-1}(L) = \{m \in M : \pi(m) \in L\}$. Observe that $0 \in \pi^{-1}(L)$ since $\pi(0) = 0$ and hence $\pi^{-1}(L) \neq \emptyset$. Let $x, y \in \pi^{-1}(L)$ and $r \in R$. Observe that $\pi(x + ry) = \pi(x) + r \pi(y)$. Since $\pi(y) \in L$ by definition and $L$ is a submodule of $M/N$, it follows that since scalar multiplication is closed $r\pi(y) \in L$. Thus it follows that $\pi(x) + r \pi(y) \in L$ and hence $x + ry \in \pi^{-1}(L)$. Thus by the submodule criterion we can conclude that $\pi^{-1}(L)$ is in fact a submodule. Now let $n \in N$ and observe that $\pi(n) = n + N = 0 + N \in L$ so by definition it follows that $n \in \pi^{-1}(L)$. Conclude that $N \subseteq \pi^{-1}(L)$ and hence $\varphi$ is surjective.\\
+
+				Conclude $\varphi$ is bijective and result follows.
+			\end{proof}
 	\end{enumerate}
 \end{exercise}
 
