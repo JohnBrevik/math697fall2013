@@ -101,7 +101,7 @@ Module Theory.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{exercise}
-Prove Theorem 4 (Isomorphism Theorems):
+(DF \S10.2 Theorem 4): Prove Theorem 4 (Isomorphism Theorems):
 	\begin{enumerate}
 		\item (\textit{The First Isomorphism Theorem for Modules}) Let $M, N$ be $R$-modules and let $\varphi : M \to N$ be an $R$-modules homomorphism. Then $\ker \varphi$ is a submodule of $M$ and $M/\ker \varphi \cong \varphi(M)$.
 			\begin{proof}
@@ -183,8 +183,33 @@ Prove Theorem 4 (Isomorphism Theorems):
 	\end{enumerate}
 \end{exercise}
 
+\begin{exercise}
+(DF \S 10.2 Exercise 1): Use the submodule criterion to show that the kernels and images of $R$-module homomorphisms are submodules.
+	\begin{proof}
+		Let $M, N$ be $R$-modules and $\varphi : M \to N$ an $R$-module homomorphism. Recall that $\ker \varphi = \{m \in M : \varphi(m) = 0\}$ and $\im \varphi = \{n \in N : $ there exists $m \in M$ with $\varphi(m) = n\}$.\\
 
+		Observe that $\varphi(0) = 0$ so $0 \in \ker \varphi \neq \emptyset$. Let $m, m' \in M$, $r \in R$. Now $\varphi(m + rm') = \varphi(m) + r\varphi(m') = 0 + r \cdot 0 = 0 + 0 = 0$. So $m + rm' \in \ker \varphi$. Thus by the submodule criterion $\ker \varphi$ is a submodule.\\
 
+		Observe that $\varphi(0) = 0 \in N$ so $0 \in \im \varphi \neq \emptyset$. Let $n, n' \in N$, $r \in R$. Then there exists $m, m' \in M$ such that $\varphi(m) = n$ and $\varphi(m') = n'$. Now consider $n + rn'$. $\varphi(m + rm') = \varphi(m) + r\varphi(m') = n + rn'$ so $n + rn' \in \im \varphi$. Conclude by submodule criterion that $\im \varphi$ is in fact a submodule.
+	\end{proof}
+\end{exercise}
+
+\begin{exercise}
+(DF \S 10.2 Exercise 2): Show that the relation ``is $R$-module isomorphic to'' is an equivalence relation on any set of $R$-modules.
+	\begin{proof}
+		Let $X$ be a set of $R$-modules.
+		\begin{itemize}
+			\item Let $M \in X$. Observe that $M$ is isomorphic to $M$ trivially. So relation is reflexive.
+			\item Let $M, N \in X$. Suppose $M$ is isomorphic to $N$ then by definition there exists $\varphi : M \to N$ that is bijective. Immediately we have $\varphi^{-1} : N \to M$ which is also bijective so $N$ is isomorphic to $M$. By definition the relation is symmetric.
+			\item Let $L, M, N \in X$ . Suppose $L$ is isomorphic to $M$, then by definition there exists $\varphi : L \to M$ a bijective $R$-module homomorphism. Suppose $M$ is isomorphic to $N$, then there exists $\Phi : M \to N$ a bijective $R$-module homomorphism. Observe that $\varphi \circ \Phi : L \to N$ is again a bijective $R$-module homomorphism by property of composition of mappings. Hence by definition $L$ is isomorphic to $N$.
+		\end{itemize}
+		Conclude that the relation ``is $R$-module isomorphic to'' is an equivalence relation on any set of $R$-modules.
+	\end{proof}
+\end{exercise}
+
+\begin{exercise}
+(DF \S 10.3 Exercise 3): Give an explicit example of a map from one $R$-module to another which is a group homomorphism but not an $R$-module homomorphism.
+\end{exercise}
 
 
 
