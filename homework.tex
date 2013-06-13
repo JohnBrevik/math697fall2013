@@ -209,6 +209,9 @@ Module Theory.
 
 \begin{exercise}
 (DF \S 10.3 Exercise 3): Give an explicit example of a map from one $R$-module to another which is a group homomorphism but not an $R$-module homomorphism.
+	\begin{solution}
+		Consider the Quaternions $\mathbb H = R$; they form a commutative group under addition and a noncommutative group under multiplication. Hence $\mathbb H$ is a noncommutative ring with unity. In particular $\mathbb H$ is an $R$-module over itself. Define $\varphi : \mathbb H \to \mathbb H$ by $\varphi(h) = ih$. This is a group homomorphism since $\varphi(h + h') = i(h + h') = ih + ih' = \varphi(h) + \varphi(h')$. But note that $\varphi(j \cdot 1) = \varphi(j) = ij = k \neq -k = ji = j(i \cdot 1) = j \varphi(1)$. Conclude that $\varphi$ is not an $R$-module homomorphism since the definition is not satisfied.
+	\end{solution}
 \end{exercise}
 
 
