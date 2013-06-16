@@ -208,22 +208,59 @@ Module Theory.
 \end{exercise}
 
 \begin{exercise}
-(DF \S 10.3 Exercise 3): Give an explicit example of a map from one $R$-module to another which is a group homomorphism but not an $R$-module homomorphism.
+(DF \S 10.2 Exercise 3): Give an explicit example of a map from one $R$-module to another which is a group homomorphism but not an $R$-module homomorphism.
 	\begin{solution}
 		Consider the Quaternions $\mathbb H = R$; they form a commutative group under addition and a noncommutative group under multiplication. Hence $\mathbb H$ is a noncommutative ring with unity. In particular $\mathbb H$ is an $R$-module over itself. Define $\varphi : \mathbb H \to \mathbb H$ by $\varphi(h) = ih$. This is a group homomorphism since $\varphi(h + h') = i(h + h') = ih + ih' = \varphi(h) + \varphi(h')$. But note that $\varphi(j \cdot 1) = \varphi(j) = ij = k \neq -k = ji = j(i \cdot 1) = j \varphi(1)$. Conclude that $\varphi$ is not an $R$-module homomorphism since the definition is not satisfied.
 	\end{solution}
 \end{exercise}
 
+\begin{exercise}
+(DF \S 10.2 Exercise 4): Let $A$ be and $\Z$-module, let $a$ be any element of $A$ and let $n$ be a positive integer. Prove that the map $\varphi_a : \Z/n\Z \to A$ given by $\varphi(\overline k) = ka$ is a well-defined $\mathbb Z$-module homomorphism if and only if $na = 0$. Prove that $\operatorname{Hom}_\Z(\Z/n\Z, A) \cong A_n$, where $A_n = \{a \in A : na = 0\}$ (So $A_n$ is the annihilator in $A$ of the ideal $(n)$ of $\Z$).
+	\begin{proof}
+		Suppose that the map $\varphi_a : \Z/n\Z \to A$ given by $\varphi(\overline k) = ka$ is a well-defined $\mathbb Z$-module homomorphism. Then by definition if $\overline m = \overline k$ then $\varphi(\overline m) = \varphi(\overline k)$ or equivalently $ma = ka$. Moreover $\varphi(a + b) = \varphi(a) + \varphi(b)$ and $\varphi(ra) = r\varphi(a)$ for all $a, b \in A$ and $r \in \Z$. Observe that $\overline 0 = \overline k$ so by hypothesis $\varphi(\overline 0) = \varphi(\overline k)$ but observe that $\varphi(\overline 0) = 0 \cdot a = 0$ and $\varphi(\overline k) = ka$. Hence by equality $ka = 0$. Conversely suppose that $na = 0$. We want to show that $\varphi : \Z/n\Z \to A$ defined by $\varphi(\overline k) = ka$ is a well-defined $R$-module homomorphism. Say $\overline k = \overline m$ then by property of cosets $k - m \in \Z/n\Z$ and so $n \cong k - m$. By definition $n \mid k - m$ and hence there exists $t \in \Z$ such that $k - m = nt$. Observe that
+		\begin{align*}
+			k - m &= nt\\
+			(k - m)a &= nta\\
+			ka - ma &= (na)t\\
+			ka - ma &= 0\\
+			ka &= ma 
+		\end{align*}
+		Thus we have $\varphi(\overline k) = \varphi(\overline m)$ and we can conclude that $\varphi$ is in fact a well-defined $R$-module homomorphism.\\
 
+		Now
+	\end{proof}
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.2 Exercise 5):
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.2 Exercise 6):
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.2 Exercise 7):
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.2 Exercise 8): Let $\varphi : M \to N$ be an $R$-module homomorphism. Prove that $\varphi(\operatorname{Tor}(M)) \subseteq \operatorname{Tor}(N)$.
+	\begin{proof}
+		Recall that $\operatorname{Tor}(M) = \{m \in M : rm = 0$ for some $0 \neq r \in R\}$. Now it follows that $\varphi(\operatorname{Tor}(M)) = \{n \in N : n = \varphi(m)$ for some $m \in \operatorname{Tor}(M)\}$. Let $n \in \varphi(\operatorname{Tor}(M))$ then $n = \varphi(m)$ for some $m \in \operatorname{Tor}(M)$ by definition. Since $m \in \operatorname{Tor}(M)$ there exists $0 \neq r \in R$ such that $rm = 0$. Hence $rn = r \varphi(m) = \varphi(rm) = \varphi(0) = 0$. Conclude that $n \in \operatorname{Tor}(N)$ and hence $\varphi(\operatorname{Tor}(M)) \subseteq \operatorname{Tor}(N)$.
+	\end{proof}
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.2 Exercise 9):
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.2 Exercise 10):
+\end{exercise}
 
-
-
+\begin{exercise}
+(DF \S 10.2 Exercise 11):
+\end{exercise}
 
 
 
