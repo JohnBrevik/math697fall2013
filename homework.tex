@@ -259,7 +259,43 @@ Module Theory.
 \end{exercise}
 
 \begin{exercise}
-(DF \S 10.2 Exercise 11):
+(DF \S 10.2 Exercise 11): Let $A_1, A_2, \ldots, A_n$ be $R$-modules and let $B_i$ be submodules of $A_i$ for each $i = 1, 2, \ldots, n$. Prove that $$(A_1 \times A_2 \times \cdots \times A_n)/(B_1 \times B_2 \times \cdots \times B_n) \cong (A_1/B_1) \times (A_2/B_2) \times \cdots \times (A_n/B_n).$$
+	\begin{proof}
+		Define $\varphi : A_1 \times A_2 \times \cdots \times A_n \to (A_1/B_1) \times (A_2/B_2) \times \cdots \times (A_n/B_n)$ by $\varphi(a_1, a_2, \ldots, a_n) = (a_1 + B_1, a_2 + B_2, \ldots, a_n + B_n)$. We want to show that this is an $R$-module homomorphism and that $\ker \varphi = B_1 \times B_2 \times \cdots \times B_n$ and that the mapping is surjective. Then the first isomorphism theorem for modules yields the result.\\
+
+		Let $x, y \in A_1 \times A_2 \times \cdots \times A_n$ where $x = (a_1, a_2, \ldots, a_n)$ and $y = (a_1', a_2', \ldots, a_n')$. Observe that
+		\begin{align*}
+			\varphi(x + y) &= \varphi((a_1, a_2, \ldots, a_n) + (a_1', a_2', \ldots, a_n'))\\
+			&= \varphi(a_1 + a_1', a_2 + a_2', \ldots, a_n + a_n')\\
+			&= (a_1 + a_1' + B_1, a_2 + a_2' + B_2, \ldots, a_n + a_n' + B_n)\\
+			&= (a_1 + B_1 + a_1' + B_1, a_2 + B_2 + a_2' + B_2, \ldots, a_n + B_n + a_n' + B_n)\\
+			&= (a_1 + B_1, a_2 + B_2, \ldots, a_n + B_n) + (a_1' + B_1, a_2' + B_2, \ldots, a_n' + B_n)\\
+			&= \varphi(a_1, a_2, \ldots, a_n) + \varphi(a_1', a_2', \ldots, a_n')\\
+			&= \varphi(x) + \varphi(y)
+		\end{align*}
+		and for $r \in R$
+		\begin{align*}
+			\varphi(rx) &= \varphi(r(a_1, a_2, \ldots, a_n))\\
+			&= \varphi(ra_1, ra_2, \ldots, ra_n)\\
+			&= (ra_1 + B_1, ra_2 + B_2, \ldots, ra_n + B_n)\\
+			&= (r(a_1 + B_1), r(a_2 + B_2), \ldots, r(a_n + B_n))\\
+			&= r(a_1 + B_1, a_2 + B_2, \ldots, a_n + B_n)\\
+			&= r\varphi(a_1, a_2, \ldots, a_n)\\
+			&= r\varphi(x)
+		\end{align*}
+		Thus by definition we can conclude that $\varphi$ is an $R$-moduel homomorphism.\\
+
+		Now we want to show that $\ker \varphi = B_1 \times B_2 \times \cdots \times B_n$. Observe that
+		\begin{align*}
+			\ker \varphi &= \{x \in A_1 \times A_2 \times \cdots \times A_n : \varphi(x)= 0\}\\
+			&= \{(a_1, a_2, \ldots, a_n) \in A_1 \times A_2 \times \cdots \times A_n : \varphi(a_1, a_2, \ldots, a_n) = 0\}\\
+			&= \{(a_1, a_2, \ldots, a_n) \in A_1 \times A_2 \times \cdots \times A_n : (a_1 + B_1, a_2 + B_2, \ldots, a_n + B_n) = (0, 0, \ldots, 0)\}\\
+			&= \{(a_1, a_2, \ldots, a_n) \in A_1 \times A_2 \times \cdots \times A_n : a_1 \in B_1, a_2 \in B_2, \ldots, a_n \in B_n\}
+		\end{align*}
+		Hence $\ker\varphi \subseteq B_1 \times B_2 \times \cdots \times B_n$ and trivially $B_1 \times B_2 \times \cdots \times B_n \subseteq \ker \varphi$ by construction of $\varphi$. Conclude that $\ker \varphi = B_1 \times B_2 \times \cdots \times B_n$.\\
+
+		The mapping is trivially surjective. Applying first Isomorphism theorem yields the result.
+	\end{proof}
 \end{exercise}
 
 
