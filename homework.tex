@@ -227,7 +227,36 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 		\end{align*}
 		Thus we have $\varphi(\overline k) = \varphi(\overline m)$ and we can conclude that $\varphi$ is in fact a well-defined $R$-module homomorphism.\\
 
-		Now
+		Now we want to show that $\operatorname{Hom}_\Z(\Z/n\Z, A) \cong A_n = \{a \in A : na = 0\}$. \textit{Note}: I am making the assumption that we want to show this in an isomorphism of $R$-modules as exercise does not specifiy group, ring or module isomorphism. Define $\Phi : A_n \to \operatorname{Hom}_\Z(\Z/n\Z, A)$ by $\Phi(a) = \varphi_a$. We will show that this is in fact an $R$-module homomorphism, then that is a bijection.\\
+
+		Let $a, a' \in A_n$, $r \in \Z$. Observe that
+		\begin{align*}
+			\Phi(a + a')(\overline k)&= \varphi_{a + a'}(\overline k)\\
+			&= (a + a')k\\
+			&= ak + a'k\\
+			&= \varphi_a(\overline k) + \varphi_{a'}(\overline k)\\
+			&= \Phi(a)(\overline k) + \Phi(a')(\overline k)
+		\end{align*}
+		So $\Phi(a + a') = \Phi(a) + \Phi(a')$ by definition. Moreover
+		\begin{align*}
+			\Phi(ra)(\overline k) &= \varphi_{ra}(\overline k)\\
+			&= rak\\
+			&= r\varphi_{a}(\overline k)\\
+			&= r\Phi(a)(\overline k)
+		\end{align*}
+		Hence $\Phi(ra) = r\Phi(a)$ by definition. Conclude by definition that $\Phi$ is in fact an $R$-module homomorphism.\\
+
+		Recall that $\ker \Phi = \{a \in A_n : \Phi(a) = 0\}$ and observe that
+		\begin{align*}
+			\ker \varphi &= \{a \in A_n : \Phi(a) = 0\}\\
+			&= \{a \in A_n : \varphi_a(\overline k) = 0 \text{ for all k } \in \Z/n\Z\}\\
+			&= \{0\}
+		\end{align*}
+		So we conclude that $\ker \Phi = \{0\}$ and hence $\Phi$ is injective.\\
+
+		Let $\varphi \in \operatorname{Hom}_\Z(\Z/n\Z, A_n)$. Define $a = \varphi(\overline 1)$ and hence $na = n\varphi(\overline 1) = \varphi(n \overline 1) = \varphi(\overline n) = \varphi(\overline 0) = 0$ and hence $a \in A_n$. Observe that for all $\overline k \in \Z/n\Z$ it follows that $\varphi(\overline k) = \varphi(\overline k \cdot \overline 1) = \varphi(k \overline 1) = k \varphi(\overline 1) = ka = \varphi_a(\overline k)$. Thus by definition $\varphi = \varphi_a$. So for any $\varphi \in \operatorname{Hom}(\Z/n\Z, A_n)$ we can find $a \in A_n$ such that $\Phi(a) = \varphi_a = \varphi$. Conclude by definition that $\Phi$ is surjective.\\
+
+		Now applying the First Isomorphism Theorem for $R$-modules we can conclude that $\operatorname{Hom}(\Z/n\Z, A_n) \cong A_n$.
 	\end{proof}
 \end{exercise}
 
