@@ -227,7 +227,7 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 		\end{align*}
 		Thus we have $\varphi(\overline k) = \varphi(\overline m)$ and we can conclude that $\varphi$ is in fact a well-defined $R$-module homomorphism.\\
 
-		Now we want to show that $\operatorname{Hom}_\Z(\Z/n\Z, A) \cong A_n = \{a \in A : na = 0\}$. \textit{Note}: I am making the assumption that we want to show this in an isomorphism of $R$-modules as exercise does not specifiy group, ring or module isomorphism. Define $\Phi : A_n \to \operatorname{Hom}_\Z(\Z/n\Z, A)$ by $\Phi(a) = \varphi_a$. We will show that this is in fact an $R$-module homomorphism, then that is a bijection.\\
+		Now we want to show that $\operatorname{Hom}_\Z(\Z/n\Z, A) \cong A_n = \{a \in A : na = 0\}$. \textit{Note}: We are making the assumption that we want to show this in an isomorphism of $R$-modules as exercise does not specifiy group, ring or module isomorphism. Define $\Phi : A_n \to \operatorname{Hom}_\Z(\Z/n\Z, A)$ by $\Phi(a) = \varphi_a$. We will show that this is in fact an $R$-module homomorphism, then that is a bijection.\\
 
 		Let $a, a' \in A_n$, $r \in \Z$. Observe that
 		\begin{align*}
@@ -269,7 +269,27 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 \end{exercise}
 
 \begin{exercise}
-(DF \S 10.2 Exercise 7):
+(DF \S 10.2 Exercise 7): Let $z$ be a fixed element of the center of $R$. Prove that the map $m \to zm$ is an $R$-module homomorphism from $M$ to itself. Show that for a commutative ring $R$ the map from $R$ to $\operatorname{End}_R{M}$ given by $r \to rI$ is a ring homomorphism (where $I$ is the identity endomorphism).)
+	\begin{proof}
+		Recall that the center of $R$ is $\{z \in R : zr = rz$ for all $r \in R\}$. Let $z$ be in the center of $R$ then by definition $zr = rz$ for all $r \in R$. Define $\varphi : M \to M$ by $\varphi(m) = zm$. We claim that this is an $R$-module homomorphism. Let $m, m' \in M$, $r \in R$. Observe that $\varphi(m + m') = z(m + m') zm + zm' = \varphi(m) + \varphi(m')$ and $\varphi(rm) = zrm = rzm = r\varphi(m)$. Conclude by definition that $\varphi$ is in fact an $R$-module homomorphism.\\
+
+		\textit{Note:} We are making the assumption that ``$I$ being the identity endomorphism'' means \textit{multiplicative identity}. Now let $R$ be a commutative ring and define $\Phi : R \to \operatorname{End}_R(M)$ by $\Phi(r) = rI$ where $I : M \to M$, defined by $I(m) = m$, is the identity endomorphism. We want to show that $\Phi$ is a ring homomorphism. Let $r, s \in R$ and observe that for all $m \in M$
+		\begin{align*}
+			\Phi(r + s)(m) &= (r + s)I(m)\\
+			&= (r + s)m\\
+			&= rm + rs\\
+			&= rI(m) + sI(m)\\
+			&= \Phi(r)(m) + \Phi(s)(m)
+		\end{align*}
+		So by definition $\Phi(r + s) = \Phi(r) + \Phi(s)$. Moreover,
+		\begin{align*}
+			\Phi(rs) &= rsI(m)\\
+			&= rsI(m)I(m)\\
+			&= rI(m) \cdot sI(m)\\
+			&= \Phi(r)(m) \Phi(s)(m)
+		\end{align*}
+		And hence $\Phi(rs) = \Phi(r)\Phi(s)$ and we can conclude by definition that $\Phi$ is a ring homomorphism.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
