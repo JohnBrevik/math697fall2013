@@ -300,11 +300,56 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 \end{exercise}
 
 \begin{exercise}
-(DF \S 10.2 Exercise 9):
+(DF \S 10.2 Exercise 9): Let $R$ be a commutative ring. Prove that $\operatorname{Hom}_R(R, M)$ and $M$ are isomorphic as left $R$-modules.
+	\begin{proof}
+		Define $\Phi : \operatorname{Hom}_R(R, M) \to M$ by $\Phi(\varphi) = \varphi(1)$. We must first show that this is in fact an $R$-module homomorphism. Observe that for all $\varphi, \xi \in \operatorname{Hom}_R(R, M)$ and all $r \in R$ it follows that
+		\begin{align*}
+			\Phi(\varphi + \xi) &= = (\varphi + \xi)(1)\\
+			&= \varphi(1) + \varphi(\xi)\\
+			&= \Phi(\varphi) + \Phi(\xi) 
+		\end{align*}
+		and also by Proposition 2 we have
+		\begin{align*}
+			\Phi(r\varphi) &= (r\varphi)(1)\\
+			&= r \varphi(1)\\
+			&= r \Phi(\varphi)
+		\end{align*}
+		Hence we can now conclude that $\Phi$ is an $R$-module homomorphism.\\
+
+		We must now show that $\Phi$ is injective. Suppose that $\Phi(\varphi) = \Phi(\xi)$ then by definition $\varphi(1) = \xi(1)$ or equivalently $\varphi(1) - \xi(1) = 0$ and hence $(\varphi - \xi)(1) = 0$. But since $\varphi - \xi \in \operatorname{Hom}_R(R, M)$ it is an $R$-module homomorphism so $(\varphi - \xi)(x) = (\varphi - \xi)(x \cdot 1) = x(\varphi - \xi)(1) = x \cdot 0 = 0$ for all $x \in R$. Conclude that $\varphi(x) = \xi(x)$ for all $x \in R$ and hence by definition $\varphi = \xi$. Conclude that $\Phi$ is inective.\\
+
+		We must now show that $\Phi$ is surjective. Let $m \in M$ be arbitrary. We want to show that there exists $\varphi \in \operatorname{Hom}_R(R, M)$ such that $\Phi(\varphi) = m$. Let us define $\varphi : R \to M$ by $\varphi(x) = xm$. We need to show that $\varphi \in \operatorname{Hom}_R(R, M)$. Observe that $\varphi(x + y) = (x + y)m = xm + ym = \varphi(x) + \varphi(y)$ for all $x, y \in R$ and $\varphi(rx) = rxm = r \varphi(x)$ for all $x \in R$, $r \in R$. Hence we have shown that $\varphi$ is in fact an $R$-module homomorphism. Now observe that $\Phi(\varphi) = \varphi(1) = 1 \cdot m = m$. Conclude by definition that $\Phi$ is surjective.\\
+
+	We have shown that $\Phi$ is a bijective $R$-module homomorphism. Conclude that $\operatorname{Hom}_R(R, M) \cong M$.	
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
-(DF \S 10.2 Exercise 10):
+(DF \S 10.2 Exercise 10): Let $R$ be a commutative ring. Prove that $\operatorname{Hom}_R(R, R)$ and $R$ are isomorphic as rings.
+	\begin{proof}
+		Define $\Phi : \operatorname{Hom}_R(R, R) \to R$ by $\Phi(\varphi) = \varphi(1)$. We will first show that $\Phi$ is a ring homomorphism. Observe that for all $\varphi, \xi \in \operatorname{Hom}_R(R, R)$ and all $r \in R$ by Proposition 2 we have
+		\begin{align*}
+			\Phi(\varphi + \xi) &= (\varphi + \xi)(1)\\
+			&= \varphi(1) + \xi(1)\\
+			&= \Phi(\varphi) + \Phi(\xi)
+		\end{align*}
+		and also by property of commutativity
+		\begin{align*}
+			\Phi(\varphi \circ \xi) &= (\varphi \circ \xi)(1)\\
+			&= \varphi(\xi(1))\\
+			&= \varphi(\xi(1) \cdot 1)\\
+			&= \xi(1) \varphi(1)\\
+			&= \varphi(1) \xi(1)\\
+			&= \Phi(\varphi) \Phi(\xi)
+		\end{align*}
+		Hence we can conclude that $\Phi$ is in fact a ring homomorphism.\\
+
+		We must now show that $\Phi$ is injective. Suppose that $\Phi(\varphi) = \Phi(\xi)$ then by definition $\varphi(1) = \xi(1)$ or equivalently $\varphi(1) - \xi(1) = 0$ and hence $(\varphi - \xi)(1) = 0$. But since $\varphi - \xi \in \operatorname{Hom}_R(R, R)$ it is an $R$-module homomorphism so $(\varphi - \xi)(x) = (\varphi - \xi)(x \cdot 1) = x(\varphi - \xi)(1) = x \cdot 0 = 0$ for all $x \in R$. Conclude that $\varphi(x) = \xi(x)$ for all $x \in R$ and hence by definition $\varphi = \xi$. Conclude that $\Phi$ is inective.\\
+
+		We must now show that $\Phi$ is surjective. Let $r \in R$ be arbitrary. We want to show that there exists $\varphi \in \operatorname{Hom}_R(R, R)$ such that $\Phi(\varphi) = r$. Let us define $\varphi : R \to R$ by $\varphi(x) = xr$. We need to show that $\varphi \in \operatorname{Hom}_R(R, R)$. Observe that $\varphi(x + y) = (x + y)r = xr + yr = \varphi(x) + \varphi(y)$ for all $x, y \in R$ and $\varphi(sx) = sxr = s\varphi(x)$ for all $s \in R$ and all $x \in R$. Hence we have shown that $\varphi$ is in fact an $R$-module homomorphism. Now observe that $\Phi(\varphi) = \varphi(1) = 1 \cdot r = r$. Conclude by definition that $\Phi$ is surjective.\\
+
+		We have shown that $\Phi$ is a bijective ring homomorphism. Conclude that $\operatorname{Hom}_R(R, R) \cong R$.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
