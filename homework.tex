@@ -261,11 +261,12 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 \end{exercise}
 
 \begin{exercise}
-(DF \S 10.2 Exercise 5):
+(DF \S 10.2 Exercise 5): Exhibit all $\Z$-module homomorphisms from $\Z/30\Z$ to $\Z/21\Z$.
+	By previous exercise we know $\operatorname{Hom}(\Z/30\Z, \Z/21\Z) \cong (\Z/21\Z)_{30}$ where $(\Z/21\Z)_{30} = \{a \in \Z/21\Z : 30a = 0\} = A_{30}$. Observe that $(\Z/21\Z)_{30} = 7\Z/30\Z = \{0, 7, 14\}$ and it has three elements. Hence we know that there are three homomorphisms from $\Z/30\Z$ to $\Z/21\Z$. The three homomorphisms are the ones defined by the trivial homomorphism, $\varphi_7(\overline x) = 7x$, $\varphi_{14}(\overline x) = 14x$.
 \end{exercise}
 
 \begin{exercise}
-(DF \S 10.2 Exercise 6):
+(DF \S 10.2 Exercise 6): Prove that $\operatorname{Hom}_\Z(\Z/n\Z, \Z/m\Z) \cong \Z/(n, m)\Z$.
 \end{exercise}
 
 \begin{exercise}
@@ -392,9 +393,42 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 	\end{proof}
 \end{exercise}
 
+\begin{exercise}
+(DF \S 10.3 Exercise 3): Show that the $F[x]$-modules in Exercises 18 and 19 of Section 1 are both cyclic.
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.3 Exercise 4): An $R$-module $M$ is called a \textit{torsion} module if for each $m \in M$ there is a nonzero element $r \in R$ such that $rm = 0$, where $r$ may depend on $m$ (i.e., $M = \operatorname{Tor}(M)$ in the notation of Exercise 8 of Section 1). Prove that every finite abelian group is a torsion $\Z$-module. Give an example of an infinite abelian group that is a torsion $\Z$-module.
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.3 Exercise 5): Let $R$ be an intergral domain. Prove that every finitely generated torsion $R$-module has a nonzero annihilator i.e., there is a nonzero element $r \in R$ such that $rm = 0$ for all $m \in M$ -- here $r$ does not depend on $m$ (the annihilator of a module was defined in Exercise 9 of Section 1). Give an example of a torsion $R$-module whose annihilator is the zero ideal.
+\end{exercise}
 
+\begin{exercise}
+(DF \S 10.3 Exercise 9): An $R$-module $M$ is called \textit{irreducible} if $M \neq 0$ and if $0$ and $M$ are the only submodules of $M$. Show that $M$ is irreducible if and only if $M \neq 0$ and $M$ is a cyclic module with any nonzero element as its generator. Determine all the irreducible $\Z$-modules.
+\end{exercise}
+
+\begin{exercise}
+(DF \S 10.3 Exercise 10): Assume $R$ is commutative. Show that an $R$-module $M$ is irreducible if and only if $M$ is isomorphic (as an $R$-module) to $R/I$ where $I$ is a maximal ideal of $R$. [By the previous exercise, if $M$ is irreducible there is a natural map $R \to M$ defined by $r \mapsto rm$, where $m$ is any fixed nonzero element of $M$.]
+\end{exercise}
+
+\begin{exercise}
+(DF \S 10.3 Exercise 15): An element $e \in R$ is called a \textit{central idempotent} if $e^2 = e$ and $er = re$ for all $r \in R$. If $e$ is a central idempotent in $R$, prove that $M = eM \oplus (1 - e)M$. [Recall Exercise 14 in Section 1.]
+\end{exercise}
+
+\begin{exercise}
+(DF \S 10.3 Exercise 16): For any ideal $I$ of $R$ let $IM$ be the submodule defined in Exercise 5 of Section 1. Let $A_1, \ldots, A_k$ be any ideals in the ring $R$. Prove that the map $$M \to M/A_1M \times \cdots \times M/A_kM \text{ defined by } m \mapsto (m + A_1M, \ldots, m + A_kM)$$ is an $R$-module homomorphism with kernel $A_1M \cap A_2M \cap \cdots \cap A_kM$.
+\end{exercise}
+
+\begin{exercise}
+(DF \S 10.3 Exercise 22): Let $R$ be a Principal Ideal Domain, let $M$ be a torsion $R$-module (cf. Exercise 4) and let $p$ be a prime in $R$ (do not assume $M$ is finitely generated, hence it need not have a nonzero annihilator -- cd. Exercise 5). The \textit{$p$-primary component} of $M$ is the set of all elements of $M$ that are annihilated by some positive power of $p$.
+	\begin{enumerate}
+		\item Prove that the $p$-primary component is a submodule. [See Exercise 13 in Section 1.]
+		\item Prove that this definition of $p$-primary component agrees with the one given in Exercise 18 when $M$ has a nonzero annihilator.
+		\item Prove that $M$ is the (possibly infinite) direct sum of its $p$-primary components, as $p$ runs over all primes of $R$.
+	\end{enumerate}
+\end{exercise}
 
 \end{document}
 
