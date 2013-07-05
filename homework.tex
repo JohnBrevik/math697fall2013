@@ -395,10 +395,20 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 
 \begin{exercise}
 (DF \S 10.3 Exercise 3): Show that the $F[x]$-modules in Exercises 18 and 19 of Section 1 are both cyclic.
+	\begin{proof}
+		For Problem 18: $F = \R$, $V = \R^2$, $T : V \to V$ is defined by $T(x, y) = (y, -x)$. Let $(a, b) \in \R^2$ be arbitrary. Observe that $(ax + b)(0, 1) = aT(0, 1) + b(0, 1) = a(1, 0) + b(0, 1) = (a, b)$. Hence it follows by definition that $V = \R(0, 1)$. Moreover it can also be written as $V = \R(1, 0)$ with $p(x) = a - bx$, so the representation is not unique.\\
+
+		For Problem 19: $F = \R$, $V = \R^2$, $T : V \to V$ is defined by $T(x, y) = (0, y)$. Let $(a, b) \in \R^2$ be arbitrary. Observe that $(a + (b - a)x)(1, 1) = (a, a) + (b - a)T(1, 1) = (a, a) + (0, b - a) = (a, b)$. Hence it follows by definition that $V = \R(1, 1)$.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
 (DF \S 10.3 Exercise 4): An $R$-module $M$ is called a \textit{torsion} module if for each $m \in M$ there is a nonzero element $r \in R$ such that $rm = 0$, where $r$ may depend on $m$ (i.e., $M = \operatorname{Tor}(M)$ in the notation of Exercise 8 of Section 1). Prove that every finite abelian group is a torsion $\Z$-module. Give an example of an infinite abelian group that is a torsion $\Z$-module.
+	\begin{proof}
+		Let $M$ be a finite abelian group. Let $m \in M$. We want to show that there exists $0 \neq r \in R = \Z$ such that $rm = 0$. Consider $1m, 2m, 3m, 4m, \ldots$. These are not all distinct, because if they were we would have infinitely many, a contradiction. So we are assured $km = lm$ for some $k, l \in \Z$ nonzero with $k \neq l$. It follows that $km - lm = 0$ and hence by property of modules, $(k - l)m = 0$. Finally observe that $k - l \neq 0$ so $m \in \operatorname{Tor}(M)$. Conclude that $M = \operatorname{Tor}(M)$.\\
+
+		As for the example. Let $n \in \Z$ be greater than 1. Consider $A = \Z/n\Z \times \Z/n\Z \times \cdots$ and observe that this is an infinite abelian group. This can be seen as a $\Z$-module. Let $(a_1, a_2, \ldots) \in \Z/n\Z \times \Z/n\Z \times \cdots$ be arbitrary. Observe that $n(a_1, a_2, \ldots) = (na_1, na_2, \ldots) = (0, 0, \ldots) = \textbf 0$.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
