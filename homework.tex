@@ -57,6 +57,7 @@
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\T}{\mathbb{T}}
@@ -413,6 +414,18 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 
 \begin{exercise}
 (DF \S 10.3 Exercise 5): Let $R$ be an intergral domain. Prove that every finitely generated torsion $R$-module has a nonzero annihilator i.e., there is a nonzero element $r \in R$ such that $rm = 0$ for all $m \in M$ -- here $r$ does not depend on $m$ (the annihilator of a module was defined in Exercise 9 of Section 1). Give an example of a torsion $R$-module whose annihilator is the zero ideal.
+	\begin{proof}
+		Let $M$ be a finitely generated torsion $R$-module where $R$ is an integral domain. By definition $M = Rm_1 + \cdots + Rm_n$ for some $m_1, m_2, \ldots, m_n \in M$. Let $m \in M$. Since $M$ is finitely generated there exist $r_1, r_2, \ldots, r_n \in R$ such that $m = r_1m_1 + \cdots + r_nm_n$. Since $M$ is torsion, there exists $0 \neq \overline{r_i} \in R$ such that $\overline{r_i}m_i = 0$ for $i = 1, 2, \ldots, n$. Define $r = \overline{r_1} \overline{r_2} \cdots \overline{r_n}$. Now observe that
+		\begin{align*}
+			rm &= r(r_1m_1 + \cdots + r_nm_n)\\
+			&= (r_1 \overline{r_2} \cdots \overline{r_n})\overline{r_1}m_1 + \cdots + (\overline{r_1} \cdots \overline{r_{n-1}} r_n) \overline{r_n}m_n\\
+			&= (r_1 \overline{r_2} \cdots \overline{r_n}) \cdot 0 + \cdots + (\overline{r_1} \cdots \overline{r_{n-1}} r_n) \cdot 0\\
+			&= 0
+		\end{align*}
+		hence it follows that $0 \neq r \in \operatorname{Ann}(m)$ and thus $\operatorname{Ann}(m) \neq 0$.\\
+
+		As for the example: recall that $\Q$ is not finitely generated, and hence $\Q/\Z = m$ is also not finitely generated. observe that $m$ is torsion since for any rational, non-integer number $x$, multiplication by its denominator, which \textbf{is} an integer, yields an integer, which in this case would be 0 in $M$. Suppose by way of contradiction that there is a nonzero annihilator, say $0 \neq a \in R = \Z$. Choose $b \in \Z$ such that $b \nmid a$. Now $a \cdot 1/b = 0$ by property of being annihilator so $a/b = k$ is an integer. But then $a = bk$ and hence $b \mid a$, a contradiction. So there are no nonzero annihilators.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
