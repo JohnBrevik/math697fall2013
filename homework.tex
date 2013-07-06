@@ -430,6 +430,13 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 
 \begin{exercise}
 (DF \S 10.3 Exercise 9): An $R$-module $M$ is called \textit{irreducible} if $M \neq 0$ and if $0$ and $M$ are the only submodules of $M$. Show that $M$ is irreducible if and only if $M \neq 0$ and $M$ is a cyclic module with any nonzero element as its generator. Determine all the irreducible $\Z$-modules.
+	\begin{proof}
+		Suppose $M$ is irreducible. By definition $M \neq 0$. Let $0 \neq m \in M$. Note that $Rm \subseteq M$ is a nonzero since $1m = m \in Rm$. Since $M$ is irreducible and we have already shown $Rm \neq 0$, conclude that $Rm = M$ for any $0 \neq m \in M$.\\
+
+		Conversely suppose that $M \neq 0$ and $M$ is a cyclic module with any nonzero element as generator. Let $N$ be a submodule of $M$, so $0 \subseteq N \subseteq M$. If $N = 0$ we are done, so suppose $N \neq 0$, then there exists $n \in N$ such that $n \neq 0$. But $n \in M$ and so $M = Rn$. Since $Rn \subseteq N$ immediately we have just shown $M \subseteq N$. Since both $N \subseteq M$ and $M \subseteq N$ we have $M = N$.\\
+
+		Let $M$ be an irreducible $\Z$-module then $M$ is cyclic as an abelian group and moreover $M$ has finite order. Since it has only two subgroups, the trivial one and the whole group itself, we can conclude that the irreducible $\Z$ modules are of the form $\Z/p\Z$ where $p$ is prime.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
