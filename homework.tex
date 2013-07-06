@@ -450,6 +450,9 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 
 \begin{exercise}
 (DF \S 10.3 Exercise 15): An element $e \in R$ is called a \textit{central idempotent} if $e^2 = e$ and $er = re$ for all $r \in R$. If $e$ is a central idempotent in $R$, prove that $M = eM \oplus (1 - e)M$. [Recall Exercise 14 in Section 1.]
+	\begin{proof}
+		Suppose $r$ is a central idempotent in $R$. We want to show that $M = eM \oplus (1 - e)M$, that is, any $m \in M$ can be written \textit{uniquely} of the form $em_1 + (1 - e)m_2$ for some $m_1, m_2 \in M$. Let $m \in M$ and observe that $m = em + (m - em)$ so $M \subseteq eM + (1 - e)M$ and $eM + (1 - e)M \subseteq M$ trivially by closure of modules. Now we need to show the uniqueness. Suppose $m \in eM \cap (1 - e)M$ then $m = em_1 = (1 - e)m_2$ for some $m_1, m_2 \in M$. But then $em_1 = m_2 - em_2$ or equivalently $e(m_1 + m_2) = m_2$. Multiplying both sides by $e$, we get $e^2(m_1 + m_2) = em_2$ and since $e^2 = e$ we have $em_1 + em2 - em_2 = em_1 = 0$. Hence $m = 0$. Conclude that $eM \cap (1 - e)M = 0$.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
