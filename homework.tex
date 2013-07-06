@@ -457,6 +457,30 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 
 \begin{exercise}
 (DF \S 10.3 Exercise 16): For any ideal $I$ of $R$ let $IM$ be the submodule defined in Exercise 5 of Section 1. Let $A_1, \ldots, A_k$ be any ideals in the ring $R$. Prove that the map $$M \to M/A_1M \times \cdots \times M/A_kM \text{ defined by } m \mapsto (m + A_1M, \ldots, m + A_kM)$$ is an $R$-module homomorphism with kernel $A_1M \cap A_2M \cap \cdots \cap A_kM$.
+	\begin{proof}
+		We first must show that $\varphi : M \to M/A_1M \times \cdots \times M/A_kM$ defined by $\varphi(m) = (m + A_1M, \ldots, m + A_kM)$ is in fact an $R$-module homomorphism. Let $m_1, m_2 \in M$, $r \in R$. Observe that
+		\begin{align*}
+			\varphi(m_1 + m_2) &= (m_1 + m_2 + A_1M, \ldots, m_1 + m_2 + A_kM)\\
+			&= \big((m_1 + A_1M) + (m_2 + A_1M), \ldots, (m_1 + A_kM) + (m_2 + A_kM)\big)\\
+			&= (m_1 + A_1M, \ldots, m_1 + A_kM) + (m_2 + A_1M, \ldots, m_2 + A_kM)\\
+			&= \varphi(m_1) + \varphi(m_2)
+		\end{align*}
+		and
+		\begin{align*}
+			\varphi(rm_1) &= (rm_1 + A_1M, \ldots, rm_2 + A_kM)\\
+			&= \big(r(m_1 + A_1M), \ldots, r(m_1 + A_kM)\big)\\
+			&= r(m_1 + A_1M, \ldots, m_1 + A_kM)\\
+			&= r\varphi(m_1)
+		\end{align*}
+		
+		Now by the First Isomorphism Theorem for Modules we have $M/\ker \varphi \cong \varphi(M)$ where
+		\begin{align*}
+			\ker \varphi &= \{m \in M : \varphi(m) = 0\}\\
+			&= \{m \in M : (m + A_1M, \ldots, m + A_kM) = (0, \ldots, 0)\}\\
+			&= \{m \in M : m \in A_1M, \ldots, m \in A_kM\}\\
+			&= A_1M \cap \cdots \cap A_kM \qedhere
+		\end{align*}
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
