@@ -21,7 +21,7 @@
 \newtheorem*{definition}{Definition}
 \newtheorem{conjecture}{Conjecture}[section]
 \newtheorem{example}{Example}[section]
-\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{exercise}{Exercise}%[section]
 \newtheorem*{notation}{Notation}
 \newtheorem*{remark}{Remark}
 
@@ -441,6 +441,11 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 
 \begin{exercise}
 (DF \S 10.3 Exercise 10): Assume $R$ is commutative. Show that an $R$-module $M$ is irreducible if and only if $M$ is isomorphic (as an $R$-module) to $R/I$ where $I$ is a maximal ideal of $R$. [By the previous exercise, if $M$ is irreducible there is a natural map $R \to M$ defined by $r \mapsto rm$, where $m$ is any fixed nonzero element of $M$.]
+	\begin{proof}
+		Let $M$ be an $R$-module. Suppose $M$ is irreducible. Then by definition $M \neq 0$ and the only submodules of $M$ are $0$ and $M$. Define $\varphi_m : R \to M$ by $\varphi(r) = rm$ where $0 \neq m$ is a fixed element of $M$. We want to show that this is in fact an $R$-module homomorphism. Let $x, y \in R$ and $r \in R$ and observe that $\varphi(x + y) = (x + y)m = xm + ym = \varphi(x) + \varphi(y)$ and $\varphi(rx) = rxm = r\varphi(x)$. This mapping is surjective since $M$ is a cyclic module with any nonzero element as its generator. So by the First Isomorphism Theorem for Modules, it follows that $R/\ker \varphi_m \cong M$. $\ker \varphi_m$ is a submodule by a previous exercise and is trivially an ideal of $R$. It will suffice to show that $\ker \varphi_m$ is a maximal ideal for the result to follow. Let $0 \neq \overline r \in R/\ker \varphi_m$ where $\overline r = r + \ker \varphi_m$. It follows that $\varphi_m(r) = rm \neq 0$. We want to show that $\overline r$ has a multiplicative inverse. Since $M$ is irreducibleand $rm \neq 0$, we have $M = R(rm)$ by previous exercise. In particular $m = s(rm)$ for some $s \in R$. Then by equality $1\cdot m - (sr)m = 0$ resulting in $(1 - sr) \in \ker \varphi_m$, By property of cosets, we have $1 + \ker \varphi_m = sr + \ker \varphi_m = (s + \ker \varphi_m)(r + \ker \varphi_m)$. We have just shown that $\overline 1 = \overline s + \overline r$ giving us $\overline s$ as the multiplicative inverse of $\overline r$, an arbitrary nonzero element (by commutativity of $R$, it is both a left and right inverse). Thus $R/\ker \varphi_m$ is a field and so $\ker \varphi_m$ is a maximal ideal.\\
+
+		Conversely suppose $M \cong R/I$ where $I$ is a maximal ideal of $R$ (as an $R$-module homomorphism). Then by definition there exists $\varphi : M \to R/I$ such that $\varphi(m + n) = \varphi(m) + \varphi(n)$ and $\varphi(rm) = r \varphi(m)$ for all $m, n \in M$, $r \in R$. Observe that $M \neq 0$ since $M \cong R/I$ and $I$ is maximal, by definition $I \neq R$ so $R/I$ cannot be trivially 0 so $M$ cannot be trivially 0. Suppose $N$ is a submodule of $M$, then $0 \subseteq N \subseteq M$. Suppose, by way of contradiction, that $0 \neq N \neq M$. Note that $\varphi(N)$ is a submodule of $R/I$ and trivially $\varphi(N)$ is an ideal of $R/I$ which is not 0 and not $R/I$ a contradiction to $0 \neq N \neq M$ since $R/I$ is a field, the only ideals of $R/I$ are 0 and $R/I$. So either $0 = N$ or $N = M$. Conclude by definition that $M$ is irreducible.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}

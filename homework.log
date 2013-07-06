@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.15)  5 JUL 2013 18:11
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.15)  5 JUL 2013 20:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -245,8 +245,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \c@lemma=\count113
 \c@conjecture=\count114
 \c@example=\count115
-\c@exercise=\count116
-\c@case=\count117
+\c@case=\count116
 
 (./homework.aux)
 \openout1 = `homework.aux'.
@@ -475,35 +474,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 436--437
 
  []
 
-[7] (./homework.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
+
+ []
+
+[7] [8] (./homework.aux) ) 
 Here is how much of TeX's memory you used:
- 4543 strings out of 493485
- 54186 string characters out of 3143526
- 166593 words of memory out of 3000000
- 7646 multiletter control sequences out of 15000+200000
+ 4539 strings out of 493485
+ 54144 string characters out of 3143526
+ 166545 words of memory out of 3000000
+ 7642 multiletter control sequences out of 15000+200000
  11704 words of font info for 49 fonts, out of 3000000 for 9000
  1118 hyphenation exceptions out of 8191
- 34i,10n,31p,1427b,371s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-csc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msa
-m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7
-.pfb>
-Output written on homework.pdf (7 pages, 206387 bytes).
+ 34i,10n,31p,1692b,367s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
+/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sbm7.pfb>
+Output written on homework.pdf (8 pages, 208839 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
