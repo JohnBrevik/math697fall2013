@@ -263,11 +263,42 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 
 \begin{exercise}
 (DF \S 10.2 Exercise 5): Exhibit all $\Z$-module homomorphisms from $\Z/30\Z$ to $\Z/21\Z$.
-	By previous exercise we know $\operatorname{Hom}(\Z/30\Z, \Z/21\Z) \cong (\Z/21\Z)_{30}$ where $(\Z/21\Z)_{30} = \{a \in \Z/21\Z : 30a = 0\} = A_{30}$. Observe that $(\Z/21\Z)_{30} = 7\Z/30\Z = \{0, 7, 14\}$ and it has three elements. Hence we know that there are three homomorphisms from $\Z/30\Z$ to $\Z/21\Z$. The three homomorphisms are the ones defined by the trivial homomorphism, $\varphi_7(\overline x) = 7x$, $\varphi_{14}(\overline x) = 14x$.
+	\begin{proof}
+	By previous exercise we know $\operatorname{Hom}(\Z/30\Z, \Z/21\Z) \cong (\Z/21\Z)_{30}$ where $(\Z/21\Z)_{30} = \{a \in \Z/21\Z : 30a = 0\} = A_{30}  = \{0, 7, 14\}$ and it has three elements. Hence we know that there are three homomorphisms from $\Z/30\Z$ to $\Z/21\Z$. The three homomorphisms are the ones defined by the trivial homomorphism, $\varphi_7(\overline x) = 7x$, $\varphi_{14}(\overline x) = 14x$.
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
 (DF \S 10.2 Exercise 6): Prove that $\operatorname{Hom}_\Z(\Z/n\Z, \Z/m\Z) \cong \Z/(n, m)\Z$.
+	\begin{proof}
+		By previous exercise we know $\operatorname{Hom}_\Z(\Z/n\Z, \Z/m\Z) \cong (\Z/m\Z)_n = \{a \in \Z/m\Z : na \equiv 0 \pmod m \}$. It will suffice to show that $A_n \cong \Z/(n, m)\Z$. Let $d = \gcd(n, m)$, so by definition there exist $a, b$ relatively prime, such that $n = ad$ and $m = bd$. Observe that $b \in A_n$ since
+		\begin{align*}
+			nb &= \equiv (ad)b \pmod m\\
+			&= a(bd) \pmod m\\
+			&= an \pmod m\\
+			&= 0 \pmod m
+		\end{align*}
+		Define $\varphi : \Z \to A_n$ by $\varphi(z) = zb \pmod m$. We must first show that this is in fact a $\Z$-module homomorphism. Let $z, y \in \Z$, $r \in \Z$ and observe that
+		\begin{align*}
+			\varphi(z + y) &= (z + y)b \pmod m\\
+			&= (zb + yb) \pmod m\\
+			&= zb \pmod m + yb \pmod m\\
+			&= \varphi(z) + \varphi(y)
+		\end{align*}
+		and
+		\begin{align*}
+			\varphi(rz) &= (rz)\pmod m\\
+			&= r \big(z\pmod m\big)\\
+			&= r \varphi(z)\\
+		\end{align*}
+
+		We must now show that $\varphi$ is surjective. Choose $t \in A_n$, by definition $nt \equiv 0 \pmod m$ and hence $m \mid nt$ or equivalently $bd \mid adt$ or equivalently $b \mid at$. Since $\gcd(a, b) = 1$, it must follow that $b \mid t$ so there exists $s \in \Z$ such that $t = sb$. Hence $\varphi(s) = sb \pmod m = t \pmod m$. Conclude that $\varphi$ is in fact surjective. \\
+
+		We will now show that $\ker \varphi = d\Z$. Observe that $\varphi(d) = db \pmod m \equiv m \pmod m \equiv 0 \pmod m$. So $d \in \ker \varphi$ and immediately $d\Z \subseteq \ker \varphi$. Now let $s \in \ker \varphi$. Then by definition $\varphi(s) = sb \pmod m \equiv 0 \pmod m$ so, by definition, $m \mod sb$ or equivalently $bd \mid sb$ or equivalently $d \mid s$ so $s \in d\Z$. Hence $\ker\varphi \subset d\Z$. Conclude that $\ker\varphi = d\Z$.\\
+
+		By the First Isomorphism Theorem for Modules we have $\Z/\ker\varphi \cong A_n$. Result follows by equality  $$\Z/\ker \varphi = \Z/d\Z = \Z/(n, m)\Z \cong A_n \cong \operatorname{Hom}_\Z(\Z/n\Z, \Z/m\Z).\qedhere$$
+
+	\end{proof}
 \end{exercise}
 
 \begin{exercise}
@@ -487,6 +518,16 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 (DF \S 10.3 Exercise 22): Let $R$ be a Principal Ideal Domain, let $M$ be a torsion $R$-module (cf. Exercise 4) and let $p$ be a prime in $R$ (do not assume $M$ is finitely generated, hence it need not have a nonzero annihilator -- cd. Exercise 5). The \textit{$p$-primary component} of $M$ is the set of all elements of $M$ that are annihilated by some positive power of $p$.
 	\begin{enumerate}
 		\item Prove that the $p$-primary component is a submodule. [See Exercise 13 in Section 1.]
+			\begin{proof}
+				Let $A$ be the $p$-primary component, i.e.,  $A = \{m \in M : p^im = 0$ for some $i \in \N\}$. Observe that $pm = 0$ for $m = 0$ so $A \neq \emptyset$. Let $m, n \in A$, $r \in R$ a PID. Since $m \in A$ there exists $i \in \N$ such that $p^im = 0$. Since $n \in A$ there exists $j \in \N$ such that $p^jn = 0$. Choose $l = \min\{i, j\}$ and observe that
+				\begin{align*}
+					p^l(m + rn) &= p^lm + rp^ln\\
+					&= p^{l - i}(p^im) + rp^{l - j}(p^jn)\\
+					&= p^{l - i} \cdot 0 + rp^{l - j} \cdot 0\\
+					&= 0
+				\end{align*}
+				Conclude that $m + rn \in A$ and thus by the Submodule Criterion, $A$ is in fact a submodule.
+			\end{proof}
 		\item Prove that this definition of $p$-primary component agrees with the one given in Exercise 18 when $M$ has a nonzero annihilator.
 		\item Prove that $M$ is the (possibly infinite) direct sum of its $p$-primary components, as $p$ runs over all primes of $R$.
 	\end{enumerate}
