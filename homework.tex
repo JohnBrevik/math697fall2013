@@ -529,6 +529,21 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 				Conclude that $m + rn \in A$ and thus by the Submodule Criterion, $A$ is in fact a submodule.
 			\end{proof}
 		\item Prove that this definition of $p$-primary component agrees with the one given in Exercise 18 when $M$ has a nonzero annihilator.
+			\begin{proof}
+				Suppose $\operatorname{Ann}(M) \neq 0$, then there exists $0 \neq a \in \operatorname{Ann}(M)$ such that $\operatorname{Ann}(M) = (a)$ since $R$ is a Principal Ideal Domain. Since every PID is a UFD and primes are irreducibles in here, we can decompose $a$, say $a = p_1^{\alpha_1}\cdots p_n^{\alpha_n}$. We want to show that $M_{p_i} = \{m \in M : p_i^jm = 0$ for some $j \in \N\}$ is equal to $M_i = \{m \in M : p_i^{\alpha_i}m = 0\}$.\\
+
+				Let $m \in M_i$, then by definition we know that $p_i^{\alpha_i}m = 0$ and immediately it follows that $m \in M_{p_i}$. Conclude that $M_i \subseteq M_{p_i}$.\\
+
+				Conversely suppose that $m \in M_{p_i}$ then by definition there exists $j \in \N$ such that $p_i^jm = 0$. Consider $(a, p_i^j)$ and observe that since $R$ is a PID, it must follow that $(a, p_i^j) = (b)$ for some $b \in R$. But also note that $(p_i^j) \subseteq (a, p_i^j) = (b)$, so by property of ideals, we have $b \mid p_i^j$ which leads us to conclude by property of primes that $b = p_i^t$ for some $t \leq j$. But we also know that $(a) \subseteq (p_i^t)$ so it follows that
+				\begin{align*}
+					p_i^t &\mid p_1^{\alpha_1} \cdots p_{i - 1}^{\alpha_{i - 1}} p_i^{\alpha_i} p_{i + 1}^{\alpha_{i + 1}} \cdots p_n^{\alpha_n}\\
+					p_i^{t - \alpha_i}p_i^{\alpha_i} &\mid  p_1^{\alpha_1} \cdots p_{i - 1}^{\alpha_{i - 1}} p_i^{\alpha_i} p_{i + 1}^{\alpha_{i + 1}} \cdots p_n^{\alpha_n}\\
+					p_i^{t - \alpha_i} &\mid  p_1^{\alpha_1} \cdots p_{i - 1}^{\alpha_{i - 1}} p_{i + 1}^{\alpha_{i + 1}} \cdots p_n^{\alpha_n}
+				\end{align*}
+				So by definition $  p_1^{\alpha_1} \cdots p_{i - 1}^{\alpha_{i - 1}} p_{i + 1}^{\alpha_{i + 1}} \cdots p_n^{\alpha_n} = p_i^{t - \alpha_i}s$ for some $s \in R$. It must follow that $t - \alpha_i = 0$, or equivalently $t = \alpha_i$, because if it does not, we have a contradiction, since $p_i$ is not in $\{p_1, \ldots, p_{i-1}, p_{i + 1}, \ldots, p_n\}$. So since $(p_i^j) \subseteq (a, p_i^j) =  (p_i^{\alpha_i})$ we have $p_i^{\alpha_i} = p_i^j \cdot k$ for some $k \in R$. So $p_i^{\alpha_i}m = p_i^j \cdot k \cdot m = k \cdot (p_i^j \cdot m) = k \cdot 0 = 0$. Conclude that $m \in M_i$ and hence $M_{p_i} \subseteq M_i$.\\
+
+				Finally, by double inclusion, we can conclude that $M_i = M_{p_i}$.
+			\end{proof}
 		\item Prove that $M$ is the (possibly infinite) direct sum of its $p$-primary components, as $p$ runs over all primes of $R$.
 	\end{enumerate}
 \end{exercise}
