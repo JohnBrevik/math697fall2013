@@ -472,6 +472,17 @@
 				Finally, by double inclusion, we can conclude that $M_i = M_{p_i}$.
 			\end{proof}
 		\item Prove that $M$ is the (possibly infinite) direct sum of its $p$-primary components, as $p$ runs over all primes of $R$.
+		\begin{proof}
+		
+		Denote $P \subseteq R$ as the set of primes in $R$. Let $m \in M$. Since $M$ is a torsion $R$-module, there exist $r \in R$ such that $rm =0$. $R$ is a PID, so can write $r$ into its unique prime factorization, say $r = \prod_1^n p_i^{\alpha_i}$. Define $q_j = \prod_{i\neq j} p_i^{\alpha_i}$. Then $(q_1,q_2,...,q_n) = R$. 
+		%%%%%%%
+		%why??
+		%%%%%%%
+		Thus we can write $1 = \sum_1^n a_iq_i$ for some $a_i \in R$. We have $0 = rm = (p_i^{\alpha_i}q_i)m = p_i^{\alpha_i}(q_im)$. Thus $q_im \in M_{p_i}$, so that $a_iq_im \in M_{p_i}$. But $m = 1\cdot m = (\sum_1^n a_iq_i )\cdot m = \sum_1^n a_iq_im \in \sum_1^n M_{p_i}$. Thus $m \in \sum_{p \in P} M_p$ and we have $M = \sum_{p \in P} M_p$. \\
+		
+		To show uniqueness, 
+		\end{proof}
+		
 	\end{enumerate}
 
 \end{document}
