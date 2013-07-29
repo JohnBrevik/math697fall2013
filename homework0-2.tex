@@ -102,6 +102,29 @@ Category Theory: Remain calm and carry on when all the mathematics you've ever k
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\textbf{ AM 2.1}: Show that $(\Z/m\Z) \otimes (\Z/n\Z) = 0$ if $m$ and $n$ are coprime.
+	\begin{proof}
+		Observe that since $m$ and $n$ are relatively prime, there exists $s, t \in \Z$ such that $ms + nt = 1$. Now let $a \otimes b \in (\Z/m\Z) \otimes (\Z/n\Z)$. Observe that
+		\begin{align*}
+			a \otimes b &= a \cdot 1 \otimes b \cdot 1\\
+			&= a (ms + nt) \otimes b (ms + nt)\\
+			&= (ams + ant) \otimes (bms + bnt)\\
+			&= ams \otimes (bms + bnt) + ant \otimes (bms + bnt)\\
+			&= ams \otimes bms + ams \otimes bnt + ant \otimes bms + ant \otimes bnt\\
+			&= 0 \otimes bms + ams \otimes 0 + ant \otimes bms + ant \otimes 0\\
+			&= ant \otimes bms\\
+			&= atn \otimes bms\\
+			&= at \otimes nbms\\
+			&= at \otimes 0\\
+			&= 0
+		\end{align*}
+		Hence we have shown that any simple tensor is zero, so any finite linear combination of simple tensors is zero.\\
+
+		Conclude that  $(\Z/m\Z) \otimes (\Z/n\Z) = 0$ holds.
+	\end{proof}
+
+\textbf{ AM 2.2}: Let $A$ be a ring, $a$ an ideal, $M$ an $A$-module. Show that $(A/a) \otimes_AM$ is isomorphic to $M/aM$. [Tensor the exact sequence $0 \longrightarrow a \longrightarrow A \longrightarrow A/a \longrightarrow 0$ with $M$.]
+
 \end{document}
 
 
