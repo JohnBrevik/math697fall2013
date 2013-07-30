@@ -23,4 +23,4 @@ Assignment 0.2 (Summer Review 2)
 1. Finish 22 C
 2. Atiyah/MacDonald 2.1, 2.2
 3. Snake Lemma
-4. Rotman: 2.27, 2.28, 2.29, 2.30, 2.32, 2.33, 2.34. Theorem 2.63.
+4. Rotman: 2.27, 2.28, 2.29, 2.30, 2.32, 2.33, 2.34, 2.38 (left exactness), 2.63 (right exactness). 
