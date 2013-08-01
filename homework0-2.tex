@@ -120,9 +120,11 @@
 		Conclude that  $(\Z/m\Z) \otimes (\Z/n\Z) = 0$ holds.
 	\end{proof}
 
-\textbf{ AM 2.2}: Let $A$ be a ring, $a$ an ideal, $M$ an $A$-module. Show that $(A/a) \otimes_AM$ is isomorphic to $M/aM$. [Tensor the exact sequence $0 \longrightarrow a \longrightarrow A \longrightarrow A/a \longrightarrow 0$ with $M$.]
+\textbf{ AM 2.2}: Let $R$ be a ring, $I$ an ideal, $M$ an $R$-module. Show that $(R/I) \otimes_IM$ is isomorphic to $M/IM$. [Tensor the exact sequence $0 \longrightarrow I \longrightarrow R \longrightarrow R/I \longrightarrow 0$ with $M$.]
 	\begin{proof}
-	
+		Define $\varphi : R/I \otimes_RM \to M/IM$ by $\varphi(r + I \otimes m) = rm + IM$. We must first show this mapping is well-defined. Suppose $r_1 + I \otimes m_1 = r_2 + I \otimes m_2$.\\
+
+		\textbf{Question:} Can we assume $m_1 = m_2$? If we can then the well-definedness follows immediately. But I am unsure. Recall that the simple tensor is just a coset itself, i.e., $r + I \otimes m = (r + I, m) + (R/I) \otimes_RM$.
 	\end{proof}
 
 \end{document}
