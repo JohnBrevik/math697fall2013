@@ -156,7 +156,7 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 			\end{proof}
 		\item If $\alpha$ and $\gamma$ are isomorphisms then so is $\beta$ (and then the two sequences are isomorphism).
 			\begin{proof}
-				Follows from $(1)$ and $(2)$.
+				Follows from $(1)$ and $(2)$.\\
 			\end{proof}
 	\end{enumerate}
 
@@ -185,7 +185,7 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 
 	    \chainin (m-1-5)  [join={node[above] {$\scriptstyle k$}}];}
   	    { [start branch=E] \chainin (m-2-5)
-	        [join={node[right] {$\scriptstyle\epsilon$}}];}
+	        [join={node[right] {$\scriptstyle\varepsilon$}}];}
 
 	  { [start chain] \chainin (m-2-1);
 	    \chainin (m-2-2) [join={node[above] {$\scriptstyle f'$}}];
@@ -196,10 +196,49 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 	\end{center}
 
 	\begin{enumerate}
-		\item If $h_2$ and $h_4$ are surjective and $h_5$ is injective, then $h_3$ is surjective.
-		\item If $h_2$ and $h_4$ are injective and $h_1$ is surjective, then $h_3$ is injective.
-		\item If $h_1, h_2, h_4$ and $h_5$ are isomorphisms, then $h_3$ is an isomorphism.
+		\item If $\beta$ and $\delta$ are surjective and $\varepsilon$ is injective, then $\gamma$ is surjective.
+		\item If $\beta$ and $\delta$ are injective and $\alpha$ is surjective, then $\gamma$ is injective.
+		\item If $\alpha, \beta, \delta$ and $\varepsilon$ are isomorphisms, then $\gamma$ is an isomorphism.
 	\end{enumerate}
+
+\textbf{R Exercise 2.14}: Let $A \xrightarrow f B \xrightarrow g C$ be a sequence of module maps. Prove that $gf = 0$ if and only if $\im f \subseteq \ker g$.  Give an example of such a sequence that is not exact.
+	\begin{proof}
+		Suppose $gf = 0$, that is, $f(g(a)) = 0$ for all $a \in A$. Let $b \in \im f$ then by definition there exists $a \in A$ such that $f(a) = b$. But we know by hypothesis that $0 = g(f(a)) = g(b)$ so $b \in \ker g$. Conclude that $\im f \subseteq \ker g$. Conversely, suppose that $\im f \subseteq \ker g$. Let $a \in A$ and observe that $f(a) \in \im f$. By hypothesis $f(a) \in \ker g$ so $g(f(a)) = 0$. Since $a$ was arbitrary conclude $gf = 0$.
+	\end{proof}
+	Consider the sequence of module maps $\Z/4\Z \xrightarrow f \Z/3\Z \xrightarrow g \Z/2\Z$ where $f(\overline x) = 2 \overline x$ and $g(\overline y) = \overline y$. Observe that $\im f = \Z/3\Z$  and $\ker g = \{0\}$. Since $\im f \neq \ker g$ it follows that this is \textbf{not} an exact sequence.\\
+
+\textbf{R Exercise 2.15}:
+	\begin{enumerate}
+		\item Prove that $f : M \to N$ is surjective if and only if $\coker f = \{0\}$.
+			\begin{proof}
+				Suppose $f : M \to N$ is surjective then for $n \in N$, there exists $m \in M$ such that $f(m) = n$. By definition $\coker f = M/\im f = M/M = 0$. Conversely, suppose that $\coker f = 0$, i.e., $M/\im f = 0$ implying that if $m + \im f \in M/\im f$ then $m + \im f = 0$ or equivalently $m \in \im f$. Since $m$ is arbitrary, conclude $M = \im f$ and hence $f$ is surjective by definition.
+			\end{proof}
+		\item If $f : M \to N$ is a map, prove that there is an exact sequence $$ 0 \rightarrow \ker f \rightarrow M \xrightarrow f N \rightarrow \coker f \rightarrow 0.$$
+			\begin{proof}
+				Define $h : \ker f \to M$ by $h(m) = m$, that is, map each element to itself. It follows immediately that $\im h = \ker f$. Define $g : N \to \coker f = N/\im f$ by $g(n) = n + \im f$, that is, the canonical/projection mapping. Observe that $\ker g = \im f$. Conclude that the following sequence is in fact exact: $$0 \xrightarrow{\text{identity}} \ker f \xrightarrow h M \xrightarrow f N \xrightarrow g \coker f \xrightarrow{\text{zero}}. \qedhere$$
+			\end{proof}
+	\end{enumerate}
+
+\textbf{R Exercise 2.16}:
+	\begin{enumerate}
+		\item If $0 \rightarrow M \rightarrow 0$ is an exact sequence, prove that $M = \{0\}$.
+			\begin{proof}
+				Consider $0 \xrightarrow f M \xrightarrow g 0$. Since $f$ is surjective then for $m \in M$ there exists $x \in 0$ such that $f(x) = m$ but $x$ must be $0$ so $m = 0$.
+			\end{proof}
+		\item If $A \xrightarrow f B \xrightarrow g C \xrightarrow h D$ is an exact sequence, prove that $f$ is surjective if and only if $h$ is injective.
+			\begin{proof}
+				Suppose $f$ is surjective. Then $\im f = B = \ker g$ but this immediately implies that $\im g = 0 = \ker h$ so $h$ is injective by definitoin. Conversely, suppose $h$ is injective. Then $\ker h = 0 = \im g$ which immediately implies $\ker g = B = \im f$. Conclude by definition $f$ is surjective.
+			\end{proof}
+		\item Let $A \xrightarrow \alpha B \xrightarrow \beta C \xrightarrow \gamma D \xrightarrow \delta E$ be exact. If $\alpha$ and $\delta$ are isomorphisms, prove that $C = \{0\}$.
+			\begin{proof}
+				Observe that, by previous exercise, $\beta$ is surjective and $\gamma$ is injective so we have $\im \beta = C$ and $\ker \gamma = 0$. Result follows by exactness: $C = \im \beta = \ker \gamma = 0$. Conclude $C = \{0\}$.
+			\end{proof}
+	\end{enumerate}
+
+\textbf{R Exercise 2.17}: If $A \xrightarrow f B \xrightarrow g C \xrightarrow h D \xrightarrow k E$ is exact, prove that there is an exact sequence $0 \rightarrow \coker f \xrightarrow \alpha C \xrightarrow \beta \ker k \rightarrow 0$, where $\alpha : b + \im f \mapsto g(b)$ and $\beta : c \mapsto h(c)$.
+	\begin{proof}
+		Observe that $\ker \beta = \{c \in C : \beta(c) = h(c) = 0\} = \ker h = \im g$ by exactness and since $\alpha$ can run through any $b \in B$ conclude $\im \alpha = \im g = \ker \beta$
+	\end{proof}
 
 \textbf{AM Proposition 2.10}: (\textit{Snake Lemma}) Let
 
