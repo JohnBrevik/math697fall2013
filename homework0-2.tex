@@ -101,34 +101,18 @@
 
 \textbf{ AM 2.1}: Show that $(\Z/m\Z) \otimes (\Z/n\Z) = 0$ if $m$ and $n$ are coprime.
 	\begin{proof}
-		Observe that since $m$ and $n$ are relatively prime, there exists $s, t \in \Z$ such that $ms + nt = 1$. Now let $a \otimes b \in (\Z/m\Z) \otimes (\Z/n\Z)$. Observe that
-		\begin{align*}
-			a \otimes b &= a \cdot 1 \otimes b \cdot 1\\
-			&= a (ms + nt) \otimes b (ms + nt)\\
-			&= (ams + ant) \otimes (bms + bnt)\\
-			&= ams \otimes (bms + bnt) + ant \otimes (bms + bnt)\\
-			&= ams \otimes bms + ams \otimes bnt + ant \otimes bms + ant \otimes bnt\\
-			&= 0 \otimes bms + ams \otimes 0 + ant \otimes bms + ant \otimes 0\\
-			&= ant \otimes bms\\
-			&= atn \otimes bms\\
-			&= at \otimes nbms\\
-			&= at \otimes 0\\
-			&= 0
-		\end{align*}
-		Hence we have shown that any simple tensor is zero, so any finite linear combination of simple tensors is zero.\\
-
-		Conclude that  $(\Z/m\Z) \otimes (\Z/n\Z) = 0$ holds.
+		Choose $a \otimes b \in \Z/m\Z \otimes \Z/n\Z$. Since $m$ and $n$ are coprime, there exist $s, t \in \Z$ such that $ms + nt = 1$ Observe that $$a = a \cdot 1 = a(ms + nt) = ams + ant \equiv ant \pmod m.$$ Now observe that $$a \otimes b = atn \otimes b = a \otimes nb = at \otimes 0 = 0.$$
+		We have shown that any simple tensor is zero, so any finite linear combination of simple tensors is zero. Conclude $(\Z/m\Z) \otimes (\Z/n\Z) = 0$.\\
 	\end{proof}
 
-\textbf{ AM 2.2}: Let $R$ be a ring, $I$ an ideal, $M$ an $R$-module. Show that $(R/I) \otimes_IM$ is isomorphic to $M/IM$. [Tensor the exact sequence $0 \longrightarrow I \longrightarrow R \longrightarrow R/I \longrightarrow 0$ with $M$.]
+\textbf{ AM 2.2}: Let $R$ be a ring, $I$ an ideal of $R$, $M$ an $R$-module. Show that $(R/I) \otimes_RM$ is isomorphic to $M/IM$. 
 	\begin{proof}
-		Define $\varphi : R/I \otimes_RM \to M/IM$ by $\varphi(r + I \otimes m) = rm + IM$. We must first show this mapping is well-defined. Suppose $r_1 + I \otimes m_1 = r_2 + I \otimes m_2$.\\
+		Define $\varphi : R/I \times M \to M/IM$ by $\varphi(r + I, m) = rm + IM$, which we shall henceforth write as $\varphi(\overline{r}, m) = \overline{rm}$. Let $(\overline{r}, m) = (\overline{s}, m)$. Then $\overline{r} = \overline{s} \implies r \in \overline{s} \implies r=s+i$, some $i \in I$. Then $\varphi(\overline{r},m)=\overline{rm}=\overline{(s+i)m}=\overline{sm+im}=\overline{sm}+\overline{im}=\overline{sm}+\overline{0}=\overline{sm}=\varphi(\overline{s},m)$. Thus $\varphi$ is well-defined.\\ 
+		
+		Observe $\varphi(\overline{r}+\overline{s},m)=\varphi(\overline{r+s},m)=\overline{(r+s)m}=\overline{rm+sm}=\overline{rm}+\overline{sm}=\varphi(\overline{r},m)+\varphi(\overline{s},m)$. Similarly, $\varphi(\overline{r},m+n)=\varphi(\overline{r},m)+\varphi(\overline{r},n)$. Lastly, $\varphi(\overline{rs},m)=\overline{(rs)m}=\overline{r(sm)}=\varphi(\overline{r},sm)$. Thus $\varphi$ is $R$-biadditive (In fact, $\varphi$ is $R$-bilinear).\\
+		
+		 Now we are guaranteed a unique $R$-homomorphism $\phi : R/I \otimes_RM \rightarrow M/IM$ given by $\phi(\overline{r} \otimes m)=\overline{rm}$. Notice if we define $f : M/IM \rightarrow R/I \otimes_RM$ via $f(\overline{m})=\overline{1}\otimes m$ then $f$ is a $\Z$-homomorphism which is the inverse of $\phi$ (as a function). Thus $\phi$ is a bijective function and hence an isomorphism when considered as an $R$-map. 
+		 \end{proof}
 
-		\textbf{Question:} Can we assume $m_1 = m_2$? If we can then the well-definedness follows immediately. But I am unsure. Recall that the simple tensor is just a coset itself, i.e., $r + I \otimes m = (r + I, m) + (R/I) \otimes_RM$.
-	\end{proof}
-
+	
 \end{document}
-
-
-
-
