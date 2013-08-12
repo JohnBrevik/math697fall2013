@@ -107,6 +107,7 @@
 
 \textbf{ AM 2.2}: Let $R$ be a ring, $I$ an ideal of $R$, $M$ an $R$-module. Show that $(R/I) \otimes_RM$ is isomorphic to $M/IM$. 
 	\begin{proof}
+<<<<<<< HEAD
 		Define $\varphi : R/I \times M \to M/IM$ by $\varphi(r + I, m) = rm + IM$, which we shall henceforth write as $\varphi(\overline{r}, m) = \overline{rm}$. Let $(\overline{r}, m) = (\overline{s}, m)$. Then $\overline{r} = \overline{s} \implies r \in \overline{s} \implies r=s+i$, some $i \in I$. Then $\varphi(\overline{r},m)=\overline{rm}=\overline{(s+i)m}=\overline{sm+im}=\overline{sm}+\overline{im}=\overline{sm}+\overline{0}=\overline{sm}=\varphi(\overline{s},m)$. Thus $\varphi$ is well-defined.\\ 
 		
 		Observe $\varphi(\overline{r}+\overline{s},m)=\varphi(\overline{r+s},m)=\overline{(r+s)m}=\overline{rm+sm}=\overline{rm}+\overline{sm}=\varphi(\overline{r},m)+\varphi(\overline{s},m)$. Similarly, $\varphi(\overline{r},m+n)=\varphi(\overline{r},m)+\varphi(\overline{r},n)$. Lastly, $\varphi(\overline{rs},m)=\overline{(rs)m}=\overline{r(sm)}=\varphi(\overline{r},sm)$. Thus $\varphi$ is $R$-biadditive (In fact, $\varphi$ is $R$-bilinear).\\
@@ -115,4 +116,14 @@
 		 \end{proof}
 
 	
+=======
+		Define $\varphi : R/I \otimes_RM \to M/IM$ by $\varphi(r + I \otimes m) = rm + IM$. We must first show this mapping is well-defined. Suppose $r_1 + I \otimes m_1 = r_2 + I \otimes m_2$.\\
+
+		\textbf{Question:} Can we assume $m_1 = m_2$? If we can then the well-definedness follows immediately. But I am unsure. Recall that the simple tensor is just a coset itself, i.e., $r + I \otimes m = (r + I, m) + (R/I) \otimes_RM$.
+	\end{proof}
+
+	\begin{proof} (\textit{Alternate}) Choose $a \otimes b \in \Z/m\Z \otimes \Z/n\Z$. Since $m$ and $n$ are coprime, there exist $s, t \in \Z$ such that $ms + nt = 1$ Observe that $$a = a \cdot 1 = a(ms + nt) = ams + ant \equiv ant \pmod m.$$ Now observe that $$a \otimes b = atn \otimes b = a \otimes nb = at \otimes 0 = 0. \qedhere $$
+
+	\end{proof}
+>>>>>>> ca9d6167759a2d99fd6be07302eb45c7fe70a897
 \end{document}
