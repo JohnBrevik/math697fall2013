@@ -22,5 +22,5 @@ Assignment 0.2 (Summer Review 2)
 
 1. Atiyah/MacDonald 2.1, 2.2
 2. Snake Lemma
-3. Rotman: Do exercises 2.27, 2.28, 2.29, 2.30, 2.32, 2.33, 2.34.
+3. Rotman: Do exercises 2.27, 2.28, 2.29, 2.32, 2.33, 2.34.
 4. Rotman: Prove Thm 2.38 and Thm 2.63
