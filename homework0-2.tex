@@ -6,6 +6,8 @@
 \usepackage{paralist}
 \usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
 \usepackage{amsthm}
+\usepackage{tikz}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes}
 
 \allowdisplaybreaks
 
@@ -41,6 +43,18 @@
                {\end{proof}%
                 \renewcommand{\qedsymbol}{\oldqedsymbol}}
 \makeatother
+
+\makeatletter
+\tikzset{join/.code=\tikzset{after node path={%
+\ifx\tikzchainprevious\pgfutil@empty\else(\tikzchainprevious)%
+edge[every join]#1(\tikzchaincurrent)\fi}}}
+\makeatother
+
+\tikzset{>=stealth',every on chain/.append style={join},
+         every join/.style={->}}
+
+
+
 
 \def\upint{\mathchoice%
     {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
@@ -112,12 +126,32 @@
 		Observe $\varphi(\overline{r}+\overline{s},m)=\varphi(\overline{r+s},m)=\overline{(r+s)m}=\overline{rm+sm}=\overline{rm}+\overline{sm}=\varphi(\overline{r},m)+\varphi(\overline{s},m)$. Similarly, $\varphi(\overline{r},m+n)=\varphi(\overline{r},m)+\varphi(\overline{r},n)$. Lastly, $\varphi(\overline{rs},m)=\overline{(rs)m}=\overline{r(sm)}=\varphi(\overline{r},sm)$. Thus $\varphi$ is $R$-biadditive (In fact, $\varphi$ is $R$-bilinear).\\
 		
 		 Now we are guaranteed a unique $R$-homomorphism $\phi : R/I \otimes_RM \rightarrow M/IM$ given by $\phi(\overline{r} \otimes m)=\overline{rm}$. Notice if we define $f : M/IM \rightarrow R/I \otimes_RM$ via $f(\overline{m})=\overline{1}\otimes m$ then $f$ is a $\Z$-homomorphism which makes $f \circ \phi$ and $\phi \circ f$ the identity map in $R/I \otimes_RM$ and $M/IM$, respectively. So $\phi$ has a two-sided inverse, hence a bijective function, and accordingly is an isomorphism when considered as an $R$-map. 
-		 \end{proof}
+	\end{proof}
 		 
 \textbf{R 2.28}: Let $R$ be a domain with $Q$ = Frac($R$), its field of fractions. If $A$ is an $R$-module, prove that every element of $Q \otimes_RA$ has the form $q \otimes a$ for $q \in Q $ and $a \in A$ (i.e. every element is a simple tensor).
-\begin{proof}
-		Let $\sum_1^n q_i \otimes a_i \in Q \otimes_RA$. We can write $\sum_1^n q_i \otimes a_i = \sum_1^n \frac{r_i}{s_i} \otimes a_i$ for $r_i,s_i \in R, s_i \neq 0$. Write $s=s_1s_2\cdots s_n$ and $\widehat{s_i}=\frac{s}{s_i}$. Then $\sum_1^n \frac{r_i}{s_i} \otimes a_i = \sum_1^n (1 \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n (\frac{\widehat{s_i}}{\widehat{s_i}} \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n \frac{\widehat{s_i}r_i}{s} \otimes a_i = \sum_1^n (\frac{1}{s})\widehat{s_i}r_i \otimes a_i = \sum_1^n \frac{1}{s} \otimes (\widehat{s_i}r_i)a_i = \frac{1}{s} \otimes (\sum_1^n \widehat{s_i}r_ia_i)$.
-\end{proof}
+	\begin{proof}
+		Let $\sum_1^n q_i \otimes a_i \in Q \otimes_RA$. We can write $\sum_1^n q_i \otimes a_i = \sum_1^n \frac{r_i}{s_i} \otimes a_i$ for $r_i,s_i \in R, s_i \neq 0$. Write $s=s_1s_2\cdots s_n$ and $\widehat{s_i}=\frac{s}{s_i}$. Then $\sum_1^n \frac{r_i}{s_i} \otimes a_i = \sum_1^n (1 \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n (\frac{\widehat{s_i}}{\widehat{s_i}} \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n \frac{\widehat{s_i}r_i}{s} \otimes a_i = \sum_1^n (\frac{1}{s})\widehat{s_i}r_i \otimes a_i = \sum_1^n \frac{1}{s} \otimes (\widehat{s_i}r_i)a_i = \frac{1}{s} \otimes (\sum_1^n \widehat{s_i}r_ia_i)$.\\
+	\end{proof}
+
+\textbf{R 2.32}: Consider the following commutative diagram in $_R$\textbf{Mod} having exact columns. \\
+
+	
+If the bottom two rows are exact, prove that the top row is exact; if the top two rows are exact, prove that the bottom row is exact. 
+	\begin{proof}$\alpha_1$ is injective: Let $a' \in$ ker $\alpha_1$. Then $\alpha_1(a')=0$. So $f(\alpha_1(a'))=0$. Now $0=f(\alpha_1(a'))=\beta_1(f'(a'))$ by commutativity. The injectivity of $\beta_1$ implies $f'(a')=0$ and the injectivity of $f'$ gives us $a'=0$. Thus ker $\alpha_1=0$ and $\alpha_1$ is injective.\\
+	
+	$\alpha_2$ is surjective: \\
+	
+	im $\alpha_1\subseteq$ ker $\alpha_2$: Let $a \in$ im $\alpha_1$. Then there exists $a' \in A'$ with $a=\alpha_1(a')$. Observe $f(a)=f(\alpha_1(a'))=\beta_1(f'(a'))$ by commutativity. Thus $\beta_2(f(a))=\beta_2(\beta_1(f'(a')))=0$ by exactness. Now $0=\beta_2(f(a))=f''(\alpha_2(a))$ by commutativity. The injectivity of $f''$ gives us $\alpha_2(a)=0$. Hence $a \in$ ker $\alpha_2$.\\
+	
+	ker $\alpha_2 \subseteq$ im $\alpha_1$: \\
+	
+	
+	
+	\end{proof}
+
+
+
+
 
 
 \end{document}
