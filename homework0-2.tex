@@ -143,11 +143,8 @@ If the bottom two rows are exact, prove that the top row is exact; if the top tw
 	
 	im $\alpha_1\subseteq$ ker $\alpha_2$: Let $a \in$ im $\alpha_1$. Then there exists $a' \in A'$ with $a=\alpha_1(a')$. Observe $f(a)=f(\alpha_1(a'))=\beta_1(f'(a'))$ by commutativity. Thus $\beta_2(f(a))=\beta_2(\beta_1(f'(a')))=0$ by exactness. Now $0=\beta_2(f(a))=f''(\alpha_2(a))$ by commutativity. The injectivity of $f''$ gives us $\alpha_2(a)=0$. Hence $a \in$ ker $\alpha_2$.\\
 	
-	ker $\alpha_2 \subseteq$ im $\alpha_1$: \\
-	
-	
-	
-	\end{proof}
+	ker $\alpha_2 \subseteq$ im $\alpha_1$: Let $a  \in$ ker $\alpha_2$. Then $\alpha_2(a)=0$. So $f''(\alpha_2(a))=0$. By commutativity, $\beta_2(f(a))=0$. Now $f(a) \in$ ker $\beta_2 =$ im $\beta_1$, so there exists $b' \in B'$ such that $f(a)=\beta_1(b')$. Now $g(f(a))=0$ by exactness, so $g(\beta_1(b'))=0$. By commutativity, $\gamma_1(g'(b'))=0$. Since $\gamma_1$ is injective, $g'(b')=0$. Now $b' \in$ ker $g'=$ im $f'$ so there exists $a' \in A'$ such that $b'=f'(a')$. Thus $f(a)=\beta_1(b')=\beta_1(f'(a'))$. By commutativity, $\beta_1(f'(a'))=f(\alpha_1(a'))$. So $f(a)=f(\alpha_1(a'))$. Since $f$ is injective, we have $a=\alpha_1(a')$, and therefore $a\in$ im $\alpha_1$. \\
+ \end{proof}
 
 
 
