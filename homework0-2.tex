@@ -132,6 +132,31 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 	\begin{proof}
 		Let $\sum_1^n q_i \otimes a_i \in Q \otimes_RA$. We can write $\sum_1^n q_i \otimes a_i = \sum_1^n \frac{r_i}{s_i} \otimes a_i$ for $r_i,s_i \in R, s_i \neq 0$. Write $s=s_1s_2\cdots s_n$ and $\widehat{s_i}=\frac{s}{s_i}$. Then $\sum_1^n \frac{r_i}{s_i} \otimes a_i = \sum_1^n (1 \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n (\frac{\widehat{s_i}}{\widehat{s_i}} \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n \frac{\widehat{s_i}r_i}{s} \otimes a_i = \sum_1^n (\frac{1}{s})\widehat{s_i}r_i \otimes a_i = \sum_1^n \frac{1}{s} \otimes (\widehat{s_i}r_i)a_i = \frac{1}{s} \otimes (\sum_1^n \widehat{s_i}r_ia_i)$.\\
 	\end{proof}
+	
+\textbf{R 2.29}:\textbf{(i)} Let $p$ be a prime, and let $p,q$ be relatively prime. Prove that is $A$ is a $p$-primary group and $a \in A$, then there exists $x \in A$ with $qx=a$. \\
+
+\indent \textbf{(ii)} If $D$ is a finite cyclic group of order $m$, prove that $D/nD$ is a cyclic group of order $d=(m,n)$. \\
+
+\indent \textbf{(iii)} Let $m$ and $n$ be positive integers, and let $d =(m,n)$. Prove that there is an isomorphism of abelian groups $$\Z_m \otimes \Z_n \cong \Z_d.$$ \\
+\indent \textbf{(iv)} Let $G$ and $H$ be finitely generated abelian groups, so that \\
+
+	\begin{center}
+$G=A_1 \oplus \cdots \oplus A_n$ and $H=B_1 \oplus \cdots \oplus B_m,$  \\
+	\end{center} 
+	
+where $A_i$ and $B_j$ are cyclic groups. Compute $G \otimes_{\Z}H$ explicitely. 
+\begin{proof}
+(i) $a \in A$ so $p^ka=0$, some $k \in \Z^+$. Since $p$ is prime, $(q,p)=1 \implies (q,p^k)=1$. So there exist $m,n \in \Z$ such that $qm+np^k=1$. Now $a=1\cdot a=(qm+np^k)a=qma+np^ka=q(ma)+n(p^ka)=qx+0=qx$. Observe $p^kx=p^k(ma)=m(p^ka)=0$ so $x\in A$.\\
+
+(ii) $D$ is cyclic, so $D/nD$ is cyclic. If we write $D=<a>$, then $nD =<na>$. This is because for any $nb \in nD$, we can write $b=ka$, some $k\in \Z^+$, since $a$ generates $D$. Now $nb=n(ka)=k(na)$, and we have that $na$ generates $nD$. \\
+
+Claim $|na|=\frac{m}{d}$. Observe $\frac{m}{d}(na)=\frac{n}{d}(ma)=\frac{n}{d}\cdot 0=0$, which implies $|na|$ divides $\frac{m}{d}$. On the other hand, if $k(na)=0$, then $(kn)a=0 \implies m|kn \implies \frac{m}{d}|k\frac{n}{d}$. But $\frac{m}{d}$ and $\frac{n}{d}$ are relatively prime by construction, forcing $\frac{m}{d}|k$. In particular, we have $\frac{m}{d}$ divides $|na|$. Thus $|na|=d$. Now $|nD|=|<na>|=|na|=\frac{m}{d}$. Lagrange's theorem gives us $|\frac{D}{nD}|=\frac{|D|}{|nD|}=\frac{m}{\frac{m}{d}}=d$. \\
+
+(iii) By Proposition 2.68, we have that $\Z_m \otimes \Z_n \cong \Z_m/n\Z_m$. But by part (ii), $\Z_m/n\Z_m$ is a cyclic group of order $d=(m,n)$ so $\Z_m/n\Z_m \cong \Z_d$.\\
+
+(iv)
+
+\end{proof}
 
 \textbf{R 2.32}: Consider the following commutative diagram in $_R$\textbf{Mod} having exact columns. \\
 
