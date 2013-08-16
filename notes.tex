@@ -78,6 +78,9 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 \newcommand{\D}{\displaystyle}
 \newcommand{\im}{\operatorname{im}}
 \newcommand{\coker}{\operatorname{coker}}
+\newcommand{\obj}{\operatorname{obj}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Mod}{\operatorname{\textbf{Mod}}}
 \newcommand{\ind}{\operatorname{ind}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand\mc[1]{\marginpar{\sloppy\protect\footnotesize #1}}
@@ -111,6 +114,49 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 \setcounter{section}{0}
 \section{MATH 697 Notes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A \textbf{category} $C$ consists of three ingredients: a class $\obj(C)$ of \textbf{objects}, a set of \textbf{morphisms} $\Hom(A, B)$ for every ordered pair $(A, B)$ of objects, and \textbf{composition} $\Hom(A, B) \times \Hom(B, C) \to \Hom(A, C)$, denoted by $(f, g) \mapsto gf$. for every ordered triple $A, B, C$ of objects. These ingredients are subject to the following axioms:
+	\begin{enumerate}
+		\item The Hom sets are pairwise disjoint; that is, each $f \in \Hom(A, B)$ has a unique \textbf{domain} $A$ and a unique \textbf{target} $B$.
+		\item For each object $A$, there is an \textbf{identity morphism} $1_A \in \Hom(A, A)$ such that $f1_A = f$ and $1_Bf = f$ for all $f : A \to B$.
+		\item Composition is associative: given morphisms $A \xrightarrow f B \xrightarrow g C \xrightarrow h D$, then $h(fg) = (hg)f$.\\
+	\end{enumerate}
+
+Examples of categories: \textbf{Sets}, \textbf{Groups}, \textbf{Top}, \textbf{Ab}, \textbf{Rings}, \textbf{ComRings}.\\
+
+A \textbf{left $R$-module}, where $R$ is a ring, is an additive abelian group $M$ having a \textit{scalar multiplication} $R \times M \to M$, denoted by $(r, m) \mapsto rm$, such that, for all $m, m' \in M$ and $r, r' \in R$. We often write $_RM$ to denote $M$ being a left $R$-module.
+	\begin{enumerate}
+		\item $r(m + m') = rm + rm'$
+		\item $(r + r')m = rm + r'm$
+		\item $(rr')m = r(r'm)$
+		\item $1m = m$.\\
+	\end{enumerate}
+
+If $M$ and $N$ are left $R$-modules, then an $R$-\textbf{homomorphism} (or an $R$-\textbf{map}) is a function $f : M \to N$ such that, for all $m, m' \in M$ and $r \in R$,
+	\begin{enumerate}
+		\item $f(m + m') = f(m) + f(m')$
+		\item $f(rm) = r(fm)$\\
+	\end{enumerate}
+
+An $R$-\textbf{isomorphism} is a bijective $R$-homomorphism.\\
+
+A \textbf{right $R$-module}, where $R$ is a ring, is an additive abelian group $M$ having a \textit{scalar multiplication} $M \times R \to M$, denoted by $(m, r) \mapsto mr$, such that, for all $m, m' \in M$ and $r, r' \in R$. We often write $M_R$ to denote $M$ being a right $R$-module.
+	\begin{enumerate}
+		\item $(m + m')r = mr + m'r$
+		\item $m(r + r') = mr + mr'$
+		\item $m(rr') = (mr)r'$
+		\item $m = m1$\\
+	\end{enumerate}
+
+The category $_R\Mod$ of all \textbf{left $R$-modules} (where $R$ is a ring) has as its objects all left $R$-modules, has as its morphisms all $R$-homomorphisms, and as its composition the usual composition of functions. We denote the sets $\Hom(A, B)$ in $_R\Mod$ by $\Hom_R(A, B)$.\\
+
+The category $\Mod_R$ of all \textbf{right $R$-modules} (where $R$ is a ring) has as its objects all \textbf{right $R$-modules}, as its morphisms all $R$-homomorphisms, and as its composition the usual composition. We denote the sets $\Hom(A, B)$ in $\Mod_R$ by $\Hom_R(A, B)$.\\
+
+A category $S$ is a \textbf{subcategory} of a category $C$ if
+	\begin{enumerate}
+		\item $\obj(S) \subseteq \obj(C)$
+	\end{enumerate}
+
 
 \textbf{R Proposition 2.18}:
 	\begin{enumerate}
