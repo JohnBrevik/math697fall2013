@@ -203,7 +203,7 @@ Claim $|na|=\frac{m}{d}$. Observe $\frac{m}{d}(na)=\frac{n}{d}(ma)=\frac{n}{d}\c
 
 (iii) By Proposition 2.68, we have that $\Z_m \otimes \Z_n \cong \Z_m/n\Z_m$. But by part (ii), $\Z_m/n\Z_m$ is a cyclic group of order $d=(m,n)$ so $\Z_m/n\Z_m \cong \Z_d$.\\
 
-(iv) In the case where $A_i$ and $B_j$ are finite cyclic groups we have that $G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j \cong \sum_{i, j} \I_{s_i} \otimes \I_{t_j} \cong \sum_{i, j} \I_{(s_i, t_j)}$ by (iii). For the case where we have some $A_i$ or $B_j$ infinite observe that $$G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j = \sum_{i, j : A_i \text{ finite and } B_j \text{ finite}} \I_{s_i, t_i} + (ij -\vert \{i, j : A_i \text{ finite and } B_j \text{ finite}\}\vert) \Z$$ where $\vert A_i \vert = s_i$ and $\vert B_j \vert = t_i$ where $A_i, B_j$ finite.
+(iv) In the case where $A_i$ and $B_j$ are finite cyclic groups we have that $G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j \cong \sum_{i, j} \Z_{s_i} \otimes \Z_{t_j} \cong \sum_{i, j} \Z_{(s_i, t_j)}$ by (iii). For the case where we have some $A_i$ or $B_j$ infinite observe that $$G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j = \sum_{i, j : A_i \text{ finite and } B_j \text{ finite}} \Z_{(s_i, t_i)} + \sum_{i, j : A_i \text{ or } B_j \text{ infinite}}\Z$$ where $\vert A_i \vert = s_i$ and $\vert B_j \vert = t_i$ where $A_i, B_j$ finite.
 
 \end{proof}
 
@@ -363,7 +363,7 @@ be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. 
 			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle g$}}]; }
 		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \overline v$}}];
 			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle g''$}}]; }
-		\chainin (m-5-2);
+		\chainin (m-5-2) [join = {node[left] {$\scriptstyle d$}}];
 	}
 	{ [start chain] 
 		\chainin (m-3-1);
