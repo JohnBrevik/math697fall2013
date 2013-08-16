@@ -69,15 +69,20 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 %       Begin Local Macros
 %-------------------------------------------
 
+
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\T}{\mathbb{T}}
 \newcommand{\D}{\displaystyle}
 \newcommand{\im}{\operatorname{im}}
 \newcommand{\coker}{\operatorname{coker}}
+\newcommand{\obj}{\operatorname{obj}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Mod}{\operatorname{\textbf{Mod}}}
 \newcommand{\ind}{\operatorname{ind}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand\mc[1]{\marginpar{\sloppy\protect\footnotesize #1}}
@@ -128,11 +133,55 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 		 Now we are guaranteed a unique $R$-homomorphism $\phi : R/I \otimes_RM \rightarrow M/IM$ given by $\phi(\overline{r} \otimes m)=\overline{rm}$. Notice if we define $f : M/IM \rightarrow R/I \otimes_RM$ via $f(\overline{m})=\overline{1}\otimes m$ then $f$ is a $\Z$-homomorphism which makes $f \circ \phi$ and $\phi \circ f$ the identity map in $R/I \otimes_RM$ and $M/IM$, respectively. So $\phi$ has a two-sided inverse, hence a bijective function, and accordingly is an isomorphism when considered as an $R$-map. 
 	\end{proof}
 		 
-\textbf{R 2.28}: Let $R$ be a domain with $Q$ = Frac($R$), its field of fractions. If $A$ is an $R$-module, prove that every element of $Q \otimes_RA$ has the form $q \otimes a$ for $q \in Q $ and $a \in A$ (i.e. every element is a simple tensor).
-	\begin{proof}
-		Let $\sum_1^n q_i \otimes a_i \in Q \otimes_RA$. We can write $\sum_1^n q_i \otimes a_i = \sum_1^n \frac{r_i}{s_i} \otimes a_i$ for $r_i,s_i \in R, s_i \neq 0$. Write $s=s_1s_2\cdots s_n$ and $\widehat{s_i}=\frac{s}{s_i}$. Then $\sum_1^n \frac{r_i}{s_i} \otimes a_i = \sum_1^n (1 \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n (\frac{\widehat{s_i}}{\widehat{s_i}} \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n \frac{\widehat{s_i}r_i}{s} \otimes a_i = \sum_1^n (\frac{1}{s})\widehat{s_i}r_i \otimes a_i = \sum_1^n \frac{1}{s} \otimes (\widehat{s_i}r_i)a_i = \frac{1}{s} \otimes (\sum_1^n \widehat{s_i}r_ia_i)$.\\
-	\end{proof}
-	
+
+\textbf{R Proposition 2.18}:
+	\begin{enumerate}
+		\item A sequence $0 \rightarrow A \xrightarrow{f} B$ is exact if and only if $f$ is injective.
+		\item A sequence $B \xrightarrow g C \rightarrow 0$ is exact if and only if $g$ is surjective.
+		\item A sequence $0 \rightarrow A \xrightarrow{h} B \rightarrow 0$ is exact if and only if $h$ is an isomorphism.
+	\end{enumerate}
+
+\textbf{DF \S10.5 Proposition 24}: (\textit{The Short Five Lemma}) Let $\alpha, \beta, \gamma$ be homomorphisms of short exact sequences:\\
+
+	\begin{center}
+	\begin{tikzpicture}
+	  \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+	    { 0 & A  & B  & C  & 0 \\
+	      0 & A' & B' & C' & 0 \\ };
+	  { [start chain] \chainin (m-1-1);
+	    \chainin (m-1-2);
+	    { [start branch=A] \chainin (m-2-2)
+	        [join={node[right] {$\scriptstyle\alpha$}}];}
+	    \chainin (m-1-3) [join={node[above] {$\scriptstyle f$}}];
+	    { [start branch=B] \chainin (m-2-3)
+	        [join={node[right] {$\scriptstyle\beta$}}];}
+	    \chainin (m-1-4) [join={node[above] {$\scriptstyle g$}}];
+	    { [start branch=C] \chainin (m-2-4)
+	        [join={node[right] {$\scriptstyle\gamma$}}];}
+	    \chainin (m-1-5); }
+	  { [start chain] \chainin (m-2-1);
+	    \chainin (m-2-2);
+	    \chainin (m-2-3) [join={node[above] {$\scriptstyle f'$}}];
+	    \chainin (m-2-4) [join={node[above] {$\scriptstyle g'$}}];
+	    \chainin (m-2-5); }
+	\end{tikzpicture}
+	\end{center}
+
+	\begin{enumerate}
+		\item If $\alpha$ and $\gamma$ are injective then so is $\beta$.
+			\begin{proof}
+				Let $b \in B$ such that $\beta(b) = 0$. We want to show that $b = 0$. Observe that $g'(\beta(b)) = g'(0) = 0$. By commutativity we have $\gamma(g(b)) = g'(\beta(b)) = g'(0) = 0$. Since $\gamma$ is injective we know $g(b) = 0$ so $b \in \ker g$ but since we are in an exact sequence we have $\im f = \ker g$ and hence $b \in \im f$. By definition there exists $a \in A$ with $f(a) = b$. Now $f'(\alpha(a)) = \beta(f(a)) = \beta(b) = 0$. Since $f'$ is injective, it follows that $\alpha(a) = (f')^{-1}(0) = 0$. Now we have $a = \alpha^{-1}(0)$ and so $a = 0$. So $0 = f(a) = b$.
+			\end{proof}
+		\item If $\alpha$ and $\gamma$ are surjective then so is $\beta$.
+			\begin{proof}
+				Let $b' \in B'$ then $g'(b') \in C'$. Since $\gamma$ is surjective there excists $c \in C$ such that $\gamma(c) = g'(b')$. Since this is an exact sequence, $g$ is surjective so there exists $b \in B$ such that $g(b) = c$. By equality we have $\gamma(c) = \gamma(g(b)) = g'(b')$. Now observe that $$g'(b' - \beta(b)) = g'(b') - g'(\beta(b)) = g'(b') - \gamma(g(b)) = g'(b') - g'(b') = 0$$ So in particular $b' - \beta(b) \in \ker g'$ but by exactness $\im f' = \ker g'$ so there exists $a' \in A'$ such that $f'(a') = b' - \beta(b)$. But since $\alpha$ is surjective, there exists $a \in A$ such that $\alpha(a) = a'$. Now $f'(a') = f'(\alpha(a)) = b' - \beta(b)$. By commutativity $f'(\alpha(a)) = \beta(f(a)) = b' - \beta(b)$ so $\beta(f(a)) + \beta(b) = b'$ and we have $\beta(f(a) + b) = b'$.
+			\end{proof}
+		\item If $\alpha$ and $\gamma$ are isomorphisms then so is $\beta$ (and then the two sequences are isomorphism).
+			\begin{proof}
+				Follows from $(1)$ and $(2)$.\\
+			\end{proof}
+	\end{enumerate}
+
 \textbf{R 2.29}:\textbf{(i)} Let $p$ be a prime, and let $p,q$ be relatively prime. Prove that is $A$ is a $p$-primary group and $a \in A$, then there exists $x \in A$ with $qx=a$. \\
 
 \indent \textbf{(ii)} If $D$ is a finite cyclic group of order $m$, prove that $D/nD$ is a cyclic group of order $d=(m,n)$. \\
@@ -154,14 +203,106 @@ Claim $|na|=\frac{m}{d}$. Observe $\frac{m}{d}(na)=\frac{n}{d}(ma)=\frac{n}{d}\c
 
 (iii) By Proposition 2.68, we have that $\Z_m \otimes \Z_n \cong \Z_m/n\Z_m$. But by part (ii), $\Z_m/n\Z_m$ is a cyclic group of order $d=(m,n)$ so $\Z_m/n\Z_m \cong \Z_d$.\\
 
-(iv)
+(iv) In the case where $A_i$ and $B_j$ are finite cyclic groups we have that $G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j \cong \sum_{i, j} \I_{s_i} \otimes \I_{t_j} \cong \sum_{i, j} \I_{(s_i, t_j)}$ by (iii). For the case where we have some $A_i$ or $B_j$ infinite observe that $$G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j = \sum_{i, j : A_i \text{ finite and } B_j \text{ finite}} \I_{s_i, t_i} + (ij -\vert \{i, j : A_i \text{ finite and } B_j \text{ finite}\}\vert) \Z$$ where $\vert A_i \vert = s_i$ and $\vert B_j \vert = t_i$ where $A_i, B_j$ finite.
 
 \end{proof}
 
-\textbf{R 2.32}: Consider the following commutative diagram in $_R$\textbf{Mod} having exact columns. \\
+\textbf{R Exercise 2.14}: Let $A \xrightarrow f B \xrightarrow g C$ be a sequence of module maps. Prove that $gf = 0$ if and only if $\im f \subseteq \ker g$.  Give an example of such a sequence that is not exact.
+	\begin{proof}
+		Suppose $gf = 0$, that is, $f(g(a)) = 0$ for all $a \in A$. Let $b \in \im f$ then by definition there exists $a \in A$ such that $f(a) = b$. But we know by hypothesis that $0 = g(f(a)) = g(b)$ so $b \in \ker g$. Conclude that $\im f \subseteq \ker g$. Conversely, suppose that $\im f \subseteq \ker g$. Let $a \in A$ and observe that $f(a) \in \im f$. By hypothesis $f(a) \in \ker g$ so $g(f(a)) = 0$. Since $a$ was arbitrary conclude $gf = 0$.
+	\end{proof}
+	Consider the sequence of module maps $\Z/4\Z \xrightarrow f \Z/3\Z \xrightarrow g \Z/2\Z$ where $f(\overline x) = 2 \overline x$ and $g(\overline y) = \overline y$. Observe that $\im f = \Z/3\Z$  and $\ker g = \{0\}$. Since $\im f \neq \ker g$ it follows that this is \textbf{not} an exact sequence.\\
 
-	
-If the bottom two rows are exact, prove that the top row is exact; if the top two rows are exact, prove that the bottom row is exact. 
+
+\textbf{R Exercise 2.15}:
+	\begin{enumerate}
+		\item Prove that $f : M \to N$ is surjective if and only if $\coker f = \{0\}$.
+			\begin{proof}
+				Suppose $f : M \to N$ is surjective then for $n \in N$, there exists $m \in M$ such that $f(m) = n$. By definition $\coker f = M/\im f = M/M = 0$. Conversely, suppose that $\coker f = 0$, i.e., $M/\im f = 0$ implying that if $m + \im f \in M/\im f$ then $m + \im f = 0$ or equivalently $m \in \im f$. Since $m$ is arbitrary, conclude $M = \im f$ and hence $f$ is surjective by definition.
+			\end{proof}
+		\item If $f : M \to N$ is a map, prove that there is an exact sequence $$ 0 \rightarrow \ker f \rightarrow M \xrightarrow f N \rightarrow \coker f \rightarrow 0.$$
+			\begin{proof}
+				Define $h : \ker f \to M$ by $h(m) = m$, that is, map each element to itself. It follows immediately that $\im h = \ker f$. Define $g : N \to \coker f = N/\im f$ by $g(n) = n + \im f$, that is, the canonical/projection mapping. Observe that $\ker g = \im f$. Conclude that the following sequence is in fact exact: $$0 \xrightarrow{\text{identity}} \ker f \xrightarrow h M \xrightarrow f N \xrightarrow g \coker f \xrightarrow{\text{zero}} 0. \qedhere$$
+			\end{proof}
+	\end{enumerate}
+
+\textbf{R Exercise 2.16}:
+	\begin{enumerate}
+		\item If $0 \rightarrow M \rightarrow 0$ is an exact sequence, prove that $M = \{0\}$.
+			\begin{proof}
+				Consider $0 \xrightarrow f M \xrightarrow g 0$. Since $f$ is surjective then for $m \in M$ there exists $x \in 0$ such that $f(x) = m$ but $x$ must be $0$ so $m = 0$.
+			\end{proof}
+		\item If $A \xrightarrow f B \xrightarrow g C \xrightarrow h D$ is an exact sequence, prove that $f$ is surjective if and only if $h$ is injective.
+			\begin{proof}
+				Suppose $f$ is surjective. Then $\im f = B = \ker g$ but this immediately implies that $\im g = 0 = \ker h$ so $h$ is injective by definitoin. Conversely, suppose $h$ is injective. Then $\ker h = 0 = \im g$ which immediately implies $\ker g = B = \im f$. Conclude by definition $f$ is surjective.
+			\end{proof}
+		\item Let $A \xrightarrow \alpha B \xrightarrow \beta C \xrightarrow \gamma D \xrightarrow \delta E$ be exact. If $\alpha$ and $\delta$ are isomorphisms, prove that $C = \{0\}$.
+			\begin{proof}
+				Observe that, by previous exercise, $\beta$ is surjective and $\gamma$ is injective so we have $\im \beta = C$ and $\ker \gamma = 0$. Result follows by exactness: $C = \im \beta = \ker \gamma = 0$. Conclude $C = \{0\}$.
+			\end{proof}
+	\end{enumerate}
+
+
+
+\textbf{R Exercise 2.17}: If $A \xrightarrow f B \xrightarrow g C \xrightarrow h D \xrightarrow k E$ is exact, prove that there is an exact sequence $0 \rightarrow \coker f \xrightarrow \alpha C \xrightarrow \beta \ker k \rightarrow 0$, where $\alpha : b + \im f \mapsto g(b)$ and $\beta : c \mapsto h(c)$.
+	\begin{proof}
+		Observe that $\ker \beta = \{c \in C : \beta(c) = h(c) = 0\} = \ker h = \im g$ by exactness and since $\alpha$ can run through any $b \in B$ conclude $\im \alpha = \im g = \ker \beta$
+	\end{proof}
+
+
+\textbf{R Exercise 2.28}: Let $R$ be a domain with $Q$ = Frac($R$), its field of fractions. If $A$ is an $R$-module, prove that every element of $Q \otimes_RA$ has the form $q \otimes a$ for $q \in Q $ and $a \in A$ (i.e. every element is a simple tensor).
+	\begin{proof}
+		Let $\sum_1^n q_i \otimes a_i \in Q \otimes_RA$. We can write $\sum_1^n q_i \otimes a_i = \sum_1^n \frac{r_i}{s_i} \otimes a_i$ for $r_i,s_i \in R, s_i \neq 0$. Write $s=s_1s_2\cdots s_n$ and $\widehat{s_i}=\frac{s}{s_i}$. Then $\sum_1^n \frac{r_i}{s_i} \otimes a_i = \sum_1^n (1 \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n (\frac{\widehat{s_i}}{\widehat{s_i}} \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n \frac{\widehat{s_i}r_i}{s} \otimes a_i = \sum_1^n (\frac{1}{s})\widehat{s_i}r_i \otimes a_i = \sum_1^n \frac{1}{s} \otimes (\widehat{s_i}r_i)a_i = \frac{1}{s} \otimes (\sum_1^n \widehat{s_i}r_ia_i)$.\\
+	\end{proof}
+
+\textbf{R Exercise 2.32}: (\textit{$3 \times 3$ Lemma}) Consider the following commutative diagram in $_R\Mod$ having exact columns.
+	\begin{center}
+	\begin{tikzpicture}
+
+	\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+	  {  & 0  & 0 & 0   & \\
+	   0 & A' & A & A'' & 0\\
+	   0 & B' & B & B'' & 0\\
+	   0 & C' & C & C'' & 0\\
+	     & 0  & 0 & 0   & \\};
+	{ [start chain] \chainin (m-1-2); { [start branch = A] \chainin (m-2-2); } }
+	{ [start chain] \chainin (m-1-3); { [start branch = B] \chainin (m-2-3); } }
+	{ [start chain] \chainin (m-1-4); { [start branch = C] \chainin (m-2-4); } }
+	{ [start chain] 
+		\chainin (m-2-1);
+		\chainin (m-2-2); 
+			{ [start branch = D] \chainin (m-3-2) [join = {node[right] {$\scriptstyle f'$}}]; } 
+		\chainin (m-2-3) [join = {node[above] {$\scriptstyle \alpha_1$}}];
+			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle f$}}]; }
+		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \alpha_2$}}];
+			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle f''$}}]; }
+		\chainin (m-2-5);
+	}
+	{ [start chain] 
+		\chainin (m-3-1);
+		\chainin (m-3-2); 
+			{ [start branch = G] \chainin (m-4-2) [join = {node[right] {$\scriptstyle g'$}}]; } 
+		\chainin (m-3-3) [join = {node[above] {$\scriptstyle \beta_1$}}];
+			{ [start branch = H] \chainin (m-4-3) [join = {node[right] {$\scriptstyle g$}}]; }
+		\chainin (m-3-4) [join = {node[above] {$\scriptstyle \beta_2$}}];
+			{ [start branch = I] \chainin (m-4-4) [join = {node[right] {$\scriptstyle g''$}}]; }
+		\chainin (m-3-5);
+	}
+	{ [start chain] 
+		\chainin (m-4-1);
+		\chainin (m-4-2); 
+			{ [start branch = J] \chainin (m-5-2); } 
+		\chainin (m-4-3) [join = {node[above] {$\scriptstyle \gamma_1$}}];
+			{ [start branch = K] \chainin (m-5-3); }
+		\chainin (m-4-4) [join = {node[above] {$\scriptstyle \gamma_2$}}];
+			{ [start branch = L] \chainin (m-5-4); }
+		\chainin (m-4-5);
+	}	
+	\end{tikzpicture}
+	\end{center}
+
+	If the bottom two rows are exact, prove that the top row is exact; if the top two rows are exact, prove that the bottom row is exact.\\
+
 	\begin{proof}$\alpha_1$ is injective: Let $a' \in$ ker $\alpha_1$. Then $\alpha_1(a')=0$. So $f(\alpha_1(a'))=0$. Now $0=f(\alpha_1(a'))=\beta_1(f'(a'))$ by commutativity. The injectivity of $\beta_1$ implies $f'(a')=0$ and the injectivity of $f'$ gives us $a'=0$. Thus ker $\alpha_1=0$ and $\alpha_1$ is injective.\\
 	
 	$\alpha_2$ is surjective: \\
@@ -171,7 +312,93 @@ If the bottom two rows are exact, prove that the top row is exact; if the top tw
 	ker $\alpha_2 \subseteq$ im $\alpha_1$: Let $a  \in$ ker $\alpha_2$. Then $\alpha_2(a)=0$. So $f''(\alpha_2(a))=0$. By commutativity, $\beta_2(f(a))=0$. Now $f(a) \in$ ker $\beta_2 =$ im $\beta_1$, so there exists $b' \in B'$ such that $f(a)=\beta_1(b')$. Now $g(f(a))=0$ by exactness, so $g(\beta_1(b'))=0$. By commutativity, $\gamma_1(g'(b'))=0$. Since $\gamma_1$ is injective, $g'(b')=0$. Now $b' \in$ ker $g'=$ im $f'$ so there exists $a' \in A'$ such that $b'=f'(a')$. Thus $f(a)=\beta_1(b')=\beta_1(f'(a'))$. By commutativity, $\beta_1(f'(a'))=f(\alpha_1(a'))$. So $f(a)=f(\alpha_1(a'))$. Since $f$ is injective, we have $a=\alpha_1(a')$, and therefore $a\in$ im $\alpha_1$. \\
  \end{proof}
 
+\textbf{AM Proposition 2.10}: (\textit{Snake Lemma}) Let
 
+	\begin{center}
+	\begin{tikzpicture}
+	  \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+	    { 0 & M'  & M  & M''  & 0 \\
+	      0 & N' & N & N'' & 0 \\ };
+	  { [start chain] \chainin (m-1-1);
+	    \chainin (m-1-2);
+	    { [start branch=A] \chainin (m-2-2)
+	        [join={node[right] {$\scriptstyle f'$}}];}
+	    \chainin (m-1-3) [join={node[above] {$\scriptstyle g$}}];
+	    { [start branch=B] \chainin (m-2-3)
+	        [join={node[right] {$\scriptstyle f$}}];}
+	    \chainin (m-1-4) [join={node[above] {$\scriptstyle h$}}];
+	    { [start branch=C] \chainin (m-2-4)
+	        [join={node[right] {$\scriptstyle f''$}}];}
+	    \chainin (m-1-5); }
+	  { [start chain] \chainin (m-2-1);
+	    \chainin (m-2-2);
+	    \chainin (m-2-3) [join={node[above] {$\scriptstyle g'$}}];
+	    \chainin (m-2-4) [join={node[above] {$\scriptstyle h'$}}];
+	    \chainin (m-2-5); }
+	\end{tikzpicture}
+	\end{center}
+
+be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. Then there exists a sequence $$0 \rightarrow \ker(f') \xrightarrow{\overline u} \ker(f) \xrightarrow{\overline v} \ker (f'') \xrightarrow d \coker(f') \xrightarrow {\overline u'} \coker (f) \xrightarrow{\overline v'} \coker(f'') \rightarrow 0$$ in which $\overline u$, $\overline v$ are restrictions of $u, v$, and $\overline u', \overline v'$ are induced by $u', v'$.\\
+
+	\begin{proof}
+	We consider: 	
+	\begin{center}
+	\begin{tikzpicture}
+
+	\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+	  {  & 0  & 0 & 0   & \\
+	   0 & \ker f' & \ker f & \ker f'' & \\
+	   0 & M' & M & M'' & 0\\
+	   0 & N' & N & N'' & 0\\
+	   & \coker f' & \coker f & \coker f'' & 0\\
+	     & 0  & 0 & 0   & \\};
+	{ [start chain] \chainin (m-1-2); { [start branch = A] \chainin (m-2-2); } }
+	{ [start chain] \chainin (m-1-3); { [start branch = B] \chainin (m-2-3); } }
+	{ [start chain] \chainin (m-1-4); { [start branch = C] \chainin (m-2-4); } }
+	{ [start chain] 
+		\chainin (m-2-1);
+		\chainin (m-2-2); 
+			{ [start branch = D] \chainin (m-3-2) [join = {node[right] {$\scriptstyle g'$}}]; } 
+		\chainin (m-2-3) [join = {node[above] {$\scriptstyle \overline u$}}];
+			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle g$}}]; }
+		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \overline v$}}];
+			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle g''$}}]; }
+		\chainin (m-5-2);
+	}
+	{ [start chain] 
+		\chainin (m-3-1);
+		\chainin (m-3-2); 
+			{ [start branch = G] \chainin (m-4-2) [join = {node[right] {$\scriptstyle f'$}}]; } 
+		\chainin (m-3-3) [join = {node[above] {$\scriptstyle u$}}];
+			{ [start branch = H] \chainin (m-4-3) [join = {node[right] {$\scriptstyle f$}}]; }
+		\chainin (m-3-4) [join = {node[above] {$\scriptstyle v$}}];
+			{ [start branch = I] \chainin (m-4-4) [join = {node[right] {$\scriptstyle f''$}}]; }
+		\chainin (m-3-5);
+	}
+	{ [start chain] 
+		\chainin (m-4-1);
+		\chainin (m-4-2); 
+			{ [start branch = J] \chainin (m-5-2) [join = {node[right] {$\scriptstyle h'$}}]; } 
+		\chainin (m-4-3) [join = {node[above] {$\scriptstyle u'$}}];
+			{ [start branch = K] \chainin (m-5-3) [join = {node[right] {$\scriptstyle h'$}}]; }
+		\chainin (m-4-4) [join = {node[above] {$\scriptstyle v'$}}];
+			{ [start branch = L] \chainin (m-5-4) [join = {node[right] {$\scriptstyle h'$}}]; }
+		\chainin (m-4-5);
+	}	
+	{ [start chain] 
+		\chainin (m-5-2); 
+			{ [start branch = M] \chainin (m-6-2); } 
+		\chainin (m-5-3) [join = {node[above] {$\scriptstyle \overline u'$}}];
+			{ [start branch = N] \chainin (m-6-3); }
+		\chainin (m-5-4) [join = {node[above] {$\scriptstyle \overline v'$}}];
+			{ [start branch = O] \chainin (m-6-4); }
+		\chainin (m-5-5);
+	}	
+	\end{tikzpicture}
+	\end{center}
+
+	By Rotman Exercise 2.32, we have that $\im \overline u = \ker \overline v$ and $\im \overline u' = \ker \overline v'$. It is left for us to first define $d$ and then show that $\im \overline v = \ker d$ and $\im d = \ker \overline u'$.
+	\end{proof}
 
 
 

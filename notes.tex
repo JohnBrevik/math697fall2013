@@ -261,7 +261,7 @@ A category $S$ is a \textbf{subcategory} of a category $C$ if
 			\end{proof}
 		\item If $f : M \to N$ is a map, prove that there is an exact sequence $$ 0 \rightarrow \ker f \rightarrow M \xrightarrow f N \rightarrow \coker f \rightarrow 0.$$
 			\begin{proof}
-				Define $h : \ker f \to M$ by $h(m) = m$, that is, map each element to itself. It follows immediately that $\im h = \ker f$. Define $g : N \to \coker f = N/\im f$ by $g(n) = n + \im f$, that is, the canonical/projection mapping. Observe that $\ker g = \im f$. Conclude that the following sequence is in fact exact: $$0 \xrightarrow{\text{identity}} \ker f \xrightarrow h M \xrightarrow f N \xrightarrow g \coker f \xrightarrow{\text{zero}}. \qedhere$$
+				Define $h : \ker f \to M$ by $h(m) = m$, that is, map each element to itself. It follows immediately that $\im h = \ker f$. Define $g : N \to \coker f = N/\im f$ by $g(n) = n + \im f$, that is, the canonical/projection mapping. Observe that $\ker g = \im f$. Conclude that the following sequence is in fact exact: $$0 \xrightarrow{\text{identity}} \ker f \xrightarrow h M \xrightarrow f N \xrightarrow g \coker f \xrightarrow{\text{zero}} 0. \qedhere$$
 			\end{proof}
 	\end{enumerate}
 
@@ -312,8 +312,119 @@ A category $S$ is a \textbf{subcategory} of a category $C$ if
 	\end{tikzpicture}
 	\end{center}
 
-be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. Then there exists a sequence $$0 \rightarrow \ker(f') \xrightarrow{\overline u} \ker(f) \xrightarrow{\overline v} \ker (f'') \xrightarrow d \coker(f') \xrightarrow {\overline u'} \coker (f) \xrightarrow{\overline v'} \coker(f'') \rightarrow 0$$ in which $\overline u$, $\overline v$ are restrictions of $u, v$, and $\overline u', \overline v'$ are induced by $u', v'$.
+be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. Then there exists a sequence $$0 \rightarrow \ker(f') \xrightarrow{\overline u} \ker(f) \xrightarrow{\overline v} \ker (f'') \xrightarrow d \coker(f') \xrightarrow {\overline u'} \coker (f) \xrightarrow{\overline v'} \coker(f'') \rightarrow 0$$ in which $\overline u$, $\overline v$ are restrictions of $u, v$, and $\overline u', \overline v'$ are induced by $u', v'$.\\
+
+	\begin{proof}
+	We consider: 	
+	\begin{center}
+	\begin{tikzpicture}
+
+	\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+	  {  & 0  & 0 & 0   & \\
+	   0 & \ker f' & \ker f & \ker f'' & \\
+	   0 & M' & M & M'' & 0\\
+	   0 & N' & N & N'' & 0\\
+	   & \coker f' & \coker f & \coker f'' & 0\\
+	     & 0  & 0 & 0   & \\};
+	{ [start chain] \chainin (m-1-2); { [start branch = A] \chainin (m-2-2); } }
+	{ [start chain] \chainin (m-1-3); { [start branch = B] \chainin (m-2-3); } }
+	{ [start chain] \chainin (m-1-4); { [start branch = C] \chainin (m-2-4); } }
+	{ [start chain] 
+		\chainin (m-2-1);
+		\chainin (m-2-2); 
+			{ [start branch = D] \chainin (m-3-2) [join = {node[right] {$\scriptstyle g'$}}]; } 
+		\chainin (m-2-3) [join = {node[above] {$\scriptstyle \overline u$}}];
+			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle g$}}]; }
+		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \overline v$}}];
+			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle g''$}}]; }
+		\chainin (m-5-2);
+	}
+	{ [start chain] 
+		\chainin (m-3-1);
+		\chainin (m-3-2); 
+			{ [start branch = G] \chainin (m-4-2) [join = {node[right] {$\scriptstyle f'$}}]; } 
+		\chainin (m-3-3) [join = {node[above] {$\scriptstyle u$}}];
+			{ [start branch = H] \chainin (m-4-3) [join = {node[right] {$\scriptstyle f$}}]; }
+		\chainin (m-3-4) [join = {node[above] {$\scriptstyle v$}}];
+			{ [start branch = I] \chainin (m-4-4) [join = {node[right] {$\scriptstyle f''$}}]; }
+		\chainin (m-3-5);
+	}
+	{ [start chain] 
+		\chainin (m-4-1);
+		\chainin (m-4-2); 
+			{ [start branch = J] \chainin (m-5-2) [join = {node[right] {$\scriptstyle h'$}}]; } 
+		\chainin (m-4-3) [join = {node[above] {$\scriptstyle u'$}}];
+			{ [start branch = K] \chainin (m-5-3) [join = {node[right] {$\scriptstyle h'$}}]; }
+		\chainin (m-4-4) [join = {node[above] {$\scriptstyle v'$}}];
+			{ [start branch = L] \chainin (m-5-4) [join = {node[right] {$\scriptstyle h'$}}]; }
+		\chainin (m-4-5);
+	}	
+	{ [start chain] 
+		\chainin (m-5-2); 
+			{ [start branch = M] \chainin (m-6-2); } 
+		\chainin (m-5-3) [join = {node[above] {$\scriptstyle \overline u'$}}];
+			{ [start branch = N] \chainin (m-6-3); }
+		\chainin (m-5-4) [join = {node[above] {$\scriptstyle \overline v'$}}];
+			{ [start branch = O] \chainin (m-6-4); }
+		\chainin (m-5-5);
+	}	
+	\end{tikzpicture}
+	\end{center}
+
+	\end{proof}
+
+\textbf{R Exercise 2.32}: (\textit{$3 \times 3$ Lemma}) Consider the following commutative diagram in $_R\Mod$ having exact columns.
+	\begin{center}
+	\begin{tikzpicture}
+
+	\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+	  {  & 0  & 0 & 0   & \\
+	   0 & A' & A & A'' & 0\\
+	   0 & B' & B & B'' & 0\\
+	   0 & C' & C & C'' & 0\\
+	     & 0  & 0 & 0   & \\};
+	{ [start chain] \chainin (m-1-2); { [start branch = A] \chainin (m-2-2); } }
+	{ [start chain] \chainin (m-1-3); { [start branch = B] \chainin (m-2-3); } }
+	{ [start chain] \chainin (m-1-4); { [start branch = C] \chainin (m-2-4); } }
+	{ [start chain] 
+		\chainin (m-2-1);
+		\chainin (m-2-2); 
+			{ [start branch = D] \chainin (m-3-2) [join = {node[right] {$\scriptstyle f'$}}]; } 
+		\chainin (m-2-3) [join = {node[above] {$\scriptstyle \alpha_1$}}];
+			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle f$}}]; }
+		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \alpha_2$}}];
+			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle f''$}}]; }
+		\chainin (m-2-5);
+	}
+	{ [start chain] 
+		\chainin (m-3-1);
+		\chainin (m-3-2); 
+			{ [start branch = G] \chainin (m-4-2) [join = {node[right] {$\scriptstyle g'$}}]; } 
+		\chainin (m-3-3) [join = {node[above] {$\scriptstyle \beta_1$}}];
+			{ [start branch = H] \chainin (m-4-3) [join = {node[right] {$\scriptstyle g$}}]; }
+		\chainin (m-3-4) [join = {node[above] {$\scriptstyle \beta_2$}}];
+			{ [start branch = I] \chainin (m-4-4) [join = {node[right] {$\scriptstyle g''$}}]; }
+		\chainin (m-3-5);
+	}
+	{ [start chain] 
+		\chainin (m-4-1);
+		\chainin (m-4-2); 
+			{ [start branch = J] \chainin (m-5-2); } 
+		\chainin (m-4-3) [join = {node[above] {$\scriptstyle \gamma_1$}}];
+			{ [start branch = K] \chainin (m-5-3); }
+		\chainin (m-4-4) [join = {node[above] {$\scriptstyle \gamma_2$}}];
+			{ [start branch = L] \chainin (m-5-4); }
+		\chainin (m-4-5);
+	}	
+	\end{tikzpicture}
+	\end{center}
+
+	If the bottom two rows are exact, prove that the top row is exact; if the top two rows are exact, prove that the bottom row is exact.
+
+
+
 \end{document}
+
 
 
 
