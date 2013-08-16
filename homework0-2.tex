@@ -244,7 +244,7 @@ Claim $|na|=\frac{m}{d}$. Observe $\frac{m}{d}(na)=\frac{n}{d}(ma)=\frac{n}{d}\c
 
 (iii) By Proposition 2.68, we have that $\Z_m \otimes \Z_n \cong \Z_m/n\Z_m$. But by part (ii), $\Z_m/n\Z_m$ is a cyclic group of order $d=(m,n)$ so $\Z_m/n\Z_m \cong \Z_d$.\\
 
-(iv) If both $A_i$ and $B_j$ are finite, then by part (iii) we have $A_i \otimes_\Z B_j \cong \Z_{s_i} \otimes \Z_{t_j} \cong \Z_{(s_i, t_j)}$, where $\vert A_i \vert = s_i$ and $\vert B_j \vert = t_i$. Otherwise, $A_i \otimes_\Z B_j \cong \Z$. Thus we have $$G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j = \sum_{i, j : A_i \text{ and } B_j \text{ finite}} \Z_{(s_i, t_i)} + \sum_{i, j : A_i \text{ or } B_j \text{ infinite}}\Z.$$
+(iv) There are three cases: If both $A_i$ and $B_j$ are finite, then by part (iii) we have $A_i \otimes_\Z B_j \cong \Z_{s_i} \otimes \Z_{t_j} \cong \Z_{(s_i, t_j)}$, where $\vert A_i \vert = s_i$ and $\vert B_j \vert = t_i$. If both $A_i$ and $B_j$ are infinite, then $A_i \otimes_\Z B_j \cong \Z \otimes \Z \cong \Z$ by Proposition 2.58. If (wlog) $A_i$ is finite and $B_j$ is infinite, then $A_i \otimes_\Z B_j \cong Z_{s_i} \otimes \Z \cong \Z_{s_i}$ by Proposition 2.58. Thus we have $$G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j = \sum_{i, j : A_i \text{ and } B_j \text{ finite}} \Z_{(s_i, t_i)} + \sum_{i, j : A_i \text{ finite and } B_j \text{ infinite}} \Z_{s_i}+ \sum_{i, j : A_i \text{ or } B_j \text{ infinite}}\Z.$$
 
 \end{proof}
 
