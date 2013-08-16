@@ -118,13 +118,13 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\textbf{ AM 2.1}: Show that $(\Z/m\Z) \otimes (\Z/n\Z) = 0$ if $m$ and $n$ are coprime.
+\textbf{ AM Exercise 2.1}: Show that $(\Z/m\Z) \otimes (\Z/n\Z) = 0$ if $m$ and $n$ are coprime.
 	\begin{proof}
 		Choose $a \otimes b \in \Z/m\Z \otimes \Z/n\Z$. Since $m$ and $n$ are coprime, there exist $s, t \in \Z$ such that $ms + nt = 1$ Observe that $$a = a \cdot 1 = a(ms + nt) = ams + ant \equiv ant \pmod m.$$ Now observe that $$a \otimes b = atn \otimes b = a \otimes nb = at \otimes 0 = 0.$$
 		We have shown that any simple tensor is zero, so any finite linear combination of simple tensors is zero. Conclude $(\Z/m\Z) \otimes (\Z/n\Z) = 0$.\\
 	\end{proof}
 
-\textbf{ AM 2.2}: Let $R$ be a ring, $I$ an ideal of $R$, $M$ an $R$-module. Show that $(R/I) \otimes_RM$ is isomorphic to $M/IM$. 
+\textbf{ AM Exercise 2.2}: Let $R$ be a ring, $I$ an ideal of $R$, $M$ an $R$-module. Show that $(R/I) \otimes_RM$ is isomorphic to $M/IM$. 
 	\begin{proof}
 		Define $\varphi : R/I \times M \to M/IM$ by $\varphi(r + I, m) = rm + IM$, which we shall henceforth write as $\varphi(\overline{r}, m) = \overline{rm}$. Let $(\overline{r}, m) = (\overline{s}, m)$. Then $\overline{r} = \overline{s} \implies r \in \overline{s} \implies r=s+i$, some $i \in I$. Then $\varphi(\overline{r},m)=\overline{rm}=\overline{(s+i)m}=\overline{sm+im}=\overline{sm}+\overline{im}=\overline{sm}+\overline{0}=\overline{sm}=\varphi(\overline{s},m)$. Thus $\varphi$ is well-defined.\\ 
 		
@@ -133,13 +133,6 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 		 Now we are guaranteed a unique $R$-homomorphism $\phi : R/I \otimes_RM \rightarrow M/IM$ given by $\phi(\overline{r} \otimes m)=\overline{rm}$. Notice if we define $f : M/IM \rightarrow R/I \otimes_RM$ via $f(\overline{m})=\overline{1}\otimes m$ then $f$ is a $\Z$-homomorphism which makes $f \circ \phi$ and $\phi \circ f$ the identity map in $R/I \otimes_RM$ and $M/IM$, respectively. So $\phi$ has a two-sided inverse, hence a bijective function, and accordingly is an isomorphism when considered as an $R$-map. 
 	\end{proof}
 		 
-
-\textbf{R Proposition 2.18}:
-	\begin{enumerate}
-		\item A sequence $0 \rightarrow A \xrightarrow{f} B$ is exact if and only if $f$ is injective.
-		\item A sequence $B \xrightarrow g C \rightarrow 0$ is exact if and only if $g$ is surjective.
-		\item A sequence $0 \rightarrow A \xrightarrow{h} B \rightarrow 0$ is exact if and only if $h$ is an isomorphism.
-	\end{enumerate}
 
 \textbf{DF \S10.5 Proposition 24}: (\textit{The Short Five Lemma}) Let $\alpha, \beta, \gamma$ be homomorphisms of short exact sequences:\\
 
@@ -181,31 +174,6 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 				Follows from $(1)$ and $(2)$.\\
 			\end{proof}
 	\end{enumerate}
-
-\textbf{R 2.29}:\textbf{(i)} Let $p$ be a prime, and let $p,q$ be relatively prime. Prove that is $A$ is a $p$-primary group and $a \in A$, then there exists $x \in A$ with $qx=a$. \\
-
-\indent \textbf{(ii)} If $D$ is a finite cyclic group of order $m$, prove that $D/nD$ is a cyclic group of order $d=(m,n)$. \\
-
-\indent \textbf{(iii)} Let $m$ and $n$ be positive integers, and let $d =(m,n)$. Prove that there is an isomorphism of abelian groups $$\Z_m \otimes \Z_n \cong \Z_d.$$ \\
-\indent \textbf{(iv)} Let $G$ and $H$ be finitely generated abelian groups, so that \\
-
-	\begin{center}
-$G=A_1 \oplus \cdots \oplus A_n$ and $H=B_1 \oplus \cdots \oplus B_m,$  \\
-	\end{center} 
-	
-where $A_i$ and $B_j$ are cyclic groups. Compute $G \otimes_{\Z}H$ explicitely. 
-\begin{proof}
-(i) $a \in A$ so $p^ka=0$, some $k \in \Z^+$. Since $p$ is prime, $(q,p)=1 \implies (q,p^k)=1$. So there exist $m,n \in \Z$ such that $qm+np^k=1$. Now $a=1\cdot a=(qm+np^k)a=qma+np^ka=q(ma)+n(p^ka)=qx+0=qx$. Observe $p^kx=p^k(ma)=m(p^ka)=0$ so $x\in A$.\\
-
-(ii) $D$ is cyclic, so $D/nD$ is cyclic. If we write $D=<a>$, then $nD =<na>$. This is because for any $nb \in nD$, we can write $b=ka$, some $k\in \Z^+$, since $a$ generates $D$. Now $nb=n(ka)=k(na)$, and we have that $na$ generates $nD$. \\
-
-Claim $|na|=\frac{m}{d}$. Observe $\frac{m}{d}(na)=\frac{n}{d}(ma)=\frac{n}{d}\cdot 0=0$, which implies $|na|$ divides $\frac{m}{d}$. On the other hand, if $k(na)=0$, then $(kn)a=0 \implies m|kn \implies \frac{m}{d}|k\frac{n}{d}$. But $\frac{m}{d}$ and $\frac{n}{d}$ are relatively prime by construction, forcing $\frac{m}{d}|k$. In particular, we have $\frac{m}{d}$ divides $|na|$. Thus $|na|=d$. Now $|nD|=|<na>|=|na|=\frac{m}{d}$. Lagrange's theorem gives us $|\frac{D}{nD}|=\frac{|D|}{|nD|}=\frac{m}{\frac{m}{d}}=d$. \\
-
-(iii) By Proposition 2.68, we have that $\Z_m \otimes \Z_n \cong \Z_m/n\Z_m$. But by part (ii), $\Z_m/n\Z_m$ is a cyclic group of order $d=(m,n)$ so $\Z_m/n\Z_m \cong \Z_d$.\\
-
-(iv) In the case where $A_i$ and $B_j$ are finite cyclic groups we have that $G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j \cong \sum_{i, j} \Z_{s_i} \otimes \Z_{t_j} \cong \sum_{i, j} \Z_{(s_i, t_j)}$ by (iii). For the case where we have some $A_i$ or $B_j$ infinite observe that $$G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j = \sum_{i, j : A_i \text{ finite and } B_j \text{ finite}} \Z_{(s_i, t_i)} + \sum_{i, j : A_i \text{ or } B_j \text{ infinite}}\Z$$ where $\vert A_i \vert = s_i$ and $\vert B_j \vert = t_i$ where $A_i, B_j$ finite.
-
-\end{proof}
 
 \textbf{R Exercise 2.14}: Let $A \xrightarrow f B \xrightarrow g C$ be a sequence of module maps. Prove that $gf = 0$ if and only if $\im f \subseteq \ker g$.  Give an example of such a sequence that is not exact.
 	\begin{proof}
@@ -254,6 +222,31 @@ Claim $|na|=\frac{m}{d}$. Observe $\frac{m}{d}(na)=\frac{n}{d}(ma)=\frac{n}{d}\c
 	\begin{proof}
 		Let $\sum_1^n q_i \otimes a_i \in Q \otimes_RA$. We can write $\sum_1^n q_i \otimes a_i = \sum_1^n \frac{r_i}{s_i} \otimes a_i$ for $r_i,s_i \in R, s_i \neq 0$. Write $s=s_1s_2\cdots s_n$ and $\widehat{s_i}=\frac{s}{s_i}$. Then $\sum_1^n \frac{r_i}{s_i} \otimes a_i = \sum_1^n (1 \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n (\frac{\widehat{s_i}}{\widehat{s_i}} \cdot \frac{r_i}{s_i}) \otimes a_i = \sum_1^n \frac{\widehat{s_i}r_i}{s} \otimes a_i = \sum_1^n (\frac{1}{s})\widehat{s_i}r_i \otimes a_i = \sum_1^n \frac{1}{s} \otimes (\widehat{s_i}r_i)a_i = \frac{1}{s} \otimes (\sum_1^n \widehat{s_i}r_ia_i)$.\\
 	\end{proof}
+	
+	\textbf{R Exercise 2.29}:\textbf{(i)} Let $p$ be a prime, and let $p,q$ be relatively prime. Prove that if $A$ is a $p$-primary group and $a \in A$, then there exists $x \in A$ with $qx=a$. \\
+
+\indent \textbf{(ii)} If $D$ is a finite cyclic group of order $m$, prove that $D/nD$ is a cyclic group of order $d=(m,n)$. \\
+
+\indent \textbf{(iii)} Let $m$ and $n$ be positive integers, and let $d =(m,n)$. Prove that there is an isomorphism of abelian groups $$\Z_m \otimes \Z_n \cong \Z_d.$$ \\
+\indent \textbf{(iv)} Let $G$ and $H$ be finitely generated abelian groups, so that \\
+
+	\begin{center}
+$G=A_1 \oplus \cdots \oplus A_n$ and $H=B_1 \oplus \cdots \oplus B_m,$  \\
+	\end{center} 
+	
+where $A_i$ and $B_j$ are cyclic groups. Compute $G \otimes_{\Z}H$ explicitely. 
+\begin{proof}
+(i) $a \in A$ so $p^ka=0$, some $k \in \Z^+$. Since $p$ is prime, $(q,p)=1 \implies (q,p^k)=1$. So there exist $m,n \in \Z$ such that $qm+np^k=1$. Now $a=1\cdot a=(qm+np^k)a=qma+np^ka=q(ma)+n(p^ka)=qx+0=qx$. Observe $p^kx=p^k(ma)=m(p^ka)=0$ so $x\in A$.\\
+
+(ii) $D$ is cyclic, so $D/nD$ is cyclic. If we write $D=<a>$, then $nD =<na>$. This is because for any $nb \in nD$, we can write $b=ka$, some $k\in \Z^+$, since $a$ generates $D$. Now $nb=n(ka)=k(na)$, and we have that $na$ generates $nD$. \\
+
+Claim $|na|=\frac{m}{d}$. Observe $\frac{m}{d}(na)=\frac{n}{d}(ma)=\frac{n}{d}\cdot 0=0$, which implies $|na|$ divides $\frac{m}{d}$. On the other hand, if $k(na)=0$, then $(kn)a=0 \implies m|kn \implies \frac{m}{d}|k\frac{n}{d}$. But $\frac{m}{d}$ and $\frac{n}{d}$ are relatively prime by construction, forcing $\frac{m}{d}|k$. In particular, we have $\frac{m}{d}$ divides $|na|$. Thus $|na|=d$. Now $|nD|=|<na>|=|na|=\frac{m}{d}$. Lagrange's theorem gives us $|\frac{D}{nD}|=\frac{|D|}{|nD|}=\frac{m}{\frac{m}{d}}=d$. \\
+
+(iii) By Proposition 2.68, we have that $\Z_m \otimes \Z_n \cong \Z_m/n\Z_m$. But by part (ii), $\Z_m/n\Z_m$ is a cyclic group of order $d=(m,n)$ so $\Z_m/n\Z_m \cong \Z_d$.\\
+
+(iv) If both $A_i$ and $B_j$ are finite, then by part (iii) we have $A_i \otimes_\Z B_j \cong \Z_{s_i} \otimes \Z_{t_j} \cong \Z_{(s_i, t_j)}$, where $\vert A_i \vert = s_i$ and $\vert B_j \vert = t_i$. Otherwise, $A_i \otimes_\Z B_j \cong \Z$. Thus we have $$G \otimes_\Z H = \D \sum_{i, j} A_i \otimes_\Z B_j = \sum_{i, j : A_i \text{ and } B_j \text{ finite}} \Z_{(s_i, t_i)} + \sum_{i, j : A_i \text{ or } B_j \text{ infinite}}\Z.$$
+
+\end{proof}
 
 \textbf{R Exercise 2.32}: (\textit{$3 \times 3$ Lemma}) Consider the following commutative diagram in $_R\Mod$ having exact columns.
 	\begin{center}
@@ -303,7 +296,9 @@ Claim $|na|=\frac{m}{d}$. Observe $\frac{m}{d}(na)=\frac{n}{d}(ma)=\frac{n}{d}\c
 
 	If the bottom two rows are exact, prove that the top row is exact; if the top two rows are exact, prove that the bottom row is exact.\\
 
-	\begin{proof}$\alpha_1$ is injective: Let $a' \in$ ker $\alpha_1$. Then $\alpha_1(a')=0$. So $f(\alpha_1(a'))=0$. Now $0=f(\alpha_1(a'))=\beta_1(f'(a'))$ by commutativity. The injectivity of $\beta_1$ implies $f'(a')=0$ and the injectivity of $f'$ gives us $a'=0$. Thus ker $\alpha_1=0$ and $\alpha_1$ is injective.\\
+	\begin{proof} We show the first part of the statement. The second part follows by a symmetric argument. \\
+	
+$\alpha_1$ is injective: Let $a' \in$ ker $\alpha_1$. Then $\alpha_1(a')=0$. So $f(\alpha_1(a'))=0$. Now $0=f(\alpha_1(a'))=\beta_1(f'(a'))$ by commutativity. The injectivity of $\beta_1$ implies $f'(a')=0$ and the injectivity of $f'$ gives us $a'=0$. Thus ker $\alpha_1=0$ and $\alpha_1$ is injective.\\
 	
 	$\alpha_2$ is surjective: \\
 	
