@@ -216,7 +216,30 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 	\begin{proof}
 		Observe that $\ker \beta = \{c \in C : \beta(c) = h(c) = 0\} = \ker h = \im g$ by exactness and since $\alpha$ can run through any $b \in B$ conclude $\im \alpha = \im g = \ker \beta$
 	\end{proof}
-
+	
+\textbf{R Exercise 2.27}: Let $V$ and $W$ be finite-dimensional vector spaces over a field $F$ and let $v_1, \dots , v_m$ and $w_1, \dots , w_n$ be bases of $V$ and $W$, respectively. Let $S:V\rightarrow V$ be a linear transformation having matrix $A=[a_{ij}]$, and let $T:W\rightarrow W$ be a linear transformation having matrix $B=[b_{kl}]$. Show that the matrix of $S\otimes T: V\otimes W\rightarrow V\otimes W$, with respect to a suitable listing of the vectors $v_i\otimes w_j$, is the $nm \times nm$ matrix $K$, which we write in block form: $$A\otimes B=\begin{bmatrix}
+a_{11} B & a_{12} B & \cdots & a_{1m} B\\
+a_{21} B & a_{22} B & \cdots & a_{2m} B\\
+\vdots & \vdots & \vdots & \vdots \\
+a_{m1} B & a_{m2} B & \cdots & a_{mm} B\\
+\end{bmatrix} $$
+	\begin{proof}
+	Since $v_1, \dots , v_m$ is a basis for $V$ and $w_1, \dots , w_n$ is a basis for $W$, then $\{v_i\otimes w_j|1\leq i\leq m, 1\leq j\leq n\}$ is a basis for $V\otimes W$. Note that the action of $S\otimes T$ on $V\otimes W$ is induced by $S$ and $T$ on the basis vectors of $V$ and $W$, respectively: \\
+	
+$(S\otimes T) (v_i\otimes w_j)=S(v_i)\otimes T(w_j)$, which has the matrix representation $A(v_i)\otimes B(w_j)$. Writing $A=[a_{ij}]$ and $B=[b_{kl}]$ we have 
+\begin{center}
+$A(v_i)=\sum_{t=1}^ma_{it}v_t$ and $B(w_j)=\sum_{s=1}^nb_{js}w_s$.
+\end{center}
+Therefore $$(A\otimes B)(v_i\otimes w_j)=\sum_{t=1}^ma_{it}v_t\otimes \sum_{s=1}^nb_{js}w_s.$$ By expanding on the basis of $V$ only, we can represent $$(A\otimes B)(v_i\otimes w_j)=a_{i1}v_1\otimes B(w_j) + a_{i2}v_2\otimes B(w_j) + \cdots + a_{im}v_m\otimes B(w_j)$$ in block form as the $i$'th "row" in $A\otimes B$ times the $j$'th column basis vector of $A\otimes B$: $$\begin{bmatrix}
+a_{i1} B & a_{i2} B & \cdots & a_{im} B\\
+\end{bmatrix} 
+\begin{bmatrix}
+v_1\otimes w_j\\
+v_2\otimes w_j\\
+\vdots\\
+v_m\otimes w_j\\
+\end{bmatrix}.$$ With $1\leq i\leq m$ and $B$ being an $n\times n$ matrix, we have each "row" is an $n\times mn$ matrix. Since there are $m$ such "rows", we have that $A\otimes B$ is the $mn\times mn$ matrix as given above.
+	\end{proof}
 
 \textbf{R Exercise 2.28}: Let $R$ be a domain with $Q$ = Frac($R$), its field of fractions. If $A$ is an $R$-module, prove that every element of $Q \otimes_RA$ has the form $q \otimes a$ for $q \in Q $ and $a \in A$ (i.e. every element is a simple tensor).
 	\begin{proof}
