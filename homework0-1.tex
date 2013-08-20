@@ -399,7 +399,15 @@
 %		\end{align*}
 		hence it follows that $0 \neq r \in \operatorname{Ann}(m)$ and thus $\operatorname{Ann}(m) \neq 0$.\\
 
-		As for the example: recall that $\Q$ is not finitely generated {\color{red} over $\Z$ for suppose by way of contradiction that it was finitely generated, then there would exist a basis $x_1, \ldots, x_n$ a basis; TODO}, and hence $\Q/\Z = M$ is also not finitely generated. Observe that $M$ is torsion since for any rational, non-integer number $x$, multiplication by its denominator, which \textbf{is} an integer, yields an integer, which in this case would be 0 in $M$. Suppose by way of contradiction that there is a nonzero annihilator, say $0 \neq a \in R = \Z$. Choose $b \in \Z$ such that $b \nmid a$. Now $a \cdot 1/b = 0$ by property of being annihilator so $a/b = k$ is an integer. But then $a = bk$ and hence $b \mid a$, a contradiction. So there are no nonzero annihilators.
+		As for the example: recall that $\Q$ is not finitely generated {\color{red} over $\Z$ for suppose by way of contradiction that it was finitely generated, then there would exist a basis $x_1, \ldots, x_n \in \Q$ a basis where $\D x_i = \frac{a_i}{b_i}$ for $i = 1, \ldots, n$ with $\gcd(a_i, b_i) = 1$. Choose $p > \D \max_{1 \leq i \leq m} \vert b_i \vert$ be a prime; then by hypothesis $\frac1p = r_1x_1 + \cdots + r_nx_n$ for some $r_i \in \Z$. Multiplying both sides by $pb_1\cdots b_n$ we get $b_1b_2 \cdots b_n = pq$ for some integer $q$. In particular $p \mid b_i$ for some $i = 1, 2, \ldots, n$ a contradiction.} Hence $M = \Q/\Z$ is also not finitely generated {\color{red} since if we suppose by way of contradiction that $\Q/\Z$ is finitely generated then it has a basis $\overline x_1, \ldots, \overline x_n \in \Q/\Z$ with $\overline x_i = x_i + \Z$. In particular, for any $y \in \Q$, we can consider $\overline y$ Observe that
+		\begin{align*}
+			y + \Z &= \overline y\\
+			&= r_1\overline x_1 + \cdots + r_n \overline x_n\\
+			&= (r_1x_1 + \cdots + r_nx_n) + \Z
+		\end{align*}
+		for some $r_i \in \Z$ and in particular $y - (r_1x_1 + \cdots + r_nx_n) \in \Z$ so there exists $z \in \Z$ such that $y =  (r_1x_1 + \cdots + r_nx_n) + z \cdot 1$. Hence we have just shown that $\Q$ is finitely generated, a contradiction to our previous result. Conclude that $\Q/\Z$ is not finitely generated.}\\ 
+
+Observe that $M$ is torsion since for any rational, non-integer number $x$, multiplication by its denominator, which \textbf{is} an integer, yields an integer, which in this case would be 0 in $M$. Suppose by way of contradiction that there is a nonzero annihilator, say $0 \neq a \in R = \Z$. Choose $b \in \Z$ such that $b \nmid a$. Now $a \cdot 1/b = 0$ by property of being annihilator so $a/b = k$ is an integer. But then $a = bk$ and hence $b \mid a$, a contradiction. So there are no nonzero annihilators.
 	\end{proof}
 
 
