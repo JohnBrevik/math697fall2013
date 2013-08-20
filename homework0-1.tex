@@ -173,10 +173,10 @@
 	\begin{solution}
 		Consider the Quaternions $\mathbb H = R$; they form a commutative group under addition \textit{and a noncommutative group under multiplication}. ({ \color{green} Question: You commented in the assignment: ``Not Quite", can you explain?}) Hence $\mathbb H$ is a noncommutative ring with unity. In particular $\mathbb H$ is an $R$-module over itself. Define $\varphi : \mathbb H \to \mathbb H$ by $\varphi(h) = ih$. This is a group homomorphism since $\varphi(h + h') = i(h + h') = ih + ih' = \varphi(h) + \varphi(h')$. But note that $\varphi(j \cdot 1) = \varphi(j) = ij = k \neq -k = ji = j(i \cdot 1) = j \varphi(1)$. Conclude that $\varphi$ is not an $R$-module homomorphism since the definition is not satisfied.\\
 
-		{\color{red} For a commutative example, consider $\R[x]$ as a module over iteself. Define $\varphi : M \to M$ by $\varphi(f(x)) = f(x^2)$. Observe that
+		{\color{red} For a commutative example, consider $\R[x]$ as a module over iteself. Define $\varphi : \R[x] \to \R[x]$ by $\varphi(f(x)) = f(x^2)$. Observe that
 		\begin{align*}
 			\varphi(f(x) + g(x)) &= \varphi((f + g)(x))\\
-			&= (f + g)(x)\\
+			&= (f + g)(x^2)\\
 			&= f(x^2) + g(x^2)\\
 			&= \varphi(f(x)) + \varphi(g(x))
 		\end{align*}
@@ -388,7 +388,7 @@
 	\end{proof}
 \textbf{\S 10.3 \#5}: Let $R$ be an integral domain. Prove that every finitely generated torsion $R$-module has a nonzero annihilator i.e., there is a nonzero element $r \in R$ such that $rm = 0$ for all $m \in M$ -- here $r$ does not depend on $m$ (the annihilator of a module was defined in Exercise 9 of Section 1). Give an example of a torsion $R$-module whose annihilator is the zero ideal.
 	\begin{proof}
-		Let $M$ be a finitely generated torsion $R$-module where $R$ is an integral domain. By definition $M = Rm_1 + \cdots + Rm_n$ for some $m_1, m_2, \ldots, m_n \in M$. Let $m \in M$. Since $M$ is finitely generated there exist $r_1, r_2, \ldots, r_n \in R$ such that $m = r_1m_1 + \cdots + r_nm_n$. Since $M$ is torsion, there exists $0 \neq \overline{r_i} \in R$ such that $\overline{r_i}m_i = 0$ for $i = 1, 2, \ldots, n$. Define $r = \overline{r_1} \overline{r_2} \cdots \overline{r_n}$. Note that $R$ is an integral domain, so that $r \neq 0$. Now observe that {\color{red} $$rm_i = (\overline{r_1r_2} \cdots \overline{r_{i - 1}r_{i + 1}} \cdots \overline{r_n})(\overline{r_i}m_i) =  (\overline{r_1r_2} \cdots \overline{r_{i - 1}r_{i + 1}} \cdots \overline{r_n}) \cdot 0 = 0 \text{ for all } i.$$ Thus since $rm = \D \sum_{i = 1}^n r_i(rm_i) = \sum_{i = 1}^n r_i \cdot 0 = 0$}
+		Let $M$ be a finitely generated torsion $R$-module where $R$ is an integral domain. By definition $M = Rm_1 + \cdots + Rm_n$ for some $m_1, m_2, \ldots, m_n \in M$. Let $m \in M$. Since $M$ is finitely generated there exist $r_1, r_2, \ldots, r_n \in R$ such that $m = r_1m_1 + \cdots + r_nm_n$. Since $M$ is torsion, there exists $0 \neq \overline{r_i} \in R$ such that $\overline{r_i}m_i = 0$ for $i = 1, 2, \ldots, n$. Define $r = \overline{r_1} \overline{r_2 \cdots r_n}$. Note that $R$ is an integral domain, so that $r \neq 0$. Now observe that {\color{red} $$rm_i = (\overline{r_1r_2 \cdots r_{i - 1}r_{i + 1} \cdots {r_n}})(\overline{r_i}m_i) =  (\overline{r_1r_2 \cdots r_{i - 1}r_{i + 1} \cdots {r_n}}) \cdot 0 = 0 \text{ for all } i.$$ Thus since $rm = \D \sum_{i = 1}^n r_i(rm_i) = \sum_{i = 1}^n r_i \cdot 0 = 0$}
 
 %		\begin{align*}
 %			rm &= r(r_1m_1 + \cdots + r_nm_n)\\
@@ -398,7 +398,7 @@
 %		\end{align*}
 		hence it follows that $0 \neq r \in \operatorname{Ann}(m)$ and thus $\operatorname{Ann}(m) \neq 0$.\\
 
-		As for the example: recall that $\Q$ is not finitely generated {\color{red} over $\Z$ for suppose by way of contradiction that it was finitely generated, then there would exist a basis $x_1, \ldots, x_n \in \Q$ a basis where $\D x_i = \frac{a_i}{b_i}$ for $i = 1, \ldots, n$ with $\gcd(a_i, b_i) = 1$. Choose $p > \D \max_{1 \leq i \leq m} \vert b_i \vert$ be a prime; then by hypothesis $\frac1p = r_1x_1 + \cdots + r_nx_n$ for some $r_i \in \Z$. Multiplying both sides by $pb_1\cdots b_n$ we get $b_1b_2 \cdots b_n = pq$ for some integer $q$. In particular $p \mid b_i$ for some $i = 1, 2, \ldots, n$ a contradiction.} Hence $M = \Q/\Z$ is also not finitely generated {\color{red} since if we suppose by way of contradiction that $\Q/\Z$ is finitely generated then it has a basis $\overline x_1, \ldots, \overline x_n \in \Q/\Z$ with $\overline x_i = x_i + \Z$. In particular, for any $y \in \Q$, we can consider $\overline y$ Observe that
+		As for the example: recall that $\Q$ is not finitely generated {\color{red} over $\Z$ for suppose by way of contradiction that it was finitely generated, then there would exist a basis $x_1, \ldots, x_n \in \Q$ where $\D x_i = \frac{a_i}{b_i}$ for $i = 1, \ldots, n$ with $\gcd(a_i, b_i) = 1$. Choose $p > \D \max_{1 \leq i \leq m} \vert b_i \vert$ be a prime; then by hypothesis $\frac1p = r_1x_1 + \cdots + r_nx_n$ for some $r_i \in \Z$. Multiplying both sides by $pb_1\cdots b_n$ we get $b_1b_2 \cdots b_n = pq$ for some integer $q$. Since $p$ is prime, $p \mid b_i$ for some $i = 1, 2, \ldots, n$ a contradiction.} Hence $M = \Q/\Z$ is also not finitely generated {\color{red} over $\Z$ since if we suppose by way of contradiction that $\Q/\Z$ is finitely generated then it has a basis $\overline x_1, \ldots, \overline x_n \in \Q/\Z$ with $\overline x_i = x_i + \Z$. In particular, for any $y \in \Q$, we can consider $\overline y$. Observe that
 		\begin{align*}
 			y + \Z &= \overline y\\
 			&= r_1\overline x_1 + \cdots + r_n \overline x_n\\
@@ -416,7 +416,7 @@ Observe that $M$ is torsion since for any rational, non-integer number $x$, mult
 
 		Conversely suppose that $M \neq 0$ and $M$ is a cyclic module with any nonzero element as generator. Let $N$ be a submodule of $M$, so $0 \subseteq N \subseteq M$. If $N = 0$ we are done, so suppose $N \neq 0$, then there exists $n \in N$ such that $n \neq 0$. But $n \in M$ and so $M = Rn$. Since $Rn \subseteq N$ immediately we have just shown $M \subseteq N$. Since both $N \subseteq M$ and $M \subseteq N$ we have $M = N$.\\
 
-		Let $M$ be an irreducible $\Z$-module then $M$ is { \color{red} a cyclic module and since $\Z$-modules are just abelian groups, we are looking at all cyclic groups. So either $M \cong \Z$ or $M \cong \Z/n\Z$ for some $n \in \Z$. If $M \cong \Z$ then $M$ has infinitely many subgroups and hence infinitely many submodules, a contradiction to being irreducible. Conclude that $M \cong \Z/n\Z$ for some $n \in \Z$. Since it has only two subgroups, conclude $M \cong \Z/p\Z$ for some prime $p$.}
+		Let $M$ be an irreducible $\Z$-module then $M$ is {\color{red} a cyclic module and since $\Z$-modules are just abelian groups, we are looking at cyclic groups that are abelian, i.e. all cyclic groups. So either $M \cong \Z$ or $M \cong \Z/n\Z$ for some $n \in \Z$. If $M \cong \Z$ then $M$ has infinitely many subgroups and hence infinitely many submodules, a contradiction to being irreducible. Conclude that $M \cong \Z/n\Z$ for some $n \in \Z$. Since M can only have two subgroups, conclude $M \cong \Z/p\Z$ for some prime $p$.}
 	\end{proof}
 
 
