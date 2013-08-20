@@ -6,6 +6,7 @@
 \usepackage{paralist}
 \usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
 \usepackage{amsthm}
+\usepackage{color}
 
 \allowdisplaybreaks
 
@@ -111,6 +112,7 @@
 				
 				\begin{align*}
 						\varphi(ra) &= ra + B\\
+						&= ra + rB\\
 						&= r(a + B)\\
 						&= r\varphi(a)
 					\end{align*}
@@ -122,7 +124,7 @@
 				
 				\begin{align*}
 					\varphi(r(m + A)) &= \varphi(rm + A)\\
-					&= rm + B\\
+					&={\color{red} rm + B}\\
 					&= r(m + A)\\
 					&= r\varphi(m + A)
 				\end{align*}
@@ -159,8 +161,8 @@
 	\begin{proof}
 		Let $X$ be a set of $R$-modules.
 		\begin{itemize}
-			\item Let $M \in X$. Observe that $M$ is isomorphic to $M$ trivially. So relation is reflexive.
-			\item Let $M, N \in X$. Suppose $M$ is isomorphic to $N$ then by definition there exists $\varphi : M \to N$ that is bijective. Immediately we have $\varphi^{-1} : N \to M$ which is also bijective so $N$ is isomorphic to $M$. By definition the relation is symmetric.
+			\item {\color{red} Let $M$ be an $R$-module. Define $\varphi : M \to M$ by $\varphi(m) = m$. Observe that $\varphi(rm  + sn) = rm + sn = r\varphi(m) + s\varphi(n)$ so it is an $R$-module homomorphism. If $\varphi(m) = 0$ then $m = 0$ and thus by definition $\varphi$ is injective. Choose $m \in M$, immediately $\varphi(m) = m$ so $\varphi$ is injective. Since $\varphi$ is a bijective $R$-module homomorphism, conclude  that $M$ is isomorphic to $M$. So relation is reflexive.}
+			\item Let $M, N \in X$. Suppose $M$ is isomorphic to $N$ then by definition there exists {\color{red} an $R$-module homomorphism} $\varphi : M \to N$ that is bijective. Immediately we have {\color{red} its inverse by bijectivity} $\varphi^{-1} : N \to M$ which is also bijective so $N$ is isomorphic to $M$. By definition the relation is symmetric.
 			\item Let $L, M, N \in X$ . Suppose $L$ is isomorphic to $M$, then by definition there exists $\varphi : L \to M$ a bijective $R$-module homomorphism. Suppose $M$ is isomorphic to $N$, then there exists $\Phi : M \to N$ a bijective $R$-module homomorphism. Observe that $\varphi \circ \Phi : L \to N$ is again a bijective $R$-module homomorphism by property of composition of mappings. Hence by definition $L$ is isomorphic to $N$.
 		\end{itemize}
 		Conclude that the relation ``is $R$-module isomorphic to'' is an equivalence relation on any set of $R$-modules.
@@ -170,13 +172,22 @@
 
 \textbf{\S 10.2 \#3}: Give an explicit example of a map from one $R$-module to another which is a group homomorphism but not an $R$-module homomorphism.
 	\begin{solution}
-		Consider the Quaternions $\mathbb H = R$; they form a commutative group under addition and a noncommutative group under multiplication. Hence $\mathbb H$ is a noncommutative ring with unity. In particular $\mathbb H$ is an $R$-module over itself. Define $\varphi : \mathbb H \to \mathbb H$ by $\varphi(h) = ih$. This is a group homomorphism since $\varphi(h + h') = i(h + h') = ih + ih' = \varphi(h) + \varphi(h')$. But note that $\varphi(j \cdot 1) = \varphi(j) = ij = k \neq -k = ji = j(i \cdot 1) = j \varphi(1)$. Conclude that $\varphi$ is not an $R$-module homomorphism since the definition is not satisfied.
+		Consider the Quaternions $\mathbb H = R$; they form a commutative group under addition \textit{and a noncommutative group under multiplication}. ({ \color{green} Question: You commented in the assignment: ``Not Quite", can you explain?}) Hence $\mathbb H$ is a noncommutative ring with unity. In particular $\mathbb H$ is an $R$-module over itself. Define $\varphi : \mathbb H \to \mathbb H$ by $\varphi(h) = ih$. This is a group homomorphism since $\varphi(h + h') = i(h + h') = ih + ih' = \varphi(h) + \varphi(h')$. But note that $\varphi(j \cdot 1) = \varphi(j) = ij = k \neq -k = ji = j(i \cdot 1) = j \varphi(1)$. Conclude that $\varphi$ is not an $R$-module homomorphism since the definition is not satisfied.\\
+
+		{\color{red} For a commutative example, consider $\R[x]$ as a module over iteself. Define $\varphi : M \to M$ by $\varphi(f(x)) = f(x^2)$. Observe that
+		\begin{align*}
+			\varphi(f(x) + g(x)) &= \varphi((f + g)(x))\\
+			&= (f + g)(x)\\
+			&= f(x^2) + g(x^2)\\
+			&= \varphi(f(x)) + \varphi(g(x))
+		\end{align*}
+		and so $\varphi$ is a group homomorphism, but observe that $$x\varphi(f(x)) = xf(x^2) \neq x^2f(x^2) = \varphi(xf(x)).$$ which implies that $\varphi$ is not an $R$-module homomorphism.}
 	\end{solution}
 
 
 \textbf{\S 10.2 \#4}: Let $A$ be a $\Z$-module, let $a$ be any element of $A$ and let $n$ be a positive integer. Prove that the map $\varphi_a : \Z/n\Z \to A$ given by $\varphi(\overline k) = ka$ is a well-defined $\mathbb Z$-module homomorphism if and only if $na = 0$. Prove that $\operatorname{Hom}_\Z(\Z/n\Z, A) \cong A_n$, where $A_n = \{a \in A : na = 0\}$ (So $A_n$ is the annihilator in $A$ of the ideal $(n)$ of $\Z$).
 	\begin{proof}
-		Suppose that the map $\varphi_a : \Z/n\Z \to A$ given by $\varphi(\overline k) = ka$ is a well-defined $\mathbb Z$-module homomorphism. Then by definition if $\overline m = \overline k$ then $\varphi(\overline m) = \varphi(\overline k)$ or equivalently $ma = ka$. Moreover $\varphi(a + b) = \varphi(a) + \varphi(b)$ and $\varphi(ra) = r\varphi(a)$ for all $a, b \in A$ and $r \in \Z$. Observe that $\overline 0 = \overline k$ so by hypothesis $\varphi(\overline 0) = \varphi(\overline n)$ but observe that $\varphi(\overline 0) = 0 \cdot a = 0$ and $\varphi(\overline n) = na$. Hence by equality $na = 0$. Conversely suppose that $na = 0$. We want to show that $\varphi : \Z/n\Z \to A$ defined by $\varphi(\overline k) = ka$ is a well-defined $R$-module homomorphism. Say $\overline k = \overline m$ then by property of cosets $k - m \in \Z/n\Z$ and so by definition $n \mid k - m$ and hence there exists $t \in \Z$ such that $k - m = nt$. Observe that
+		Suppose that the map $\varphi_a : \Z/n\Z \to A$ given by $\varphi(\overline k) = ka$ is a well-defined $\mathbb Z$-module homomorphism. Then by definition if $\overline m = \overline k$ then $\varphi(\overline m) = \varphi(\overline k)$ or equivalently $ma = ka$. Moreover $\varphi(a + b) = \varphi(a) + \varphi(b)$ and $\varphi(ra) = r\varphi(a)$ for all $a, b \in A$ and $r \in \Z$. Observe that $\overline 0 = {\color{red} \overline n}$ so by hypothesis $\varphi(\overline 0) = \varphi(\overline n)$ but observe that $\varphi(\overline 0) = 0 \cdot a = 0$ and $\varphi(\overline n) = na$. Hence by equality $na = 0$. Conversely suppose that $na = 0$. We want to show that $\varphi : \Z/n\Z \to A$ defined by $\varphi(\overline k) = ka$ is a well-defined $R$-module homomorphism. Say $\overline k = \overline m$ then by property of cosets $k - m \in \Z/n\Z$ and so by definition $n \mid k - m$ and hence there exists $t \in \Z$ such that $k - m = nt$. Observe that
 		\begin{align*}
 			k - m &= nt\\
 			(k - m)a &= nta\\
@@ -224,14 +235,14 @@
 
 \textbf{\S 10.2 \#6}: Prove that $\operatorname{Hom}_\Z(\Z/n\Z, \Z/m\Z) \cong \Z/(n, m)\Z$.
 	\begin{proof}
-		By previous exercise we know $\operatorname{Hom}_\Z(\Z/n\Z, \Z/m\Z) \cong (\Z/m\Z)_n = \{a \in \Z/m\Z : na \equiv 0 \pmod m \}$. It will suffice to show that $(\Z/m\Z)_n \cong \Z/(n, m)\Z$. Let $d = \gcd(n, m)$, so by definition there exist $a, b$ relatively prime, such that $n = ad$ and $m = bd$. Observe that $b \in (\Z/m\Z)_n$ since
+		By previous exercise we know $\operatorname{Hom}_\Z(\Z/n\Z, \Z/m\Z) \cong (\Z/m\Z)_n = \{a \in \Z : na \equiv 0 \pmod m \}$. It will suffice to show that $(\Z/m\Z)_n \cong \Z/(n, m)\Z$. Let $d = \gcd(n, m)$, so by definition there exist $a, b$ relatively prime, such that $n = ad$ and $m = bd$. Observe that $b \in (\Z/m\Z)_n$ since
 		\begin{align*}
 			nb &\equiv (ad)b \pmod m\\
 			&\equiv a(db) \pmod m\\
 			&\equiv am \pmod m\\
 			&\equiv 0 \pmod m
 		\end{align*}
-		Define $\varphi : \Z \to (\Z/m\Z)_n$ by $\varphi(z) = zb \pmod m$. We must first show that this is a $\Z$-module homomorphism. Let $z, y \in \Z$, $r \in \Z$ and observe that
+		\textit{Define $\varphi : \Z \to (\Z/m\Z)_n$ by $\varphi(z) = zb \pmod m$}. ({\color{green} Question: You said this was not well-defined with the given codomain, we edited the codomain to remove a redundancy, is this correct now?}) We must first show that this is a $\Z$-module homomorphism. Let $z, y \in \Z$, $r \in \Z$ and observe that
 		\begin{align*}
 			\varphi(z + y) &\equiv (z + y)b \pmod m\\
 			&\equiv (zb + yb) \pmod m\\
@@ -378,16 +389,17 @@
 	\end{proof}
 \textbf{\S 10.3 \#5}: Let $R$ be an integral domain. Prove that every finitely generated torsion $R$-module has a nonzero annihilator i.e., there is a nonzero element $r \in R$ such that $rm = 0$ for all $m \in M$ -- here $r$ does not depend on $m$ (the annihilator of a module was defined in Exercise 9 of Section 1). Give an example of a torsion $R$-module whose annihilator is the zero ideal.
 	\begin{proof}
-		Let $M$ be a finitely generated torsion $R$-module where $R$ is an integral domain. By definition $M = Rm_1 + \cdots + Rm_n$ for some $m_1, m_2, \ldots, m_n \in M$. Let $m \in M$. Since $M$ is finitely generated there exist $r_1, r_2, \ldots, r_n \in R$ such that $m = r_1m_1 + \cdots + r_nm_n$. Since $M$ is torsion, there exists $0 \neq \overline{r_i} \in R$ such that $\overline{r_i}m_i = 0$ for $i = 1, 2, \ldots, n$. Define $r = \overline{r_1} \overline{r_2} \cdots \overline{r_n}$. Note that $R$ is an integral domain, so that $r \neq 0$. Now observe that
-		\begin{align*}
-			rm &= r(r_1m_1 + \cdots + r_nm_n)\\
-			&= (r_1 \overline{r_2} \cdots \overline{r_n})\overline{r_1}m_1 + \cdots + (\overline{r_1} \cdots \overline{r_{n-1}} r_n) \overline{r_n}m_n\\
-			&= (r_1 \overline{r_2} \cdots \overline{r_n}) \cdot 0 + \cdots + (\overline{r_1} \cdots \overline{r_{n-1}} r_n) \cdot 0\\
-			&= 0
-		\end{align*}
+		Let $M$ be a finitely generated torsion $R$-module where $R$ is an integral domain. By definition $M = Rm_1 + \cdots + Rm_n$ for some $m_1, m_2, \ldots, m_n \in M$. Let $m \in M$. Since $M$ is finitely generated there exist $r_1, r_2, \ldots, r_n \in R$ such that $m = r_1m_1 + \cdots + r_nm_n$. Since $M$ is torsion, there exists $0 \neq \overline{r_i} \in R$ such that $\overline{r_i}m_i = 0$ for $i = 1, 2, \ldots, n$. Define $r = \overline{r_1} \overline{r_2} \cdots \overline{r_n}$. Note that $R$ is an integral domain, so that $r \neq 0$. Now observe that {\color{red} $$rm_i = (\overline{r_1r_2} \cdots \overline{r_{i - 1}r_{i + 1}} \cdots \overline{r_n})(\overline{r_i}m_i) =  (\overline{r_1r_2} \cdots \overline{r_{i - 1}r_{i + 1}} \cdots \overline{r_n}) \cdot 0 = 0 \text{ for all } i.$$ Thus since $rm = \D \sum_{i = 1}^n r_i(rm_i) = \sum_{i = 1}^n r_i \cdot 0 = 0$}
+
+%		\begin{align*}
+%			rm &= r(r_1m_1 + \cdots + r_nm_n)\\
+%			&= (r_1 \overline{r_2} \cdots \overline{r_n})\overline{r_1}m_1 + \cdots + (\overline{r_1} \cdots \overline{r_{n-1}} r_n) \overline{r_n}m_n\\
+%			&= (r_1 \overline{r_2} \cdots \overline{r_n}) \cdot 0 + \cdots + (\overline{r_1} \cdots \overline{r_{n-1}} r_n) \cdot 0\\
+%			&= 0
+%		\end{align*}
 		hence it follows that $0 \neq r \in \operatorname{Ann}(m)$ and thus $\operatorname{Ann}(m) \neq 0$.\\
 
-		As for the example: recall that $\Q$ is not finitely generated, and hence $\Q/\Z = M$ is also not finitely generated. Observe that $M$ is torsion since for any rational, non-integer number $x$, multiplication by its denominator, which \textbf{is} an integer, yields an integer, which in this case would be 0 in $M$. Suppose by way of contradiction that there is a nonzero annihilator, say $0 \neq a \in R = \Z$. Choose $b \in \Z$ such that $b \nmid a$. Now $a \cdot 1/b = 0$ by property of being annihilator so $a/b = k$ is an integer. But then $a = bk$ and hence $b \mid a$, a contradiction. So there are no nonzero annihilators.
+		As for the example: recall that $\Q$ is not finitely generated {\color{red} over $\Z$ for suppose by way of contradiction that it was finitely generated, then there would exist a basis $x_1, \ldots, x_n$ a basis; TODO}, and hence $\Q/\Z = M$ is also not finitely generated. Observe that $M$ is torsion since for any rational, non-integer number $x$, multiplication by its denominator, which \textbf{is} an integer, yields an integer, which in this case would be 0 in $M$. Suppose by way of contradiction that there is a nonzero annihilator, say $0 \neq a \in R = \Z$. Choose $b \in \Z$ such that $b \nmid a$. Now $a \cdot 1/b = 0$ by property of being annihilator so $a/b = k$ is an integer. But then $a = bk$ and hence $b \mid a$, a contradiction. So there are no nonzero annihilators.
 	\end{proof}
 
 
