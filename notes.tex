@@ -281,10 +281,88 @@ A category $S$ is a \textbf{subcategory} of a category $C$ if
 			\end{proof}
 	\end{enumerate}
 
+
+
+
 \textbf{R Exercise 2.17}: If $A \xrightarrow f B \xrightarrow g C \xrightarrow h D \xrightarrow k E$ is exact, prove that there is an exact sequence $0 \rightarrow \coker f \xrightarrow \alpha C \xrightarrow \beta \ker k \rightarrow 0$, where $\alpha : b + \im f \mapsto g(b)$ and $\beta : c \mapsto h(c)$.
 	\begin{proof}
 		Observe that $\ker \beta = \{c \in C : \beta(c) = h(c) = 0\} = \ker h = \im g$ by exactness and since $\alpha$ can run through any $b \in B$ conclude $\im \alpha = \im g = \ker \beta$
 	\end{proof}
+
+
+
+\textbf{R Exercise 2.32}: (\textit{$3 \times 3$ Lemma}) Consider the following commutative diagram in $_R\Mod$ having exact columns.
+	\begin{center}
+	\begin{tikzpicture}
+
+	\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+	  {  & 0  & 0 & 0   & \\
+	   0 & A' & A & A'' & 0\\
+	   0 & B' & B & B'' & 0\\
+	   0 & C' & C & C'' & 0\\
+	     & 0  & 0 & 0   & \\};
+	{ [start chain] \chainin (m-1-2); { [start branch = A] \chainin (m-2-2); } }
+	{ [start chain] \chainin (m-1-3); { [start branch = B] \chainin (m-2-3); } }
+	{ [start chain] \chainin (m-1-4); { [start branch = C] \chainin (m-2-4); } }
+	{ [start chain] 
+		\chainin (m-2-1);
+		\chainin (m-2-2); 
+			{ [start branch = D] \chainin (m-3-2) [join = {node[right] {$\scriptstyle f'$}}]; } 
+		\chainin (m-2-3) [join = {node[above] {$\scriptstyle \alpha_1$}}];
+			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle f$}}]; }
+		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \alpha_2$}}];
+			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle f''$}}]; }
+		\chainin (m-2-5);
+	}
+	{ [start chain] 
+		\chainin (m-3-1);
+		\chainin (m-3-2); 
+			{ [start branch = G] \chainin (m-4-2) [join = {node[right] {$\scriptstyle g'$}}]; } 
+		\chainin (m-3-3) [join = {node[above] {$\scriptstyle \beta_1$}}];
+			{ [start branch = H] \chainin (m-4-3) [join = {node[right] {$\scriptstyle g$}}]; }
+		\chainin (m-3-4) [join = {node[above] {$\scriptstyle \beta_2$}}];
+			{ [start branch = I] \chainin (m-4-4) [join = {node[right] {$\scriptstyle g''$}}]; }
+		\chainin (m-3-5);
+	}
+	{ [start chain] 
+		\chainin (m-4-1);
+		\chainin (m-4-2); 
+			{ [start branch = J] \chainin (m-5-2); } 
+		\chainin (m-4-3) [join = {node[above] {$\scriptstyle \gamma_1$}}];
+			{ [start branch = K] \chainin (m-5-3); }
+		\chainin (m-4-4) [join = {node[above] {$\scriptstyle \gamma_2$}}];
+			{ [start branch = L] \chainin (m-5-4); }
+		\chainin (m-4-5);
+	}	
+	\end{tikzpicture}
+	\end{center}
+
+	If the bottom two rows are exact, prove that the top row is exact; if the top two rows are exact, prove that the bottom row is exact.
+
+	\begin{proof}
+		Suppose that the bottom two rows are exact. We must show four things:
+		\begin{enumerate}
+			\item $\alpha_1$ is injective: Suppose $a' \in A'$ with $\alpha_1(a') = 0$. Observe that by commutativity $f(\alpha_1(a')) = \beta_1(f'(a')) = 0$ so since $\beta_1$ is injective, by exactness of the second row, $f'(a') = 0$. But since the first column is exact by hypothesis, we have $a' = 0$. Conclude that $\alpha_1$ is in fact injective.
+			\item $\im \alpha_1 \subseteq \ker \alpha_2$: Choose $a \in \im \alpha_1$ then by definition there exists $a' \in A'$ such that $\alpha_1(a') = a$. Observe that $f(a) = f(\alpha_1(a')) = \beta_1(f'(a'))$ by commutativity. Moreover $\beta_2(f(a)) = f''(\alpha_2(a))$ again by commutativity. Hence we have $$\beta_2(f(a)) = \beta_2(\beta_1(f'(a'))) = 0 = f''(\alpha_2(a)).$$ Since $f''$ is injective by exactness of the third column, $\alpha_2(a) = 0$ and so $a \in \ker \alpha_2$. Conclude that $\im \alpha_2 \subseteq \ker \alpha_2$ as desired.
+			\item $\ker \alpha_2 \subseteq \im \alpha_1$: Let $a \in \ker \alpha_2$ then by definition $\alpha_2(a) = 0$ and so $f''(\alpha(a)) = \beta_2(f(a)) = 0$. So $f(a) \in \ker \beta_2 = \im \beta_1$ by exactness of the second column, so there exists $b' \in B'$ such that $\beta_1(b') = f(a)$. Now $$\gamma_1(g'(b)) = g(\beta_1(b')) = g(f(a)) = 0$$ by commutativity and exactness so there exists $a' \in A'$ such that $f'(a') = b'$. Now by commutativity $$f(\alpha_1(a')) = \beta_1(f'(a')) = \beta_1(b') = f(a)$$ and so $f(a - \alpha_1(a')) = 0$ since $f$ is a homomorphism. $f$ is injective since the second column is exact so it follows that $\alpha_1(a') = a$ and so $a \in \im \alpha_1$. Conclude that $\ker \alpha_2 \subseteq \im \alpha_1$ is in fact true.
+			\item $\alpha_2$ is surjective: Choose $a'' \in A''$. Consider $f''(a'') \in B''$. Since the second row is exact $\beta_2$ is surjective so there exists $b \in B$ such that $\beta_2(b) = f''(a'')$. By commutativity $g''(\beta_1(b)) = \gamma_2(g(b))$ but by exactness of the third column $g''(\beta_2(b)) = g''(f''(a'')) = 0$. So $\gamma_2(g(b)) = 0$ which implies that $g(b) \in \ker \gamma_2 = \im \gamma_1$ by exactness of the third row. So there exists $c' \in C'$ such that $\gamma_1(c') = g(b)$. Since the first column is exact $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. So $\gamma_1(c') = \gamma_1(g'(b')) = g(\beta_1(b'))$. Observe that $$g(b - \beta_1(b')) = g(b) - g(\beta_1(b')) = 0$$ since $g(b) = \gamma_1(c)$ and $g(\beta_1(b')) = \gamma_1(c)$ also. So $b - \beta_1(b') \in \ker g = \im f$ by exactness of the second column. So there exists $a \in A$ such that $f(a) = b - \beta_2(b')$. Now since $f''(\alpha(a)) = \beta_2(f(a)) = \beta_2(b - \beta_1(b'))$ we get $$f''(\alpha_2(a)) = \beta_2(b) - \beta_2(\beta_1(b')) = \beta_2(b) = f''(a'').$$ In particular we get $f''(\alpha_2(a) - a'') = 0$ but $f''$ is injective by exactness of the third column so $\alpha_2(a) = a''$. Conclude that $\alpha_2$ is in fact surjective.
+		\end{enumerate}
+		We have shown that if the bottom two rows are exact, then the top row is exact.\\
+
+		Suppose that the top two rows are exact. We must show four things:
+		\begin{enumerate}
+			\item $\gamma_1$ is injective: Suppose $c' \in C'$  with $\gamma_1(c') = 0$. Since the first column is exact, $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. Now by commutativity $$0 = \gamma_1(c') = \gamma_1(g'(b')) = g(\beta_1(b')).$$ So $\beta_1(b') \in \ker g = \im f$ since the second row is exact. So there exists $a \in A$ such that $f(a) = \beta_1(b')$. But by commutativity $$f''(\alpha_2(a)) = \beta_2(f(a)) = \beta_2(\beta_1(b')) = 0$$ so $\alpha_2(a) = 0$. Since $f''$ is injective, because the third column is exact. Now $a \in \ker \alpha_2 = \im \alpha_1$ by exactness of the first row so there exists $a' \in A'$ such that $\alpha_2(a') = a$. Now $$f(a) = f(\alpha_1(a')) = \beta_1(f'(a')) = \beta_1(b')$$ So $\beta_1(f'(a') - b') = 0$. Since the second row is exact, $\beta_1$ is injective so $f'(a') - b = 0$. Hence $f'(a') = b'$. Taking $g'$ of both sides we get $$ 0 = g'(f'(a')) = g'(b') = c'.$$ Hence $\gamma_1$ is injective.
+			\item $\im \gamma_1 \subseteq \ker \gamma_2$: Let $c \in \im \gamma_1$ then by definition there exists $c' \in C'$ such that $\gamma_1(c') = c$. Since the first column is exact $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. Observe that $$g(\beta_1(b')) = \gamma_1(g'(b')) = \gamma_1(c') = c$$ by commutativity. Again by commutativity we observe $$\gamma_2(c) = \gamma_1(g(\beta_1(b'))) = g''(\beta_1(\beta_1(b'))) = g''(0) = 0$$ and so $c \in \ker \gamma_2$. Conclude that $\im \gamma_1 \subseteq \ker \gamma_2$.
+			\item $\ker \gamma_2 \subseteq \im \gamma_1$: Choose $c \in \ker \gamma_2$ then by definition $\gamma_2(c) = 0$. Since the second column is exact, $g$ is surjective. So there exists $b \in B$ such that $g(b) = c$. By commutativity $$g''(\beta_2(b)) = \gamma_2(g(b)) = \gamma_2(c) = 0.$$ So $\beta_2(b) \in \ker g'' = \im f''$ by exactness of the third column so there exists $a'' \in A''$ such that $f''(a'') = \beta_2(b)$. Since the first row is exact $\alpha_2$ is surjective so there exists $a \in A$ such that $\alpha_2(a) = a''$. Now $$\beta_2(f(a)) = f''(\alpha_2(a)) = f''(a'') = \beta_2(b)$$ so $\beta_2(f(a) - b) = 0$ which implies that $f(a) - b \in \ker \beta_2 = \im \beta_1$ by exactness of the second row. So there exists $b' \in B'$ such that $\beta_1(b') = f(a) - b'$. But now $$ \gamma_1(g'(b')) = g(\beta_1(b')) = g(f(a) - b) = g(f(a)) = g(b) = -c$$ yielding $\gamma_1(-g'(b')) = c$. So $c \in \im \gamma_1$ and we can conclude that $\ker \gamma_2 \subseteq \im \gamma_1$.
+			\item $\gamma_2$ is surjective: Choose $c'' \in C''$. Since the third column is exact $g''$ is surjective so there exists $b'' \in B''$ such that $g''(b'') = c''$. But since the second row is exact $\beta_2$ is surjective so there exists $b \in B$ such that $\beta_2(b) = b''$. Now by commutativity $$c'' = g''(b'') = g''(\beta_2(b)) = \gamma_2(g(b)).$$ Conclude that $\gamma_2$ is in fact surjective.
+		\end{enumerate}
+		We have shown that if the top two rows are exact, then the bottom row is exact.
+	\end{proof}
+
+
+
+
+
 
 \textbf{AM Proposition 2.10}: (\textit{Snake Lemma}) Let
 
@@ -372,54 +450,6 @@ be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. 
 	\end{center}
 
 	\end{proof}
-
-\textbf{R Exercise 2.32}: (\textit{$3 \times 3$ Lemma}) Consider the following commutative diagram in $_R\Mod$ having exact columns.
-	\begin{center}
-	\begin{tikzpicture}
-
-	\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
-	  {  & 0  & 0 & 0   & \\
-	   0 & A' & A & A'' & 0\\
-	   0 & B' & B & B'' & 0\\
-	   0 & C' & C & C'' & 0\\
-	     & 0  & 0 & 0   & \\};
-	{ [start chain] \chainin (m-1-2); { [start branch = A] \chainin (m-2-2); } }
-	{ [start chain] \chainin (m-1-3); { [start branch = B] \chainin (m-2-3); } }
-	{ [start chain] \chainin (m-1-4); { [start branch = C] \chainin (m-2-4); } }
-	{ [start chain] 
-		\chainin (m-2-1);
-		\chainin (m-2-2); 
-			{ [start branch = D] \chainin (m-3-2) [join = {node[right] {$\scriptstyle f'$}}]; } 
-		\chainin (m-2-3) [join = {node[above] {$\scriptstyle \alpha_1$}}];
-			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle f$}}]; }
-		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \alpha_2$}}];
-			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle f''$}}]; }
-		\chainin (m-2-5);
-	}
-	{ [start chain] 
-		\chainin (m-3-1);
-		\chainin (m-3-2); 
-			{ [start branch = G] \chainin (m-4-2) [join = {node[right] {$\scriptstyle g'$}}]; } 
-		\chainin (m-3-3) [join = {node[above] {$\scriptstyle \beta_1$}}];
-			{ [start branch = H] \chainin (m-4-3) [join = {node[right] {$\scriptstyle g$}}]; }
-		\chainin (m-3-4) [join = {node[above] {$\scriptstyle \beta_2$}}];
-			{ [start branch = I] \chainin (m-4-4) [join = {node[right] {$\scriptstyle g''$}}]; }
-		\chainin (m-3-5);
-	}
-	{ [start chain] 
-		\chainin (m-4-1);
-		\chainin (m-4-2); 
-			{ [start branch = J] \chainin (m-5-2); } 
-		\chainin (m-4-3) [join = {node[above] {$\scriptstyle \gamma_1$}}];
-			{ [start branch = K] \chainin (m-5-3); }
-		\chainin (m-4-4) [join = {node[above] {$\scriptstyle \gamma_2$}}];
-			{ [start branch = L] \chainin (m-5-4); }
-		\chainin (m-4-5);
-	}	
-	\end{tikzpicture}
-	\end{center}
-
-	If the bottom two rows are exact, prove that the top row is exact; if the top two rows are exact, prove that the bottom row is exact.
 
 
 
