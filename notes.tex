@@ -115,48 +115,25 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 \section{MATH 697 Notes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A \textbf{category} $C$ consists of three ingredients: a class $\obj(C)$ of \textbf{objects}, a set of \textbf{morphisms} $\Hom(A, B)$ for every ordered pair $(A, B)$ of objects, and \textbf{composition} $\Hom(A, B) \times \Hom(B, C) \to \Hom(A, C)$, denoted by $(f, g) \mapsto gf$. for every ordered triple $A, B, C$ of objects. These ingredients are subject to the following axioms:
-	\begin{enumerate}
-		\item The Hom sets are pairwise disjoint; that is, each $f \in \Hom(A, B)$ has a unique \textbf{domain} $A$ and a unique \textbf{target} $B$.
-		\item For each object $A$, there is an \textbf{identity morphism} $1_A \in \Hom(A, A)$ such that $f1_A = f$ and $1_Bf = f$ for all $f : A \to B$.
-		\item Composition is associative: given morphisms $A \xrightarrow f B \xrightarrow g C \xrightarrow h D$, then $h(fg) = (hg)f$.\\
-	\end{enumerate}
+\textbf{AM Proposition 1.1}: There is a one-to-one order-preserving correspondence between the ideals $I$ of $R$ which contain $(r)$ and the ideals $\overline I$ of $R/(r)$.
+	\begin{proof}
+		Define $\varphi : \{ I$ ideal of $R : (r) \subseteq I\} \to \{\overline I : \overline I$ is an ideal of $R/(r)\}$ by $\varphi(I) = I + (r)$. We must first show that this mapping is well defined, i.e., does $\varphi$ in fact map into an ideal of $R/(r)$? Say $I$ is an ideal of $R$ with $(r) \subseteq I$. Consider $\varphi(I) = I + (r)$. Choose $t \in R$ arbitrary and conclude that $[s + (r)][I + (r)] = sI + (r)$ but since $I$ is an ideal of $R$, $sI = I$ so $[s + (r)][I + (r)] = sI + (r) = [s + (r)] \overline I \subseteq \overline I$. Hence $\varphi$ is in fact well-defined.\\
 
-Examples of categories: \textbf{Sets}, \textbf{Groups}, \textbf{Top}, \textbf{Ab}, \textbf{Rings}, \textbf{ComRings}.\\
+		Now we want to show that $\varphi$ is surjective. Choose $\overline I$ an ideal of $R/(r)$. Does there exist an ideal $I$ of $R$ containing $(r)$ such that $\varphi(I) = \overline I$? Since $\overline I$ is an ideal of $R/(r)$, it follows that $\overline I = \{s + (r) : $ for some $s \in R\}$. Define $I = \{s\}$ where $s$ comes from previous definition. Is this in fact an ideal of $R$? Well we need to first show that it is an additive subgroup:
+		\begin{enumerate}
+			\item Observe that $0 \in \overline I$ since $(r) \in \overline I$. so $0 \in I$ so $I \neq \emptyset$.
+			\item Let $s, t \in I$, Then $s + t + (r) = [s + (r)] + (t + (r)] \in \overline I$ since $\overline I$ is closed under addition. So $s + t \in I$.
+			\item Let $s \in I$, then $s + (r) \in \overline I$ and since $\overline I$ is an additive subgroup it follows that $-s + (r) \in \overline I$ so $-s \in I$.
+		\end{enumerate}
+		Conclude by definition of subgroup that $I$ is in fact an additive subgroup. Now we must show that $I$ is closed under multiplication. Say $t \in R$, is $ts \in I$? well observe that since $s + (r) \in \overline I$ and $\overline I$ is an ideal, it follows that $t[s+ (r)] = ts + t(r) = ts + (r) \in \overline I$ so it follows that $ts \in I$. Conclude that $I$ is in fact an ideal. Now we must ask, is $(r) \subseteq I$? Let $x \in (r)$ then $x = rt$ for some $t \in R$. So $rs + (r) = 0 + (r) \in \overline I$. So it follows that $(r) \subseteq I$. Now $\varphi(I) = I + (r) = \overline I$ so $\varphi$ is in fact surjective.\\
 
-A \textbf{left $R$-module}, where $R$ is a ring, is an additive abelian group $M$ having a \textit{scalar multiplication} $R \times M \to M$, denoted by $(r, m) \mapsto rm$, such that, for all $m, m' \in M$ and $r, r' \in R$. We often write $_RM$ to denote $M$ being a left $R$-module.
-	\begin{enumerate}
-		\item $r(m + m') = rm + rm'$
-		\item $(r + r')m = rm + r'm$
-		\item $(rr')m = r(r'm)$
-		\item $1m = m$.\\
-	\end{enumerate}
+		Now we must show that $\varphi$ is injective. Suppose that $\varphi(I) = \overline 0 = 0 + (r) = (r)$. Then since $\varphi(I) = I + (r) = 0 + (r)$ it follows that $I \subseteq (r)$. But since we know $(r) \subseteq I$ it follows that $I + (r)$ which is our \textit{zero} in this case. Conclude that $\varphi$ is in fact injective.\\
 
-If $M$ and $N$ are left $R$-modules, then an $R$-\textbf{homomorphism} (or an $R$-\textbf{map}) is a function $f : M \to N$ such that, for all $m, m' \in M$ and $r \in R$,
-	\begin{enumerate}
-		\item $f(m + m') = f(m) + f(m')$
-		\item $f(rm) = r(fm)$\\
-	\end{enumerate}
+		\textit{Alternate Injective Proof}: Suppose that $\varphi(I_1) = \varphi(I_2)$ then we have $I_1 + (r) = I_2 + (r)$ but by property of cosets we have $I_1 - I_2 = (r)$ but this is the same as $I_1 + I_2 = (r)$ by way of just absorbing the negative sign (being an ideal). But since $(r) \subseteq I_1$ and $(r) \subseteq I_2$ it follows that $I_1 = I_2$. Conclude that $\varphi$ is injective.\\
 
-An $R$-\textbf{isomorphism} is a bijective $R$-homomorphism.\\
+		Now we must show that order is preserved. Suppose $I_1 \subseteq I_2$. We want to show that $\varphi(I_1) \subseteq \varphi(I_2)$. Say $x + (r) \in \varphi(I_1)$ then it follows that $x \in I_1 = I_2$ so immediately $x + (r) \in I_2 + (r) = \varphi(I_2)$. Conclude result.
 
-A \textbf{right $R$-module}, where $R$ is a ring, is an additive abelian group $M$ having a \textit{scalar multiplication} $M \times R \to M$, denoted by $(m, r) \mapsto mr$, such that, for all $m, m' \in M$ and $r, r' \in R$. We often write $M_R$ to denote $M$ being a right $R$-module.
-	\begin{enumerate}
-		\item $(m + m')r = mr + m'r$
-		\item $m(r + r') = mr + mr'$
-		\item $m(rr') = (mr)r'$
-		\item $m = m1$\\
-	\end{enumerate}
-
-The category $_R\Mod$ of all \textbf{left $R$-modules} (where $R$ is a ring) has as its objects all left $R$-modules, has as its morphisms all $R$-homomorphisms, and as its composition the usual composition of functions. We denote the sets $\Hom(A, B)$ in $_R\Mod$ by $\Hom_R(A, B)$.\\
-
-The category $\Mod_R$ of all \textbf{right $R$-modules} (where $R$ is a ring) has as its objects all \textbf{right $R$-modules}, as its morphisms all $R$-homomorphisms, and as its composition the usual composition. We denote the sets $\Hom(A, B)$ in $\Mod_R$ by $\Hom_R(A, B)$.\\
-
-A category $S$ is a \textbf{subcategory} of a category $C$ if
-	\begin{enumerate}
-		\item $\obj(S) \subseteq \obj(C)$
-	\end{enumerate}
-
+	\end{proof}
 
 \textbf{R Proposition 2.18}:
 	\begin{enumerate}
