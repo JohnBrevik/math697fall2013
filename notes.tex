@@ -319,19 +319,19 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 	\begin{proof}
 		Suppose that the bottom two rows are exact. We must show four things:
 		\begin{enumerate}
-			\item $\alpha_1$ is injective: Suppose $a' \in A'$ with $\alpha_1(a') = 0$. Observe that by commutativity $f(\alpha_1(a')) = \beta_1(f'(a')) = 0$ so since $\beta_1$ is injective, by exactness of the second row, $f'(a') = 0$. But since the first column is exact by hypothesis, we have $a' = 0$. Conclude that $\alpha_1$ is in fact injective.
-			\item $\im \alpha_1 \subseteq \ker \alpha_2$: Choose $a \in \im \alpha_1$ then by definition there exists $a' \in A'$ such that $\alpha_1(a') = a$. Observe that $f(a) = f(\alpha_1(a')) = \beta_1(f'(a'))$ by commutativity. Moreover $\beta_2(f(a)) = f''(\alpha_2(a))$ again by commutativity. Hence we have $$\beta_2(f(a)) = \beta_2(\beta_1(f'(a'))) = 0 = f''(\alpha_2(a)).$$ Since $f''$ is injective by exactness of the third column, $\alpha_2(a) = 0$ and so $a \in \ker \alpha_2$. Conclude that $\im \alpha_2 \subseteq \ker \alpha_2$ as desired.
-			\item $\ker \alpha_2 \subseteq \im \alpha_1$: Let $a \in \ker \alpha_2$ then by definition $\alpha_2(a) = 0$ and so $f''(\alpha(a)) = \beta_2(f(a)) = 0$. So $f(a) \in \ker \beta_2 = \im \beta_1$ by exactness of the second column, so there exists $b' \in B'$ such that $\beta_1(b') = f(a)$. Now $$\gamma_1(g'(b)) = g(\beta_1(b')) = g(f(a)) = 0$$ by commutativity and exactness so there exists $a' \in A'$ such that $f'(a') = b'$. Now by commutativity $$f(\alpha_1(a')) = \beta_1(f'(a')) = \beta_1(b') = f(a)$$ and so $f(a - \alpha_1(a')) = 0$ since $f$ is a homomorphism. $f$ is injective since the second column is exact so it follows that $\alpha_1(a') = a$ and so $a \in \im \alpha_1$. Conclude that $\ker \alpha_2 \subseteq \im \alpha_1$ is in fact true.
-			\item $\alpha_2$ is surjective: Choose $a'' \in A''$. Consider $f''(a'') \in B''$. Since the second row is exact $\beta_2$ is surjective so there exists $b \in B$ such that $\beta_2(b) = f''(a'')$. By commutativity $g''(\beta_1(b)) = \gamma_2(g(b))$ but by exactness of the third column $g''(\beta_2(b)) = g''(f''(a'')) = 0$. So $\gamma_2(g(b)) = 0$ which implies that $g(b) \in \ker \gamma_2 = \im \gamma_1$ by exactness of the third row. So there exists $c' \in C'$ such that $\gamma_1(c') = g(b)$. Since the first column is exact $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. So $\gamma_1(c') = \gamma_1(g'(b')) = g(\beta_1(b'))$. Observe that $$g(b - \beta_1(b')) = g(b) - g(\beta_1(b')) = 0$$ since $g(b) = \gamma_1(c)$ and $g(\beta_1(b')) = \gamma_1(c)$ also. So $b - \beta_1(b') \in \ker g = \im f$ by exactness of the second column. So there exists $a \in A$ such that $f(a) = b - \beta_2(b')$. Now since $f''(\alpha(a)) = \beta_2(f(a)) = \beta_2(b - \beta_1(b'))$ we get $$f''(\alpha_2(a)) = \beta_2(b) - \beta_2(\beta_1(b')) = \beta_2(b) = f''(a'').$$ In particular we get $f''(\alpha_2(a) - a'') = 0$ but $f''$ is injective by exactness of the third column so $\alpha_2(a) = a''$. Conclude that $\alpha_2$ is in fact surjective.
+			\item $\boxed{\alpha_1$ is injective$}$: Suppose $a' \in A'$ with $\alpha_1(a') = 0$. Observe that by commutativity $f(\alpha_1(a')) = \beta_1(f'(a')) = 0$ so since $\beta_1$ is injective, by exactness of the second row, $f'(a') = 0$. But since the first column is exact by hypothesis, we have $a' = 0$. Conclude that $\alpha_1$ is in fact injective.
+			\item $\boxed{\im \alpha_1 \subseteq \ker \alpha_2}$: Choose $a \in \im \alpha_1$ then by definition there exists $a' \in A'$ such that $\alpha_1(a') = a$. Observe that $f(a) = f(\alpha_1(a')) = \beta_1(f'(a'))$ by commutativity. Moreover $\beta_2(f(a)) = f''(\alpha_2(a))$ again by commutativity. Hence we have $$\beta_2(f(a)) = \beta_2(\beta_1(f'(a'))) = 0 = f''(\alpha_2(a)).$$ Since $f''$ is injective by exactness of the third column, $\alpha_2(a) = 0$ and so $a \in \ker \alpha_2$. Conclude that $\im \alpha_2 \subseteq \ker \alpha_2$ as desired.
+			\item $\boxed{\ker \alpha_2 \subseteq \im \alpha_1}$: Let $a \in \ker \alpha_2$ then by definition $\alpha_2(a) = 0$ and so $f''(\alpha(a)) = \beta_2(f(a)) = 0$. So $f(a) \in \ker \beta_2 = \im \beta_1$ by exactness of the second column, so there exists $b' \in B'$ such that $\beta_1(b') = f(a)$. Now $$\gamma_1(g'(b)) = g(\beta_1(b')) = g(f(a)) = 0$$ by commutativity and exactness so there exists $a' \in A'$ such that $f'(a') = b'$. Now by commutativity $$f(\alpha_1(a')) = \beta_1(f'(a')) = \beta_1(b') = f(a)$$ and so $f(a - \alpha_1(a')) = 0$ since $f$ is a homomorphism. $f$ is injective since the second column is exact so it follows that $\alpha_1(a') = a$ and so $a \in \im \alpha_1$. Conclude that $\ker \alpha_2 \subseteq \im \alpha_1$ is in fact true.
+			\item $\boxed{\alpha_2$ is surjective$}$: Choose $a'' \in A''$. Consider $f''(a'') \in B''$. Since the second row is exact $\beta_2$ is surjective so there exists $b \in B$ such that $\beta_2(b) = f''(a'')$. By commutativity $g''(\beta_1(b)) = \gamma_2(g(b))$ but by exactness of the third column $g''(\beta_2(b)) = g''(f''(a'')) = 0$. So $\gamma_2(g(b)) = 0$ which implies that $g(b) \in \ker \gamma_2 = \im \gamma_1$ by exactness of the third row. So there exists $c' \in C'$ such that $\gamma_1(c') = g(b)$. Since the first column is exact $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. So $\gamma_1(c') = \gamma_1(g'(b')) = g(\beta_1(b'))$. Observe that $$g(b - \beta_1(b')) = g(b) - g(\beta_1(b')) = 0$$ since $g(b) = \gamma_1(c)$ and $g(\beta_1(b')) = \gamma_1(c)$ also. So $b - \beta_1(b') \in \ker g = \im f$ by exactness of the second column. So there exists $a \in A$ such that $f(a) = b - \beta_2(b')$. Now since $f''(\alpha(a)) = \beta_2(f(a)) = \beta_2(b - \beta_1(b'))$ we get $$f''(\alpha_2(a)) = \beta_2(b) - \beta_2(\beta_1(b')) = \beta_2(b) = f''(a'').$$ In particular we get $f''(\alpha_2(a) - a'') = 0$ but $f''$ is injective by exactness of the third column so $\alpha_2(a) = a''$. Conclude that $\alpha_2$ is in fact surjective.
 		\end{enumerate}
 		We have shown that if the bottom two rows are exact, then the top row is exact.\\
 
 		Suppose that the top two rows are exact. We must show four things:
 		\begin{enumerate}
-			\item $\gamma_1$ is injective: Suppose $c' \in C'$  with $\gamma_1(c') = 0$. Since the first column is exact, $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. Now by commutativity $$0 = \gamma_1(c') = \gamma_1(g'(b')) = g(\beta_1(b')).$$ So $\beta_1(b') \in \ker g = \im f$ since the second row is exact. So there exists $a \in A$ such that $f(a) = \beta_1(b')$. But by commutativity $$f''(\alpha_2(a)) = \beta_2(f(a)) = \beta_2(\beta_1(b')) = 0$$ so $\alpha_2(a) = 0$. Since $f''$ is injective, because the third column is exact. Now $a \in \ker \alpha_2 = \im \alpha_1$ by exactness of the first row so there exists $a' \in A'$ such that $\alpha_2(a') = a$. Now $$f(a) = f(\alpha_1(a')) = \beta_1(f'(a')) = \beta_1(b')$$ So $\beta_1(f'(a') - b') = 0$. Since the second row is exact, $\beta_1$ is injective so $f'(a') - b = 0$. Hence $f'(a') = b'$. Taking $g'$ of both sides we get $$ 0 = g'(f'(a')) = g'(b') = c'.$$ Hence $\gamma_1$ is injective.
-			\item $\im \gamma_1 \subseteq \ker \gamma_2$: Let $c \in \im \gamma_1$ then by definition there exists $c' \in C'$ such that $\gamma_1(c') = c$. Since the first column is exact $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. Observe that $$g(\beta_1(b')) = \gamma_1(g'(b')) = \gamma_1(c') = c$$ by commutativity. Again by commutativity we observe $$\gamma_2(c) = \gamma_1(g(\beta_1(b'))) = g''(\beta_1(\beta_1(b'))) = g''(0) = 0$$ and so $c \in \ker \gamma_2$. Conclude that $\im \gamma_1 \subseteq \ker \gamma_2$.
-			\item $\ker \gamma_2 \subseteq \im \gamma_1$: Choose $c \in \ker \gamma_2$ then by definition $\gamma_2(c) = 0$. Since the second column is exact, $g$ is surjective. So there exists $b \in B$ such that $g(b) = c$. By commutativity $$g''(\beta_2(b)) = \gamma_2(g(b)) = \gamma_2(c) = 0.$$ So $\beta_2(b) \in \ker g'' = \im f''$ by exactness of the third column so there exists $a'' \in A''$ such that $f''(a'') = \beta_2(b)$. Since the first row is exact $\alpha_2$ is surjective so there exists $a \in A$ such that $\alpha_2(a) = a''$. Now $$\beta_2(f(a)) = f''(\alpha_2(a)) = f''(a'') = \beta_2(b)$$ so $\beta_2(f(a) - b) = 0$ which implies that $f(a) - b \in \ker \beta_2 = \im \beta_1$ by exactness of the second row. So there exists $b' \in B'$ such that $\beta_1(b') = f(a) - b'$. But now $$ \gamma_1(g'(b')) = g(\beta_1(b')) = g(f(a) - b) = g(f(a)) = g(b) = -c$$ yielding $\gamma_1(-g'(b')) = c$. So $c \in \im \gamma_1$ and we can conclude that $\ker \gamma_2 \subseteq \im \gamma_1$.
-			\item $\gamma_2$ is surjective: Choose $c'' \in C''$. Since the third column is exact $g''$ is surjective so there exists $b'' \in B''$ such that $g''(b'') = c''$. But since the second row is exact $\beta_2$ is surjective so there exists $b \in B$ such that $\beta_2(b) = b''$. Now by commutativity $$c'' = g''(b'') = g''(\beta_2(b)) = \gamma_2(g(b)).$$ Conclude that $\gamma_2$ is in fact surjective.
+			\item $\boxed{\gamma_1$ is injective$}$: Suppose $c' \in C'$  with $\gamma_1(c') = 0$. Since the first column is exact, $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. Now by commutativity $$0 = \gamma_1(c') = \gamma_1(g'(b')) = g(\beta_1(b')).$$ So $\beta_1(b') \in \ker g = \im f$ since the second row is exact. So there exists $a \in A$ such that $f(a) = \beta_1(b')$. But by commutativity $$f''(\alpha_2(a)) = \beta_2(f(a)) = \beta_2(\beta_1(b')) = 0$$ so $\alpha_2(a) = 0$. Since $f''$ is injective, because the third column is exact. Now $a \in \ker \alpha_2 = \im \alpha_1$ by exactness of the first row so there exists $a' \in A'$ such that $\alpha_2(a') = a$. Now $$f(a) = f(\alpha_1(a')) = \beta_1(f'(a')) = \beta_1(b')$$ So $\beta_1(f'(a') - b') = 0$. Since the second row is exact, $\beta_1$ is injective so $f'(a') - b = 0$. Hence $f'(a') = b'$. Taking $g'$ of both sides we get $$ 0 = g'(f'(a')) = g'(b') = c'.$$ Hence $\gamma_1$ is injective.
+			\item $\boxed{\im \gamma_1 \subseteq \ker \gamma_2}$: Let $c \in \im \gamma_1$ then by definition there exists $c' \in C'$ such that $\gamma_1(c') = c$. Since the first column is exact $g'$ is surjective so there exists $b' \in B'$ such that $g'(b') = c'$. Observe that $$g(\beta_1(b')) = \gamma_1(g'(b')) = \gamma_1(c') = c$$ by commutativity. Again by commutativity we observe $$\gamma_2(c) = \gamma_1(g(\beta_1(b'))) = g''(\beta_1(\beta_1(b'))) = g''(0) = 0$$ and so $c \in \ker \gamma_2$. Conclude that $\im \gamma_1 \subseteq \ker \gamma_2$.
+			\item $\boxed{\ker \gamma_2 \subseteq \im \gamma_1}$: Choose $c \in \ker \gamma_2$ then by definition $\gamma_2(c) = 0$. Since the second column is exact, $g$ is surjective. So there exists $b \in B$ such that $g(b) = c$. By commutativity $$g''(\beta_2(b)) = \gamma_2(g(b)) = \gamma_2(c) = 0.$$ So $\beta_2(b) \in \ker g'' = \im f''$ by exactness of the third column so there exists $a'' \in A''$ such that $f''(a'') = \beta_2(b)$. Since the first row is exact $\alpha_2$ is surjective so there exists $a \in A$ such that $\alpha_2(a) = a''$. Now $$\beta_2(f(a)) = f''(\alpha_2(a)) = f''(a'') = \beta_2(b)$$ so $\beta_2(f(a) - b) = 0$ which implies that $f(a) - b \in \ker \beta_2 = \im \beta_1$ by exactness of the second row. So there exists $b' \in B'$ such that $\beta_1(b') = f(a) - b'$. But now $$ \gamma_1(g'(b')) = g(\beta_1(b')) = g(f(a) - b) = g(f(a)) = g(b) = -c$$ yielding $\gamma_1(-g'(b')) = c$. So $c \in \im \gamma_1$ and we can conclude that $\ker \gamma_2 \subseteq \im \gamma_1$.
+			\item $\boxed{\gamma_2$ is surjective$}$: Choose $c'' \in C''$. Since the third column is exact $g''$ is surjective so there exists $b'' \in B''$ such that $g''(b'') = c''$. But since the second row is exact $\beta_2$ is surjective so there exists $b \in B$ such that $\beta_2(b) = b''$. Now by commutativity $$c'' = g''(b'') = g''(\beta_2(b)) = \gamma_2(g(b)).$$ Conclude that $\gamma_2$ is in fact surjective.
 		\end{enumerate}
 		We have shown that if the top two rows are exact, then the bottom row is exact.
 	\end{proof}
@@ -351,23 +351,23 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 	  { [start chain] \chainin (m-1-1);
 	    \chainin (m-1-2);
 	    { [start branch=A] \chainin (m-2-2)
-	        [join={node[right] {$\scriptstyle f'$}}];}
-	    \chainin (m-1-3) [join={node[above] {$\scriptstyle g$}}];
+	        [join={node[right] {$\scriptstyle \alpha$}}];}
+	    \chainin (m-1-3) [join={node[above] {$\scriptstyle v$}}];
 	    { [start branch=B] \chainin (m-2-3)
-	        [join={node[right] {$\scriptstyle f$}}];}
-	    \chainin (m-1-4) [join={node[above] {$\scriptstyle h$}}];
+	        [join={node[right] {$\scriptstyle \beta$}}];}
+	    \chainin (m-1-4) [join={node[above] {$\scriptstyle u$}}];
 	    { [start branch=C] \chainin (m-2-4)
-	        [join={node[right] {$\scriptstyle f''$}}];}
+	        [join={node[right] {$\scriptstyle \gamma$}}];}
 	    \chainin (m-1-5); }
 	  { [start chain] \chainin (m-2-1);
 	    \chainin (m-2-2);
-	    \chainin (m-2-3) [join={node[above] {$\scriptstyle g'$}}];
-	    \chainin (m-2-4) [join={node[above] {$\scriptstyle h'$}}];
+	    \chainin (m-2-3) [join={node[above] {$\scriptstyle v'$}}];
+	    \chainin (m-2-4) [join={node[above] {$\scriptstyle u'$}}];
 	    \chainin (m-2-5); }
 	\end{tikzpicture}
 	\end{center}
 
-be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. Then there exists a sequence $$0 \rightarrow \ker(f') \xrightarrow{\overline u} \ker(f) \xrightarrow{\overline v} \ker (f'') \xrightarrow d \coker(f') \xrightarrow {\overline u'} \coker (f) \xrightarrow{\overline v'} \coker(f'') \rightarrow 0$$ in which $\overline u$, $\overline v$ are restrictions of $u, v$, and $\overline u', \overline v'$ are induced by $u', v'$.\\
+be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. Then there exists a sequence $$0 \rightarrow \ker(\alpha) \xrightarrow{\overline v} \ker(\beta) \xrightarrow{\overline u} \ker (\gamma) \xrightarrow d \coker(\alpha) \xrightarrow {\overline v'} \coker (\beta) \xrightarrow{\overline u'} \coker(\gamma) \rightarrow 0$$ in which $\overline u$, $\overline v$ are restrictions of $u, v$, and $\overline u', \overline v'$ are induced by $u', v'$.\\
 
 	\begin{proof}
 	We consider: 	
@@ -376,10 +376,10 @@ be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. 
 
 	\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
 	  {  & 0  & 0 & 0   & \\
-	   0 & \ker f' & \ker f & \ker f'' & \\
+	   0 & \ker \alpha & \ker \beta & \ker \gamma & \\
 	   0 & M' & M & M'' & 0\\
 	   0 & N' & N & N'' & 0\\
-	   & \coker f' & \coker f & \coker f'' & 0\\
+	   & \coker \alpha & \coker \beta & \coker \gamma & 0\\
 	     & 0  & 0 & 0   & \\};
 	{ [start chain] \chainin (m-1-2); { [start branch = A] \chainin (m-2-2); } }
 	{ [start chain] \chainin (m-1-3); { [start branch = B] \chainin (m-2-3); } }
@@ -387,44 +387,64 @@ be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. 
 	{ [start chain] 
 		\chainin (m-2-1);
 		\chainin (m-2-2); 
-			{ [start branch = D] \chainin (m-3-2) [join = {node[right] {$\scriptstyle g'$}}]; } 
-		\chainin (m-2-3) [join = {node[above] {$\scriptstyle \overline u$}}];
-			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle g$}}]; }
-		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \overline v$}}];
-			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle g''$}}]; }
+			{ [start branch = D] \chainin (m-3-2) [join = {node[right] {$\scriptstyle \iota'$}}]; } 
+		\chainin (m-2-3) [join = {node[above] {$\scriptstyle \overline v$}}];
+			{ [start branch = E] \chainin (m-3-3) [join = {node[right] {$\scriptstyle \iota$}}]; }
+		\chainin (m-2-4) [join = {node[above] {$\scriptstyle \overline u$}}];
+			{ [start branch = F] \chainin (m-3-4) [join = {node[right] {$\scriptstyle \iota''$}}]; }
 		\chainin (m-5-2);
 	}
 	{ [start chain] 
 		\chainin (m-3-1);
 		\chainin (m-3-2); 
-			{ [start branch = G] \chainin (m-4-2) [join = {node[right] {$\scriptstyle f'$}}]; } 
-		\chainin (m-3-3) [join = {node[above] {$\scriptstyle u$}}];
-			{ [start branch = H] \chainin (m-4-3) [join = {node[right] {$\scriptstyle f$}}]; }
-		\chainin (m-3-4) [join = {node[above] {$\scriptstyle v$}}];
-			{ [start branch = I] \chainin (m-4-4) [join = {node[right] {$\scriptstyle f''$}}]; }
+			{ [start branch = G] \chainin (m-4-2) [join = {node[right] {$\scriptstyle \alpha$}}]; } 
+		\chainin (m-3-3) [join = {node[above] {$\scriptstyle v$}}];
+			{ [start branch = H] \chainin (m-4-3) [join = {node[right] {$\scriptstyle \beta$}}]; }
+		\chainin (m-3-4) [join = {node[above] {$\scriptstyle u$}}];
+			{ [start branch = I] \chainin (m-4-4) [join = {node[right] {$\scriptstyle \gamma$}}]; }
 		\chainin (m-3-5);
 	}
 	{ [start chain] 
 		\chainin (m-4-1);
 		\chainin (m-4-2); 
-			{ [start branch = J] \chainin (m-5-2) [join = {node[right] {$\scriptstyle h'$}}]; } 
-		\chainin (m-4-3) [join = {node[above] {$\scriptstyle u'$}}];
-			{ [start branch = K] \chainin (m-5-3) [join = {node[right] {$\scriptstyle h'$}}]; }
-		\chainin (m-4-4) [join = {node[above] {$\scriptstyle v'$}}];
-			{ [start branch = L] \chainin (m-5-4) [join = {node[right] {$\scriptstyle h'$}}]; }
+			{ [start branch = J] \chainin (m-5-2) [join = {node[right] {$\scriptstyle p'$}}]; } 
+		\chainin (m-4-3) [join = {node[above] {$\scriptstyle v'$}}];
+			{ [start branch = K] \chainin (m-5-3) [join = {node[right] {$\scriptstyle p$}}]; }
+		\chainin (m-4-4) [join = {node[above] {$\scriptstyle u'$}}];
+			{ [start branch = L] \chainin (m-5-4) [join = {node[right] {$\scriptstyle p''$}}]; }
 		\chainin (m-4-5);
 	}	
 	{ [start chain] 
 		\chainin (m-5-2); 
 			{ [start branch = M] \chainin (m-6-2); } 
-		\chainin (m-5-3) [join = {node[above] {$\scriptstyle \overline u'$}}];
+		\chainin (m-5-3) [join = {node[above] {$\scriptstyle \overline v'$}}];
 			{ [start branch = N] \chainin (m-6-3); }
-		\chainin (m-5-4) [join = {node[above] {$\scriptstyle \overline v'$}}];
+		\chainin (m-5-4) [join = {node[above] {$\scriptstyle \overline u'$}}];
 			{ [start branch = O] \chainin (m-6-4); }
 		\chainin (m-5-5);
 	}	
 	\end{tikzpicture}
 	\end{center}
+
+	Let $x'' \in \ker \gamma$ and consider $\iota''(x'') \in M''$. Since the second row is exact it follows that $u$ is surjective so there exists $m \in M$ such that $\boxed{u(m) = \iota''(m'')}$.By commutativity we get $$u'(\beta(m)) = \gamma(u(m)) = \gamma(\iota''(m'')) = \gamma(0) = 0.$$ So $\beta(m) \in \ker u' = \im v'$ by exactness of the third row. So there exists {\color{red} a unique?} $n' \in N'$ such that $\boxed{v'(n') = \beta(m)}$. Define $\boxed{d(x) = p'(n')}$. \\
+
+We want to show that this mapping is well-defined, that is, we still get to the same place regardless of how we choose $m$ such that $u(m) = \iota''(m'')$. Suppose $u (\overline m) = u(m) = \iota''(x'')$. It follows that $u(\overline m - m) = 0$ and so $\overline m - m \in \ker u = \im v$ so there exists $m' \in M$ such that $v(m') = \overline m - m$. So $\beta(\overline m - m) = \beta(v(m')) = v'(\alpha(m'))$. We also have $$u'(\beta(\overline m)) = \gamma(u(\overline m)) = \gamma(\iota''(x'')) = 0$$ by exactness of the third column so $\beta(\overline m) \in \ker u' = \im v'$ and by definition there exists $\overline n' \in N'$ such that $v'(\overline n') = \beta(\overline m)$. Observe that $$v'(\alpha(m')) = \beta(\overline m - m) = \beta(\overline m) - \beta(m) = \beta(\overline m) - v'(n') = v'(\overline n') - v'(n')$$ which implies that $v'(\overline n' - \alpha(m') - n') = 0$. But since the third row is exact by hypothesis, we get $\alpha(m') = \overline n' - n'$. By taking $p'$ of both sides we get $0 = p'(\alpha(m')) = p(\overline n' - n')$. Hence we get $p'(\overline n') = p
+(n') = d(x'')$. Conclude that $d$ is in fact well-defined.\\
+
+	We want to show
+	\begin{enumerate}
+		\item $\boxed{\overline v$ is injective$}$: Suppose $x' \in \ker \alpha$ with $\overline v (x') = 0$ Observe that by commutativity of the diagram $$0 = \iota(0) = \iota(\overline v (x')) = v(\iota'(x'))$$ so $\iota'(x') \in \ker v$ but since the second row is exact, $v$ is injective so $\ker v = \{0\}$ which implies that $\iota(x') = 0$. But since the first column is exact, it follows that $\iota'$ is injective and hence $x' = 0$. Conclude that $\overline v$ is in fact injective.
+		\item $\im \overline v \subseteq \ker \overline u$:
+		\item $\ker \overline u \subseteq \im \overline v$:
+		\item $\im \overline u \subseteq \ker d$:
+		\item $\ker d \subseteq \im \overline u$:
+		\item $\im d \subseteq \ker \overline v'$:
+		\item $\ker \overline v' \subseteq \im d$:
+		\item $\im \overline v' \subseteq \ker \overline u'$:
+		\item $\ker \overline u' \subseteq \im \overline v'$:
+		\item $\overline u'$ is surjective:
+	\end{enumerate}
+
 
 	\end{proof}
 
