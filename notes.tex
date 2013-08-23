@@ -426,23 +426,31 @@ be a commutative diagram of $R$-modules and homomorphisms, with the rows exact. 
 	\end{tikzpicture}
 	\end{center}
 
+	Define $\overline v(x') = v(x')$, $\overline u(x) = u(x)$, $\overline v'(y' + \im \alpha) = v'(y') + \im \beta$, and $\overline u'(y + \im \beta) = u'(y) + \im \gamma$.\\
+
+	For our definitions of $\overline v'$ and $\overline u'$ we must show that they are well defined. Consider $\overline v'$. Choose $\overline y' \in \coker \beta$ with $\overline y' = y' + \im \alpha$. Suppose $\overline y' = \overline z'$, then by property of cosets we have $y' - z' \in \im \alpha = \ker p'$ by exactness of first column. So $p'(y' - z') = 0$. Observe that $p(v'(y' - z')) = \overline v'(p'(y' - z')) = v'(0) = 0$ so $v(y' - z') \in \ker p= \im \beta$ by exactness of second column. In particular we have $v'(y') -v'(z') \in \im \beta$ and hence by property of cosets $$\overline v'(\overline y') = v'(y') + \im \beta = v'(z') + \im \beta = \overline v'(\overline z').$$ Conclude that the mapping is well defined. By similar reasoning we can show $\overline u'$ is well defined.\\
+
 	Let $x'' \in \ker \gamma$ and consider $\iota''(x'') \in M''$. Since the second row is exact it follows that $u$ is surjective so there exists $m \in M$ such that $\boxed{u(m) = \iota''(m'')}$.By commutativity we get $$u'(\beta(m)) = \gamma(u(m)) = \gamma(\iota''(m'')) = \gamma(0) = 0.$$ So $\beta(m) \in \ker u' = \im v'$ by exactness of the third row. So there exists {\color{red} a unique?} $n' \in N'$ such that $\boxed{v'(n') = \beta(m)}$. Define $\boxed{d(x) = p'(n')}$. \\
 
-We want to show that this mapping is well-defined, that is, we still get to the same place regardless of how we choose $m$ such that $u(m) = \iota''(m'')$. Suppose $u (\overline m) = u(m) = \iota''(x'')$. It follows that $u(\overline m - m) = 0$ and so $\overline m - m \in \ker u = \im v$ so there exists $m' \in M$ such that $v(m') = \overline m - m$. So $\beta(\overline m - m) = \beta(v(m')) = v'(\alpha(m'))$. We also have $$u'(\beta(\overline m)) = \gamma(u(\overline m)) = \gamma(\iota''(x'')) = 0$$ by exactness of the third column so $\beta(\overline m) \in \ker u' = \im v'$ and by definition there exists $\overline n' \in N'$ such that $v'(\overline n') = \beta(\overline m)$. Observe that $$v'(\alpha(m')) = \beta(\overline m - m) = \beta(\overline m) - \beta(m) = \beta(\overline m) - v'(n') = v'(\overline n') - v'(n')$$ which implies that $v'(\overline n' - \alpha(m') - n') = 0$. But since the third row is exact by hypothesis, we get $\alpha(m') = \overline n' - n'$. By taking $p'$ of both sides we get $0 = p'(\alpha(m')) = p(\overline n' - n')$. Hence we get $p'(\overline n') = p
-(n') = d(x'')$. Conclude that $d$ is in fact well-defined.\\
+We want to show that this mapping is well-defined, that is, we still get to the same place regardless of how we choose $m$ such that $u(m) = \iota''(m'')$. Suppose $u (\overline m) = u(m) = \iota''(x'')$. It follows that $u(\overline m - m) = 0$ and so $\overline m - m \in \ker u = \im v$ so there exists $m' \in M$ such that $v(m') = \overline m - m$. So $\beta(\overline m - m) = \beta(v(m')) = v'(\alpha(m'))$. We also have $$u'(\beta(\overline m)) = \gamma(u(\overline m)) = \gamma(\iota''(x'')) = 0$$ by exactness of the third column so $\beta(\overline m) \in \ker u' = \im v'$ and by definition there exists $\overline n' \in N'$ such that $v'(\overline n') = \beta(\overline m)$. Observe that $$v'(\alpha(m')) = \beta(\overline m - m) = \beta(\overline m) - \beta(m) = \beta(\overline m) - v'(n') = v'(\overline n') - v'(n')$$ which implies that $v'(\overline n' - \alpha(m') - n') = 0$. But since the third row is exact by hypothesis, we get $\alpha(m') = \overline n' - n'$. By taking $p'$ of both sides we get $0 = p'(\alpha(m')) = p(\overline n' - n')$. Hence we get $p'(\overline n') = p'(n') = d(x'')$. Conclude that $d$ is in fact well-defined.\\
 
 	We want to show
 	\begin{enumerate}
 		\item $\boxed{\overline v$ is injective$}$: Suppose $x' \in \ker \alpha$ with $\overline v (x') = 0$ Observe that by commutativity of the diagram $$0 = \iota(0) = \iota(\overline v (x')) = v(\iota'(x'))$$ so $\iota'(x') \in \ker v$ but since the second row is exact, $v$ is injective so $\ker v = \{0\}$ which implies that $\iota(x') = 0$. But since the first column is exact, it follows that $\iota'$ is injective and hence $x' = 0$. Conclude that $\overline v$ is in fact injective.
-		\item $\im \overline v \subseteq \ker \overline u$:
-		\item $\ker \overline u \subseteq \im \overline v$:
-		\item $\im \overline u \subseteq \ker d$:
+
+		\item $\boxed{\im \overline v \subseteq \ker \overline u}$: Let $x \in \im \overline v$ then by definition there exists $x' \in \ker \alpha$ such that $\overline v(x') = x$. By commutativity $\iota(x) = \iota(\overline v(x')) = v(\iota'(x'))$. Now by taking $u$ of both sides we get $0 = u(v(\iota(x'))) = u(\iota(x)) = \iota''(\overline u(x))$ by exactness of the second row. Since the third column, $\iota''$ is injective so we have $\overline u(x) = 0$ and hence $x \in \ker \overline u$.
+
+		\item $\boxed{\ker \overline u \subseteq \im \overline v}$: Let $x \in \ker \overline u$ then by definition $\overline u (x) = 0$. By commutativity $$u(\iota(x)) = \iota(\overline u(x)) = \iota(0) = 0$$ and so $\iota(x) \in \ker u = \im v$ by exactness of the second row. So there exists $m' \in M'$ such that $v(m') = \iota(x)$. Now $$v'(\alpha(m')) = \beta(v(m')) = \beta(\iota(x)) = 0.$$ Since the third row is exact, $v'$ is injective so $\alpha(m') = 0$ and hence $m' \in \ker \alpha = \im \iota'$ by exactness of first column so there exists $x' \in \ker \alpha$ such that $\iota'(x') = m'$. Now by commutativity $$\iota(\overline v(x')) = v(\iota'(x')) = v(m') = \iota(x).$$ So $\iota(\overline v (x') - x) = 0$ but $\iota$ is injective since the second column is exact. So $\overline v(x') - x = 0$ and we have $\overline v(x') = x$. Conclude $x \in \im \overline v$.
+
+		\item $\boxed{\im \overline u \subseteq \ker d}$: Let $x'' \in \im \overline u$ then by definition there exists $x \in \ker \beta$ such that $\overline u(x) = x''$. We want to show that $d(x'') = 0$ but recall that $d$ is defined by $d(x'') = p'(n')$ where $v(n') = \beta(m)$ where $u(m) = \iota''(x'')$.
+
 		\item $\ker d \subseteq \im \overline u$:
 		\item $\im d \subseteq \ker \overline v'$:
 		\item $\ker \overline v' \subseteq \im d$:
 		\item $\im \overline v' \subseteq \ker \overline u'$:
 		\item $\ker \overline u' \subseteq \im \overline v'$:
-		\item $\overline u'$ is surjective:
+
+		\item $\overline u'$ is surjective: Choose $\overline y'' \in \coker \gamma = N''/\im \gamma$ where $\overline y'' = y'' + \im \gamma$. Since the third column is exact it follows that $p''$ is surjective so there exists $n'' \in N''$ such that $p''(n'') = \overline y''$. But since the third column is exact it follows that $u'$ is surjective so there exists $n \in N$ such that $u'(n) = n''$. Hence we have $y'' = p''(u'(n)) = \overline u'(p(n))$.
 	\end{enumerate}
 
 
